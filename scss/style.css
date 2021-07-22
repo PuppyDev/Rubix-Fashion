@@ -1,0 +1,15 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input, button, textarea {
+  outline: none;
+}
+/*# sourceMappingURL=style.css.map */
