@@ -1,0 +1,42 @@
+@import 'media';
+$cols: 12;
+$gutter : 30px;
+
+@mixin grid ($media) {
+    
+    @for $var from 1 through $cols {
+        
+        .col-#{$media}-#{$var} {
+
+            padding: $gutter / 2;
+            width: (100% / $cols) * $var;
+
+        }
+
+    }
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -$gutter / 2;
+    
+    @include media (xs) {
+        @include grid(xs);
+    }
+    @include media (sm) {
+        @include grid(sm);
+    }
+    @include media (md) {
+         @include grid(md);
+    }
+    @include media (lg) {
+        @include grid(lg);
+    }
+    @include media (xl) {
+        @include grid(xl);
+    }
+}
+
+

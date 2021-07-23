@@ -1,3 +1,5 @@
+@import './color';
+
 * {
     padding : 0px;
     margin: 0px;
@@ -10,5 +12,12 @@ ul, ol{
 
 input, button ,textarea {
     outline: none;
+    border: none;
+}
+
+a, button {
+    text-decoration: none;
+    color: $color-i;
+    border: none;
 }
 

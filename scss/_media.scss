@@ -1,0 +1,24 @@
+@mixin media($device) {
+
+    @if $device == xs {
+
+        @media screen and (max-width: 576px) {@content;}
+
+    }@else if $device == sm {
+
+        @media screen and (max-width: 768px) {@content;}
+
+    } @else if $device == md {
+
+        @media screen and (max-width: 992px) {@content;}
+
+    } @else if $device == lg {
+
+        @media screen and (max-width: 1200px) {@content;}
+
+    } @else if $device == xl {
+
+        @media screen and (min-width: 1201px) {@content;}
+
+    }
+}
