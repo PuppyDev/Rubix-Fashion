@@ -1169,4 +1169,23 @@ footer#footer .copyright p {
 footer#footer .copyright p a {
   color: #fff;
 }
-/*# sourceMappingURL=style.css.map */
+
+.navigation .title-nav {
+  background: none;
+  background-image: url("../img/banner/bg-newsleter-fashion-1.jpg");
+  padding: 80px 0px;
+}
+
+.navigation .title-nav .container h2 {
+  margin-top: 40px;
+  font-size: 48px;
+}
+
+.navigation .title-nav .container .description-nav {
+  margin: 20px 0;
+}
+
+.navigation .products-cart {
+  margin-bottom: 100px;
+}
+/*# sourceMappingURL=wishlist.css.map */

@@ -43,7 +43,6 @@
     }
 }
 
-
 header {
 
     .header_first {
@@ -382,24 +381,19 @@ header {
 
                             &.item {
 
-                                &:before {
+                                .before {
 
-                                    content: '0';
                                     width: 12px;
                                     height: 12px;
                                     position: absolute;
-                                    top: -10px;
+                                    top: -5px;
                                     right: 5px;
+                                    font-size: 14px;
 
                                 }
 
                             }
 
-                            &.cart-item {
-                                &::before {
-                                    content: '8';
-                                }
-                            }
                         }
                     }
                 }
@@ -528,6 +522,7 @@ header {
         .mini-cart {
             flex-direction: column;
             padding: 30px;
+            display: none;
 
             &-list {
 
@@ -537,8 +532,11 @@ header {
                 #mini-cart-product {
                     overflow: auto;
                     max-height: 666px;
+                    transition: all 1s;
 
                     li {
+                        margin-bottom: 15px;
+                        position: relative;
 
                         a {
                             display: block;
@@ -555,6 +553,8 @@ header {
 
                         .quantity {
                             font-size: 14px;
+                            width: 50%;
+                            position: relative;
 
                             a {
                                 font-weight: 700;
@@ -567,6 +567,16 @@ header {
                             span {
                                 margin: 10px 0;
                             }
+
+                        }
+
+                        .erase {
+                            position: absolute;
+                            right: 20px;
+                            top: 0px;
+                            cursor: pointer;
+                            font-size: 30px;
+
                         }
                     }
 
@@ -622,8 +632,6 @@ header {
                         display: block;
                         text-align: center;
                         padding: 15px 30px;
-                        background: $color-i;
-                        color: $color-white;
                         font-size: 16px;
                         font-weight: 100;
                         margin-bottom: 15px;
@@ -634,6 +642,19 @@ header {
 
             }
 
+            &.active {
+                display: flex;
+            }
+
+        }
+
+        .no-product {
+            padding-left: 40px;
+            margin-top: 30px;
+
+            &.active {
+                display: none;
+            }
         }
 
     }
@@ -647,644 +668,6 @@ header {
         }
     }
 
-}
-
-.slider {
-    .owl-carousel {
-
-        .item {
-            position: relative;
-
-            .content {
-                width: 100%;
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-
-                .container {
-
-                    .title-sale {
-                        color: #444444;
-                        font-size: 20px;
-                        font-weight: 700;
-
-                        span {
-                            color: $color-primary;
-                        }
-                    }
-
-                    h2 {
-                        font-size: 48px;
-                        margin-top: 15px;
-                        margin-bottom: 25px;
-                    }
-
-                    .btn {
-                        padding: 9px 30px 11px;
-                        border-radius: 4px;
-                        line-height: 32px;
-                    }
-
-                }
-            }
-        }
-
-        .owl-nav {
-            @include owlnav(0, 20px, 20px);
-
-            button {
-                cursor: pointer;
-
-                &.owl-prev,
-                &.owl-next {
-                    background: rgba($color-white, 0.8);
-                    color: $color-i;
-
-                    &:hover {
-                        color: $color-white;
-                        background: $color-primary;
-                    }
-                }
-
-            }
-
-        }
-
-        .owl-dots {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, -100%);
-
-            .owl-dot {
-
-                span {
-                    background: $color-primary;
-                    width: 12px;
-                    height: 12px;
-                }
-
-                &:hover {
-                    span {
-                        background: $color-primary;
-                    }
-                }
-
-                &.active {
-                    span {
-                        box-sizing: content-box;
-                        background: none;
-                        border: 2px solid $color-primary;
-                    }
-
-                }
-            }
-        }
-
-        &:hover {
-            .owl-nav {
-                opacity: 1;
-            }
-        }
-    }
-
-}
-
-.trending {
-
-    .container {
-
-        .banners {
-            margin-bottom: 80px;
-
-            .banner {
-                position: relative;
-
-                img {
-                    width: 100%;
-                }
-
-                .content {
-                    position: absolute;
-                    top: 30%;
-                    left: 40%;
-                    transform: translate(-80%, -70%);
-
-                    h4 {
-                        margin-bottom: 5px;
-
-                        a {
-                            font-family: "Red Hat Display", Sans-serif;
-                            font-size: 20px;
-                            font-weight: 700;
-                            line-height: 1;
-
-                        }
-                    }
-
-                    span {
-                        text-decoration: underline;
-                        color: $color-primary;
-                        font-weight: 700;
-                        font-size: 14px;
-                    }
-                }
-
-            }
-
-        }
-
-        .trending-product {
-
-            .products {
-                .product {
-                    margin-top: 20px;
-                    position: relative;
-                    overflow: hidden;
-
-                    .img {
-                        overflow: hidden;
-                        display: inline-block;
-                        position: relative;
-
-                        a:first-child {
-
-                            height: 420px;
-                            display: block;
-                            z-index: 1;
-
-                            img {
-                                object-fit: cover;
-                                object-position: center;
-                                width: 100%;
-                                transition: all .5s;
-
-                                &:nth-child(2) {
-                                    opacity: 0;
-                                    top: 0;
-                                    left: 0;
-                                    position: absolute;
-                                    z-index: 2;
-                                }
-                            }
-                        }
-
-                        .btn {
-                            width: 90%;
-                            margin: 0 auto;
-                            display: inline-block;
-                            padding: 10px 0px;
-                            background: black;
-                            color: white;
-                            text-align: center;
-                            border-radius: 5px;
-                            transition: all .3s;
-                            position: absolute;
-                            bottom: 0px;
-                            left: 50%;
-                            transform: translate(-50%, 100%);
-                            opacity: 0;
-                            font-weight: bold;
-                            z-index: 3;
-
-                            i {
-                                margin-right: 5px;
-                            }
-
-                            &:hover {
-                                background: $color-primary;
-
-                            }
-                        }
-
-                        .action {
-                            position: absolute;
-                            top: 10px;
-                            right: 10px;
-
-                            li {
-                                position: relative;
-                                width: 40px;
-                                height: 40px;
-                                background: $color-white;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                margin: 10px 4px;
-                                cursor: pointer;
-                                z-index: 3;
-                                transform: translateX(60px);
-                                transition: 0.5s;
-                                border-radius: 5px;
-                                color: $color-grey;
-
-                                span {
-                                    position: absolute;
-                                    z-index: 3;
-                                    right: 50px;
-                                    top: 50%;
-                                    transform: translateY(-50%) translateX(-20%);
-                                    white-space: nowrap;
-                                    background: $color-white;
-                                    color: #333;
-                                    font-size: 12px;
-                                    border-radius: 4px;
-                                    padding: 4px 6px;
-                                    pointer-events: none;
-                                    opacity: 0;
-                                    transition: .5s;
-
-                                    &::before {
-                                        content: '';
-                                        position: absolute;
-                                        top: 50%;
-                                        right: -4px;
-                                        width: 8px;
-                                        height: 8px;
-                                        background: #fff;
-                                        transform: translateY(-50%) rotate(45deg);
-                                    }
-                                }
-
-                                &:hover {
-                                    background: $color-primary;
-                                    color: $color-white;
-
-                                    span {
-                                        transform: translateY(-50%) translateX(0%);
-                                        opacity: 1;
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-
-                    &:hover {
-
-                        .img {
-                            a {
-                                img:nth-child(2) {
-                                    opacity: 1;
-                                }
-                            }
-
-                            .btn {
-                                opacity: 1;
-                                transform: translate(-50%, -50%);
-                            }
-
-                            ul.action {
-                                li {
-                                    transform: translateX(0px);
-
-                                }
-                            }
-                        }
-                    }
-
-                    .content-pro {
-
-                        h4 {
-                            margin-top: 10px;
-                        }
-
-                        .price {
-                            font-size: 14px;
-                            padding: 5px 0px;
-                            color: $color-grey;
-                        }
-
-                    }
-                }
-            }
-        }
-    }
-}
-
-.title {
-    text-align: center;
-
-    h3 {
-        span {
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        margin-bottom: 7px;
-    }
-
-    .sub {
-        p {
-            font-size: 16px;
-        }
-
-        margin-bottom: 50px;
-    }
-}
-
-section.banner {
-
-    background-image: url('../img/banner/home8-bg-middle.jpg');
-    background-position: top;
-    background-repeat: no-repeat;
-
-    .container {
-        padding: 174px 0px;
-
-        .element {
-
-            text-align: center;
-
-            .top {
-                font-weight: 700;
-                color: #444444;
-                font-family: "Red Hat Display", Sans-serif;
-                font-size: 20px;
-                margin-bottom: 15px;
-
-                span {
-                    color: $color-primary;
-                }
-            }
-
-            .heading {
-                font-weight: 700;
-                font-size: 48px;
-                line-height: 1.2em;
-                margin-bottom: 28px;
-            }
-
-            .markdown {
-                font-size: 16px;
-                font-weight: 700;
-                margin: 10px 0;
-            }
-
-            .btn {
-                padding: 15px 30px;
-                margin-top: 20px;
-
-                i {
-                    margin-left: 20px;
-                }
-            }
-
-        }
-
-    }
-}
-
-.subcriber {
-
-    background-image: url('../img/banner/bg-newsleter-fashion-1.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    .container {
-
-        .element-container {
-            max-width: 930px;
-            margin: 0 auto;
-            text-align: center;
-            background: rgba($color-white, 0.8);
-            color: $color-grey;
-
-            h2 {
-                color: black;
-                font-size: 32px;
-            }
-
-            .sub {
-                max-width: 690px;
-                margin: 33px auto;
-
-                input {
-                    flex: 1;
-                    font-size: 16px;
-                    background: transparent;
-                    border: 2px solid #e5e5e5;
-                    height: 45px;
-                    border-radius: 5px;
-                    padding: 10px;
-                }
-
-                .btn {
-                    margin-left: 10px;
-                    padding: 12px 30px;
-                }
-            }
-        }
-    }
-}
-
-section.serve {
-    background: $color-bg-2;
-
-    .container {
-        .services {
-            .service {
-
-                justify-content: center;
-                text-align: center;
-
-                .content {
-
-                    a {
-                        img {
-
-                            &:hover {
-                                animation: leftRight 0.8s forwards;
-
-                            }
-                        }
-                    }
-
-                    h4 {
-                        margin: 10px 0px;
-                    }
-
-                    p {
-                        margin-bottom: 20px;
-                        color: $color-i;
-                    }
-
-                }
-
-                >a {
-                    font-size: 14px;
-                    align-items: flex-end;
-
-                    i {
-                        font-size: 18px;
-                        margin-left: 10px;
-                        color: $color-i;
-                    }
-                }
-
-                &:not(:last-child) {
-
-                    .content {
-
-                        border-right: 1px solid #DFDFDF;
-
-                    }
-                }
-
-            }
-        }
-    }
-}
-
-.blog {
-
-    .container {
-
-        #blog {
-            position: relative;
-            display: flex;
-
-            .item {
-
-                a.link {
-                    .img {
-                        overflow: hidden;
-
-                        img {
-                            width: 100%;
-                            transition: all .6s;
-
-                            &:hover {
-                                transform: scale(1.1);
-                            }
-                        }
-                    }
-
-                    p {
-                        margin-top: 20px;
-                        color: $color-primary;
-                        font-weight: 700;
-                        font-size: 16px;
-
-                        span {
-                            font-weight: 100;
-                            color: $color-i;
-                            font-size: 14px;
-                        }
-
-                    }
-
-                    h2.heading {
-
-                        font-size: 24px;
-                        line-height: 1;
-                        margin: 10px 0 12px 0;
-                        transition: all .6s;
-
-                        &:hover {
-
-                            color: $color-primary;
-
-                        }
-                    }
-
-
-                }
-
-                .des {
-                    color: #444444;
-                    word-wrap: break-word;
-                    line-height: 32px;
-                }
-
-                .btn {
-
-                    display: inline-block;
-                    padding: 12px 30px;
-                    margin-top: 20px;
-                    border-radius: 3px;
-                    border: 2px solid $color-border-grey;
-                    font-size: 14px;
-
-                    &:hover {
-
-                        color: $color-white;
-                        background: $color-primary;
-                        border-color: $color-primary;
-
-                    }
-
-                    i {
-
-                        margin-left: 10px;
-
-                    }
-                }
-
-            }
-
-            .owl-nav {
-
-                @include owlnav(0, -20px, -20px);
-
-                button {
-                    background: rgba(black, 0.6);
-                }
-            }
-
-            &:hover {
-                .owl-nav {
-                    opacity: 1;
-                }
-            }
-
-        }
-
-    }
-
-}
-
-.instagram {
-    background: $color-bg-2;
-    padding-bottom: 0;
-    margin-bottom: 40px;
-
-    .container {
-        .sub {
-            margin-bottom: 25px;
-        }
-    }
-
-    .list-img {
-        margin: 0;
-
-        .item {
-            padding: 0px;
-
-            img {
-                width: 100%;
-                height: 100%;
-                transition: all .8s;
-
-                &:hover {
-
-                    opacity: 0.8;
-
-                }
-            }
-        }
-
-    }
-
-}
-
-.slider-brand {
-    margin-bottom: 30px;
 }
 
 footer#footer {

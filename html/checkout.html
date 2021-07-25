@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion - Rubix</title>
+    <title>Checkout - Rubix</title>
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="16x16">
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="192x192">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../scss/index.css">
+    <link rel="stylesheet" href="../scss/cart.css">
+    <link rel="stylesheet" href="../scss/checkout.css">
 </head>
 
 <body>
@@ -75,14 +74,14 @@
 
         <div class="main-header">
             <div class="container d-flex a-center j-between">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <img src="../img/logo/logo_x2.png" alt="">
                 </a>
 
                 <nav class="main-nav d-flex">
                     <ul class="d-flex a-center">
                         <li>
-                            <a class="active" href="#">Home <i class="fas fa-chevron-down"></i></a>
+                            <a class="active" href="index.html">Home <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li>
                             <a href="#">Shop <i class="fas fa-chevron-down"></i></a>
@@ -171,11 +170,7 @@
                     <div class="mini-menu">
                         <ul class="d-flex a-center j-between">
                             <li class="item addWishlist">
-                                <a href="./wishlist.html"><i class="bi bi-heart"></i></a>
-                                <span class="before">0</span>
-                            </li>
-                            <li class="item cart-item">
-                                <a href="#"><i class="bi bi-handbag"></i></a>
+                                <a href="#"><i class="bi bi-heart"></i></a>
                                 <span class="before">0</span>
                             </li>
                             <li id="search"><a href="#"><i class="bi bi-search"></i></a></li>
@@ -207,320 +202,110 @@
         </div>
     </div>
 
-    <div class="cart">
-        <div class="products-cart">
-            <h4 class="d-flex j-between a-center">
-                Your Cart
-            </h4>
-            <span class="close">
-                &times;
-            </span>
+    <div class="title-nav">
+        <div class="container">
+            <p class="description-nav">
+                <a href="index.html">Home</a> / <span>Checkout</span>
+            </p>
+        </div>
+    </div>
+    <div class="main-content-checkout p-80">
+        <div class="container">
 
-            <div class="mini-cart a-center j-between">
+            <h2 class="title-checkout">
+                Checkout
+            </h2>
 
-                <div class="mini-cart-list">
-                    <ul id="mini-cart-product">
+            <form action="" class="checkout row j-between">
+                <div class="checkout-left col-xl-7">
+                    <h3 class="heading">
+                        Billing details
+                    </h3>
+                    <div class="content">
+                        <div class="form-group d-flex a-center j-between">
+                            <div class="input-group">
+                                <label for="name">First name</label><br>
+                                <input type="text">
+                            </div>
 
-                    </ul>
-                </div>
-
-                <div class="mini-cart-bottom">
-
-                    <div class="total d-flex a-center j-between">
-
-                        <strong>
-                            Subtotal:
-                        </strong>
-
-                        <div class="sub-total">
-                            $600.00
+                            <div class="input-group">
+                                <label for="name">Last name</label><br>
+                                <input type="text">
+                            </div>
                         </div>
+                        <div class="input-group">
+                            <label for="name">Company name (optional)</label><br>
+                            <input type="text">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Country / Region</label><br>
+                            <select name="" id="">
+                                <option value="">afghanistan</option>
+                                <option value="">albana</option>
+                                <option value="">algeria</option>
+                                <option value="">american</option>
+                                <option value="">aruba</option>
+                                <option value="">bahamas</option>
+                                <option value="">china</option>
+                                <option value="">congo</option>
+                                <option value="">djibouti</option>
+                                <option value="">ecuador</option>
+                                <option value="">france</option>
+                                <option value="">gabon</option>
+                                <option value="">japan</option>
+                                <option value="">vietnam</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Street address *</label><br>
+                            <input type="text" placeholder="House number and street name">
+                            <input type="text" placeholder="Apartment, suite, unit , etc.">
 
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Town / City</label><br>
+                            <input type="text">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Phone</label><br>
+                            <input type="text">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Email address</label><br>
+                            <input type="text">
+                        </div>
                     </div>
 
-                    <div class="group-btn">
-
-                        <a href="cart.html" class="btn btn-primary viewCart">
-
-                            View Cart
-
-                        </a>
-                        <a href="#" class="btn btn-primary bill">
-
-                            Checkout
-
-                        </a>
-                    </div>
-
+                </div>
+                <div class="checkout-right col-xl-4">
+                    <h3 class="heading">
+                        Your order
+                    </h3>
+                    <table class="table1">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Women blue coat × 1</td>
+                                <td>$39.00</td>
+                            </tr>
+                            <tr>
+                                <td>Women blue coat × 1</td>
+                                <td>$39.00</td>
+                            </tr>
+                            <tr>
+                                <td>Mogens Koch Bookca × 3</td>
+                                <td>$84.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-            </div>
-
-            <div class="no-product">
-                No products in the cart.
-            </div>
-
-        </div>
-    </div>
-
-    <div class="slider">
-        <div class="owl-carousel owl-theme" id="main-slider">
-            <div class="item">
-                <img src="../img/slider/slider81.jpg" alt="">
-                <div class="content">
-                    <div class="container">
-                        <p class="title-sale">
-                            Quick parcel delivery, <span>from $25</span>
-                        </p>
-                        <h2>Everyone's Talking About <br>
-                            Collection AW 2020
-                        </h2>
-                        <a href="#" class="btn btn-primary">Start Shopping</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="../img/slider/slider82.jpg" alt="">
-                <div class="content">
-                    <div class="container">
-                        <p class="title-sale">
-                            Quick parcel delivery, <span>from $25</span>
-                        </p>
-                        <h2>Cover Up! Spring is coming <br>
-                            Extra 40% off now
-                        </h2>
-                        <a href="#" class="btn btn-primary">Start Shopping</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="../img/slider/slider83.jpg" alt="">
-                <div class="content">
-                    <div class="container">
-                        <p class="title-sale">
-                            Quick parcel delivery, <span>from $25</span>
-                        </p>
-                        <h2>New Season Women's Fashion <br>
-                            Up to 70% off now!
-                        </h2>
-                        <a href="#" class="btn btn-primary">Start Shopping</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="trending">
-        <div class="container p-80">
-            <div class="banners row">
-                <div class="banner col-xl-4">
-                    <img src="../img/banner/home8-banner-1.jpg" alt="">
-                    <div class="content">
-                        <h4><a href="">Bondi Bucket Hat </a></h4>
-                        <span>From $49.59</span>
-                    </div>
-                </div>
-                <div class="banner col-xl-4">
-                    <img src="../img/banner/home8-banner-2.jpg" alt="">
-                    <div class="content">
-                        <h4><a href="">Leather Backpack</a></h4>
-                        <span>Stating at $40</span>
-                    </div>
-                </div>
-                <div class="banner col-xl-4">
-                    <img src="../img/banner/home8-banner-3.jpg" alt="">
-                    <div class="content">
-                        <h4><a href="">Spring Sneakers</a></h4>
-                        <span>Up to 70% off</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="trending-product">
-                <div class="title">
-                    <h3><span>Trending Products</span></h3>
-                    <div class="sub">
-                        <p>Top Sale in this week</p>
-                    </div>
-                </div>
-
-                <div class="products">
-                    <div class="owl-carousel owl-theme listproduct" id="products1">
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <section class="banner">
-        <div class="container">
-            <div class="element">
-                <div class="top">
-                    Quick parcel delivery, <span>from $25</span>
-                </div>
-                <h2 class="heading">
-                    Final Fashion Sale <br>
-                    SS 20/21 Collections
-                </h2>
-                <p>Price on this week:</p>
-                <p class="markdown">
-                    Markdowns up to 69% off regular price
-                </p>
-                <a href="#" class="btn btn-primary">Shop Collection <i class="fas fa-angle-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <div class="trending">
-        <div class="container p-80">
-            <div class="trending-product">
-                <div class="title">
-                    <h3><span>Best Seller Products</span></h3>
-                    <div class="sub">
-                        <p>Top Sale In This Week</p>
-                    </div>
-                </div>
-
-                <div class="products">
-                    <div class="owl-carousel owl-theme listproduct" id="products2">
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="subcriber p-80">
-
-        <div class="container">
-
-            <div class="element-container p-80">
-
-                <h2>Subcribe To Our Newsletter</h2>
-                <p class="content1">Sign up for the weekly newsletter and build better ecommerce stores.</p>
-                <div class="sub d-flex a-center j-between">
-                    <input type="text" placeholder="Enter your email address">
-                    <a href="" class="btn btn-primary">Subcribe</a>
-                </div>
-                <p>We respect your privacy, so we never share your info.</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <section class="serve p-80">
-        <div class="container">
-            <div class="services row">
-                <div class="service col-xl-4">
-                    <div class="content">
-                        <a href="#" class="icon">
-                            <img src="../img/icon/our-1_900x.png" alt="">
-                        </a>
-                        <h4 class="name-service"><a href="">Free Worldwide Shipping</a></h4>
-                        <p>On all orders over $75.00</p>
-                    </div>
-                    <a href="#" class="btn d-flex ">Learn More <i class="bi bi-chevron-right"></i></a>
-                </div>
-                <div class="service col-xl-4">
-                    <div class="content">
-                        <a href="#" class="icon">
-                            <img src="../img/icon/our-2_360x.png" alt="">
-                        </a>
-                        <h4 class="name-service"><a href="">100% Payment Secure</a></h4>
-                        <p>We ensure secure payment with PEV</p>
-                    </div>
-                    <a href="#" class="btn d-flex ">Learn More <i class="bi bi-chevron-right"></i></a>
-                </div>
-                <div class="service col-xl-4">
-                    <div class="content">
-                        <a href="#" class="icon">
-                            <img src="../img/icon/our-3_360x.png" alt="">
-                        </a>
-                        <h4 class="name-service"><a href="">30 Days Return</a></h4>
-                        <p>Return it within 20 day for an exchange</p>
-                    </div>
-                    <a href="#" class="btn d-flex ">Learn More <i class="bi bi-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="blog p-80">
-        <div class="container">
-            <div class="title">
-                <h3><span>Latest From Blog</span></h3>
-                <div class="sub">
-                    <p>Class Aptent Taciti Sociosqu Ad Litora Torquent Per</p>
-                </div>
-            </div>
-
-            <div class="owl-carousel owl-theme owl-loaded" id="blog">
-
-            </div>
-        </div>
-    </section>
-
-    <section class="instagram p-80">
-        <div class="container">
-            <div class="title">
-                <h3><span>Follow us on Instagram</span></h3>
-                <div class="sub">
-                    <p>@ Rubix Instagram</p>
-                </div>
-            </div>
-        </div>
-        <div class="list-img row">
-            <div class="col-xl-2 item">
-                <img src="../img/instagram/1.jpg" alt="">
-            </div>
-            <div class="col-xl-2 item">
-                <img src="../img/instagram/2.jpg" alt="">
-            </div>
-            <div class="col-xl-2 item">
-                <img src="../img/instagram/3.jpg" alt="">
-            </div>
-            <div class="col-xl-2 item">
-                <img src="../img/instagram/4.jpg" alt="">
-            </div>
-            <div class="col-xl-2 item">
-                <img src="../img/instagram/5.jpg" alt="">
-            </div>
-            <div class="col-xl-2 item">
-                <img src="../img/instagram/6.jpg" alt="">
-            </div>
-        </div>
-    </section>
-
-    <div class="slider-brand">
-
-        <div class="container">
-
-            <div class="owl-carousel owl-theme" id="brand">
-                <div class="item">
-                    <img src="../img/brand/brand111.jpg" alt="">
-                </div>
-                <div class="item">
-                    <img src="../img/brand/brand222.jpg" alt="">
-                </div>
-                <div class="item">
-                    <img src="../img/brand/brand333.jpg" alt="">
-                </div>
-                <div class="item">
-                    <img src="../img/brand/brand4.jpg" alt="">
-                </div>
-                <div class="item">
-                    <img src="../img/brand/brand5.jpg" alt="">
-                </div>
-                <div class="item">
-                    <img src="../img/brand/brand6.jpg" alt="">
-                </div>
-            </div>
-
+            </form>
         </div>
 
     </div>
@@ -609,30 +394,7 @@
             </div>
         </div>
     </footer>
-
     <a class="backtotop d-flex a-center" href="#"><i class="bi bi-chevron-up"></i></a>
-
-    <div class="quickview d-flex a-center">
-        <div class="modal d-flex">
-            <div class="img item-modal">
-                <div class="owl-carousel owl-theme" id="quickviewSl">
-                    <div class="item">
-                        <img src="../img/product/10_1-copy-600x745.jpg" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="../img/product/10_1-copy-600x745.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="content item-modal">
-
-            </div>
-            <div class="close">
-                &times;
-            </div>
-        </div>
-    </div>
-
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
 <script src="../owlcarousel/owl.carousel.min.js"></script>

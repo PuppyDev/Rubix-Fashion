@@ -1,0 +1,110 @@
+@import './style';
+
+
+
+.main-content-checkout {
+
+    .container {
+
+        .title-checkout {
+            font-size: 48px;
+            margin-bottom: 40px;
+            // border-bottom: 3px solid $color-primary;
+
+        }
+
+        .checkout {
+
+            .checkout-left {
+                .heading {
+                    font-size: 28px;
+                    color: $color-i;
+                }
+
+                .content {
+                    .input-group {
+                        margin: 20px 0px;
+
+                        input,
+                        select {
+                            border: 1px solid $color-border-grey;
+                            max-width: 100%;
+                            padding: 0 20px;
+                            width: 100%;
+                            background: #fff;
+                            height: 50px;
+                            border-radius: 3px;
+                            flex: 1;
+                            margin-top: 10px;
+                            font-size: 16px;
+                        }
+
+                        select {
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    .form-group {
+                        .input-group {
+                            width: 48%;
+
+                            input {
+                                &:first-child {
+                                    margin-right: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            &-right {
+                // margin-left: 20px;
+                background: $color-border-grey;
+                margin-top: 30px;
+                padding: 40px;
+                color: $color-lgrey;
+
+                .heading {
+                    font-size: 26px;
+                    color: $color-i;
+                }
+
+                table.table1 {
+                    border-collapse: collapse;
+                    width: 100%;
+
+                    tr {
+                        border-bottom: 1px solid #ccc;
+
+                        td,
+                        th {
+                            padding: 20px 0;
+                        }
+                    }
+
+                    thead {
+                        tr {
+                            th {
+                                text-align: left;
+                                font-weight: 700;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {}
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+}

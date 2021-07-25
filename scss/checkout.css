@@ -1169,4 +1169,78 @@ footer#footer .copyright p {
 footer#footer .copyright p a {
   color: #fff;
 }
-/*# sourceMappingURL=style.css.map */
+
+.main-content-checkout .container .title-checkout {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.main-content-checkout .container .checkout .checkout-left .heading {
+  font-size: 28px;
+  color: #1a1a1a;
+}
+
+.main-content-checkout .container .checkout .checkout-left .content .input-group {
+  margin: 20px 0px;
+}
+
+.main-content-checkout .container .checkout .checkout-left .content .input-group input,
+.main-content-checkout .container .checkout .checkout-left .content .input-group select {
+  border: 1px solid #e5e5e5;
+  max-width: 100%;
+  padding: 0 20px;
+  width: 100%;
+  background: #fff;
+  height: 50px;
+  border-radius: 3px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.main-content-checkout .container .checkout .checkout-left .content .input-group select {
+  text-transform: capitalize;
+}
+
+.main-content-checkout .container .checkout .checkout-left .content .form-group .input-group {
+  width: 48%;
+}
+
+.main-content-checkout .container .checkout .checkout-left .content .form-group .input-group input:first-child {
+  margin-right: 20px;
+}
+
+.main-content-checkout .container .checkout-right {
+  background: #e5e5e5;
+  margin-top: 30px;
+  padding: 40px;
+  color: #444444;
+}
+
+.main-content-checkout .container .checkout-right .heading {
+  font-size: 26px;
+  color: #1a1a1a;
+}
+
+.main-content-checkout .container .checkout-right table.table1 {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.main-content-checkout .container .checkout-right table.table1 tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.main-content-checkout .container .checkout-right table.table1 tr td,
+.main-content-checkout .container .checkout-right table.table1 tr th {
+  padding: 20px 0;
+}
+
+.main-content-checkout .container .checkout-right table.table1 thead tr th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 18px;
+}
+/*# sourceMappingURL=checkout.css.map */

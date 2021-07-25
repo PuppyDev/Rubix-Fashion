@@ -1,0 +1,29 @@
+@import './style';
+
+.navigation {
+
+    .title-nav {
+        background: none;
+        background-image: url('../img/banner/bg-newsleter-fashion-1.jpg');
+        padding: 80px 0px;
+
+        .container {
+
+            h2 {
+                margin-top: 40px;
+                font-size: 48px;
+            }
+
+            .description-nav {
+                margin: 20px 0;
+            }
+
+        }
+
+
+    }
+
+    .products-cart {
+        margin-bottom: 100px;
+    }
+}
