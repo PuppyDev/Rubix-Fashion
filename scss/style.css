@@ -757,7 +757,8 @@ header .main-header .container nav.main-nav ul li .second-nav1 .list-item .headi
   font-size: 18px;
 }
 
-header .main-header .container nav.main-nav ul li:hover .second-nav {
+header .main-header .container nav.main-nav ul li:hover .second-nav,
+header .main-header .container nav.main-nav ul li:hover .second-nav1 {
   visibility: visible;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);

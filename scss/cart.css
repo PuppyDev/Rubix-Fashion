@@ -757,7 +757,8 @@ header .main-header .container nav.main-nav ul li .second-nav1 .list-item .headi
   font-size: 18px;
 }
 
-header .main-header .container nav.main-nav ul li:hover .second-nav {
+header .main-header .container nav.main-nav ul li:hover .second-nav,
+header .main-header .container nav.main-nav ul li:hover .second-nav1 {
   visibility: visible;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
@@ -1343,5 +1344,10 @@ footer#footer .copyright p a {
 
 .navigation .products-cart .container .cart_totals .checkout a i {
   margin-left: 10px;
+}
+
+.navigation .products-cart .container .comeback {
+  padding: 15px 30px;
+  margin-top: 50px;
 }
 /*# sourceMappingURL=cart.css.map */

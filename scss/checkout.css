@@ -757,7 +757,8 @@ header .main-header .container nav.main-nav ul li .second-nav1 .list-item .headi
   font-size: 18px;
 }
 
-header .main-header .container nav.main-nav ul li:hover .second-nav {
+header .main-header .container nav.main-nav ul li:hover .second-nav,
+header .main-header .container nav.main-nav ul li:hover .second-nav1 {
   visibility: visible;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
@@ -1175,6 +1176,13 @@ footer#footer .copyright p a {
   margin-bottom: 40px;
 }
 
+.main-content-checkout .container .checkout {
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 .main-content-checkout .container .checkout .checkout-left .heading {
   font-size: 28px;
   color: #1a1a1a;
@@ -1213,10 +1221,15 @@ footer#footer .copyright p a {
 }
 
 .main-content-checkout .container .checkout-right {
-  background: #e5e5e5;
   margin-top: 30px;
   padding: 40px;
   color: #444444;
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 .main-content-checkout .container .checkout-right .heading {
@@ -1231,6 +1244,7 @@ footer#footer .copyright p a {
 
 .main-content-checkout .container .checkout-right table.table1 tr {
   border-bottom: 1px solid #ccc;
+  text-align: left;
 }
 
 .main-content-checkout .container .checkout-right table.table1 tr td,
@@ -1238,9 +1252,49 @@ footer#footer .copyright p a {
   padding: 20px 0;
 }
 
+.main-content-checkout .container .checkout-right table.table1 tr td:last-child,
+.main-content-checkout .container .checkout-right table.table1 tr th:last-child {
+  text-align: right;
+}
+
+.main-content-checkout .container .checkout-right table.table1 tr.Subtotal-price th {
+  font-size: 18px;
+}
+
+.main-content-checkout .container .checkout-right table.table1 tr.total-price {
+  font-size: 20px;
+}
+
+.main-content-checkout .container .checkout-right table.table1 tr.total-price td {
+  color: #ba933e;
+}
+
+.main-content-checkout .container .checkout-right table.table1 tr.item th,
+.main-content-checkout .container .checkout-right table.table1 tr.item td {
+  font-weight: 700;
+}
+
 .main-content-checkout .container .checkout-right table.table1 thead tr th {
   text-align: left;
   font-weight: 700;
   font-size: 18px;
+}
+
+.main-content-checkout .container .checkout-right .payment {
+  margin-top: 20px;
+}
+
+.main-content-checkout .container .checkout-right .payment .cash {
+  word-wrap: break-word;
+  line-height: 30px;
+  letter-spacing: 1.1;
+  margin-bottom: 20px;
+}
+
+.main-content-checkout .container .checkout-right .payment .order {
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+  margin-top: 30px;
 }
 /*# sourceMappingURL=checkout.css.map */

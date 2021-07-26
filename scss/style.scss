@@ -299,7 +299,6 @@ header {
                             background-size: auto;
                             padding: 20px;
                             position: absolute;
-                            // left: 50%;
                             transform: translateX(-100%);
                             visibility: hidden;
 
@@ -314,7 +313,8 @@ header {
 
                         &:hover {
 
-                            .second-nav {
+                            .second-nav,
+                            .second-nav1 {
                                 visibility: visible;
                                 transform: scaleY(1);
 

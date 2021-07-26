@@ -757,7 +757,8 @@ header .main-header .container nav.main-nav ul li .second-nav1 .list-item .headi
   font-size: 18px;
 }
 
-header .main-header .container nav.main-nav ul li:hover .second-nav {
+header .main-header .container nav.main-nav ul li:hover .second-nav,
+header .main-header .container nav.main-nav ul li:hover .second-nav1 {
   visibility: visible;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
@@ -1859,6 +1860,7 @@ section.serve .container .services .service:not(:last-child) .content {
 }
 
 .quickview .modal {
+  height: 540px;
   -webkit-transition: all .6s;
   transition: all .6s;
   -webkit-transform-origin: 50% 50%;
@@ -1875,6 +1877,92 @@ section.serve .container .services .service:not(:last-child) .content {
 
 .quickview .modal .item-modal {
   width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.quickview .modal .item-modal .owl-nav {
+  position: absolute;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  top: 50%;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  color: #fff;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.quickview .modal .item-modal .owl-nav button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: none;
+  position: absolute;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.quickview .modal .item-modal .owl-nav button:hover {
+  background-color: #ba933e;
+}
+
+.quickview .modal .item-modal .owl-nav button.owl-prev {
+  left: 10px;
+}
+
+.quickview .modal .item-modal .owl-nav button.owl-next {
+  right: 10px;
+  left: auto;
+}
+
+.quickview .modal .item-modal .owl-nav button {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.quickview .modal .item-modal:hover .owl-nav {
+  opacity: 1;
+}
+
+.quickview .modal .item-modal:hover .viewDetails {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.quickview .modal .item-modal .viewDetails {
+  position: absolute;
+  display: block;
+  width: 100%;
+  background: black;
+  text-align: center;
+  padding: 20px 0;
+  bottom: -1px;
+  border-radius: 0;
+  z-index: 30;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.quickview .modal .item-modal .viewDetails:hover {
+  background: #ba933e;
 }
 
 .quickview .modal .star i {
@@ -1904,6 +1992,43 @@ section.serve .container .services .service:not(:last-child) .content {
   margin: 10px 0 20px;
 }
 
+.quickview .modal .content .action {
+  margin-bottom: 40px;
+}
+
+.quickview .modal .content .action .cotrol-item {
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0px 5px;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+.quickview .modal .content .action .cotrol-item input {
+  background-color: transparent;
+  width: 40px;
+  text-align: center;
+  height: 50px;
+}
+
+.quickview .modal .content .action .cotrol-item a {
+  margin-bottom: 0px;
+}
+
+.quickview .modal .content .action .addcartitem {
+  background: black;
+  padding: 15px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.quickview .modal .content .action .addcartitem:hover {
+  background: #ba933e;
+}
+
 .quickview .modal .content .des {
   border-bottom: 1px solid #e5e5e5;
   margin: 0 0 30px;
@@ -1914,11 +2039,160 @@ section.serve .container .services .service:not(:last-child) .content {
   line-height: 24px;
 }
 
+.quickview .modal .content::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+  width: 3px;
+}
+
+.quickview .modal .content::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+.quickview .modal .content::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
 .quickview .modal .close {
   position: absolute;
-  top: 10px;
+  top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   cursor: pointer;
   right: 20px;
   font-size: 36px;
+  width: 30px;
+  border-radius: 50%;
+  height: 30px;
+  color: #ba933e;
+  border: 2px solid #ba933e;
+}
+
+.compare-product {
+  z-index: 35;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: none;
+}
+
+.compare-product-box {
+  border: 10px solid #4f4f4f;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 90%;
+  height: 80%;
+  background: white;
+  overflow: auto;
+}
+
+.compare-product-box .heading {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px 0;
+  color: #1a1a1a;
+  background: #4f4f4f;
+  color: #fff;
+}
+
+.compare-product-box .content {
+  overflow: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-collapse: collapse;
+}
+
+.compare-product-box .content tr {
+  text-align: center;
+}
+
+.compare-product-box .content tr td {
+  padding: 20px;
+  min-width: 200px;
+  border-right: 1px solid #e7e7e7;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: none;
+  border-left: none;
+  border-collapse: collapse;
+}
+
+.compare-product-box .content tr td:first-child {
+  font-weight: 700;
+}
+
+.compare-product-box .content tr td .btn {
+  padding: 12px 20px;
+}
+
+.compare-product-box .content tr td.close {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.compare-product-box .content tr img {
+  width: 100px;
+}
+
+.compare-product-box::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+  width: 3px;
+}
+
+.compare-product-box::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+.compare-product-box::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.compare-product-box > .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 32px;
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #ba933e;
+  color: #ba933e;
+  cursor: pointer;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.compare-product-box > .close:hover {
+  background: #ba933e;
+  color: #fff;
+}
+
+.compare-product.active {
+  display: block;
 }
 /*# sourceMappingURL=index.css.map */

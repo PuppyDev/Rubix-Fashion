@@ -14,8 +14,12 @@
         }
 
         .checkout {
+            width: 100%;
+            align-items: flex-start;
 
             .checkout-left {
+                // padding-right: 50px;
+
                 .heading {
                     font-size: 28px;
                     color: $color-i;
@@ -60,11 +64,14 @@
             }
 
             &-right {
-                // margin-left: 20px;
-                background: $color-border-grey;
                 margin-top: 30px;
                 padding: 40px;
                 color: $color-lgrey;
+                border-top: 1px solid #dfdfdf;
+                border-bottom: 1px solid #dfdfdf;
+                border-left: 1px solid #ececec;
+                border-right: 1px solid #ececec;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
 
                 .heading {
                     font-size: 26px;
@@ -81,6 +88,37 @@
                         td,
                         th {
                             padding: 20px 0;
+
+
+                            &:last-child {
+                                text-align: right;
+                            }
+                        }
+
+                        text-align: left;
+
+                        &.Subtotal-price {
+                            th {
+                                font-size: 18px;
+                            }
+                        }
+
+                        &.total-price {
+
+                            font-size: 20px;
+
+                            td {
+                                color: $color-primary;
+                            }
+
+                        }
+
+                        &.item {
+
+                            th,
+                            td {
+                                font-weight: 700;
+                            }
                         }
                     }
 
@@ -99,6 +137,28 @@
                             td {}
                         }
                     }
+                }
+
+                .payment {
+                    margin-top: 20px;
+
+                    .cash {
+
+                        word-wrap: break-word;
+                        line-height: 30px;
+                        letter-spacing: 1.1;
+                        margin-bottom: 20px;
+
+                    }
+
+                    .order {
+
+                        display: block;
+                        padding: 15px 0;
+                        text-align: center;
+                        margin-top: 30px;
+                    }
+
                 }
 
             }

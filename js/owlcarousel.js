@@ -30,11 +30,15 @@ $(document).ready(function () {
     });
 
     $("#quickviewSl").owlCarousel({
-        loop: false,
-        nav: false,
+        loop: true,
+        nav: true,
         margin: 20,
         items: 1,
-        dots: false
+        dots: false,
+        navText: [
+            `<i class="fas fa-chevron-left"></i>`,
+            `<i class="fas fa-chevron-right"></i>`
+        ],
     });
 
     // brand
@@ -220,6 +224,78 @@ var products = [{
     priceSale: '$',
     isbest: true,
 }]
+
+var listImgItem = [{
+        id: 1,
+        img: ['../img/product/20-copy-600x745.jpg', '../img/product/20_1-copy-600x745.jpg']
+    },
+    {
+        id: 2,
+        img: ['../img/product/3_1-600x745.jpg', '../img/product/2_4-copy-600x745.jpg']
+    },
+    {
+        id: 3,
+        img: ['../img/product/10_1-copy-600x745.jpg',
+            '../img/product/10_2-copy-600x745.jpg',
+            '../img/product/10_3-copy-700x870.jpg',
+            '../img/product/10_4-copy-700x870.jpg',
+            '../img/product/10_5-copy-700x870.jpg',
+        ]
+    },
+    {
+        id: 4,
+        img: ['../img/product/9-copy-600x745.jpg',
+            '../img/product/9_2-copy-1-600x745.jpg',
+        ]
+    },
+    {
+        id: 5,
+        img: ['../img/product/1_1-600x745.jpg', '../img/product/2_4-copy-600x745.jpg']
+    },
+    {
+        id: 6,
+        img: ['../img/product/8_1-copy-600x745.jpg', '../img/product/8_2-copy-600x745.jpg']
+    },
+    {
+        id: 7,
+        img: ['../img/product/17_1-copy-600x745.jpg', '../img/product/17-copy-600x745.jpg']
+    },
+    {
+        id: 8,
+        img: ['../img/product/11_1-copy-600x745.jpg']
+    }, {
+        id: 9,
+        img: ['../img/product/19_1-copy-600x745.jpg', '../img/product/19_2-copy-600x745.jpg']
+    },
+    {
+        id: 10,
+        img: ['../img/product/12-copy-600x745.jpg', '../img/product/12_2-copy-600x745.jpg']
+    },
+    {
+        id: 11,
+        img: ['../img/product/22_1-copy-600x745.jpg', '../img/product/21-copy-600x745.jpg']
+    },
+    {
+        id: 12,
+        img: ['../img/product/7_1-copy-600x745.jpg',
+            '../img/product/7-copy-600x745.jpg',
+            '../img/product/7_3-copy-700x870.jpg',
+        ]
+    },
+    {
+        id: 13,
+        img: ['../img/product/2_1-copy-600x745.jpg',
+            '../img/product/2_2-copy-700x870.jpg',
+            '../img/product/2_3-copy-600x745.jpg',
+            '../img/product/2_4-copy-600x745.jpg'
+        ],
+    },
+    {
+        id: 14,
+        img: ['../img/product/6_1-copy-600x745.jpg', '']
+    }
+]
+
 const blogs = [{
     id: "b1",
     img: '../img/banner/8-500x321.jpg',
@@ -241,6 +317,7 @@ const blogs = [{
     head: '7 ways to wear the shoulder blouse',
     des: 'Shorts, skirts, earrings, hats, … are one of the ways to wear a shoulder- length shirt that any girl can …'
 }]
+
 const bestSale = products.filter(val => val.isbest)
 
 // Function render a lot of things 
@@ -328,4 +405,8 @@ function getAllItemProduct() {
 
     return products
 
+}
+
+function getAllimg() {
+    return listImgItem
 }
