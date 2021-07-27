@@ -14,6 +14,9 @@
                 transform: translateY(-50%);
 
                 .container {
+                    @include media(lg) {
+                        width: 80%;
+                    }
 
                     .title-sale {
                         color: #444444;
@@ -29,6 +32,10 @@
                         font-size: 48px;
                         margin-top: 15px;
                         margin-bottom: 25px;
+
+                        @include media(lg) {
+                            font-size: 31px;
+                        }
                     }
 
                     .btn {
@@ -124,6 +131,11 @@
                     left: 40%;
                     transform: translate(-80%, -70%);
 
+                    @include media(lg) {
+                        top: 35%;
+                        left: 50%;
+                    }
+
                     h4 {
                         margin-bottom: 5px;
 
@@ -163,7 +175,11 @@
 
                         a:first-child {
 
-                            height: 420px;
+                            @include media(lg) {
+                                height: auto;
+                            }
+
+                            height: auto;
                             display: block;
                             z-index: 1;
 
@@ -312,6 +328,27 @@
 
                     }
                 }
+
+                .owl-nav {
+                    @include owlnav(0, 20px, 20px);
+
+                    button {
+                        cursor: pointer;
+
+                        &.owl-prev,
+                        &.owl-next {
+                            background: rgba($color-white, 0.8);
+                            color: $color-i;
+
+                            &:hover {
+                                color: $color-white;
+                                background: $color-primary;
+                            }
+                        }
+
+                    }
+
+                }
             }
         }
     }
@@ -343,9 +380,22 @@ section.banner {
     background-image: url('../img/banner/home8-bg-middle.jpg');
     background-position: top;
     background-repeat: no-repeat;
+    padding: 45px 0;
+
+    @include media(md) {
+        background-size: cover;
+    }
+
+    @include media(xl) {
+        padding: 45px 0;
+    }
 
     .container {
-        padding: 174px 0px;
+        padding: 45px 0;
+
+        @include media(md) {
+            background: rgba($color-white, 0.6);
+        }
 
         .element {
 
@@ -368,6 +418,10 @@ section.banner {
                 font-size: 48px;
                 line-height: 1.2em;
                 margin-bottom: 28px;
+
+                @include media(md) {
+                    font-size: 26px;
+                }
             }
 
             .markdown {
@@ -401,6 +455,8 @@ section.banner {
     .container {
 
         .element-container {
+            padding-left: 35px;
+            padding-right: 35px;
             max-width: 930px;
             margin: 0 auto;
             text-align: center;
@@ -440,12 +496,33 @@ section.serve {
 
     .container {
         .services {
+            justify-content: center;
+
             .service {
 
                 justify-content: center;
                 text-align: center;
 
+                @include media (md) {
+
+
+                    &:nth-child(2) {
+
+                        .content {
+                            border: none !important;
+
+                        }
+
+                    }
+
+                    &:last-child {
+                        border-top: 1px solid $color-border-grey;
+                    }
+                }
+
+
                 .content {
+                    @include media(md) {}
 
                     a {
                         img {
@@ -887,7 +964,7 @@ section.serve {
 
                     }
 
-                    &.close {
+                    &.removeCompareItem {
 
                         cursor: pointer;
                         font-size: 20px;

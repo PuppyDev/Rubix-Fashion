@@ -10,6 +10,7 @@ $(document).ready(function () {
     renderMiniCart(miniCart)
     changeStatus(miniCart.length)
     renderCart(miniCart)
+
     $(function () {
 
         // Scroll window
@@ -47,6 +48,7 @@ $(document).ready(function () {
         $(document).click(function (e) {
 
             const target = e.target
+            console.log(target);
             // when you click somewhere is not a minicart
             if ((target.classList.contains('cart') && target.classList.contains('active')) || target.classList.contains('close')) {
 
@@ -60,44 +62,20 @@ $(document).ready(function () {
                 $('.quickview').removeClass('active')
 
             }
-        })
 
-        // add ele from quickview
-        $(document).on('click', '.action .addcartitem', function (e) {
+            // cancel main-menu0mobile
+            if (target.classList.contains('close') || target.classList.contains('menu-mobile-overlay')) {
 
-            $('.quickview').removeClass('active')
-            const id = $(this).parents('.action').data('id')
+                $('.menu-mobile-overlay').removeClass('active')
 
-            const valueCurrent = +$('.InputAmountProduct').val()
-            const idxSame = miniCart.findIndex(val => val.id == id)
-            console.log(idxSame);
-
-            if (idxSame != -1) {
-
-                miniCart[idxSame].quantity = valueCurrent
-
-            } else {
-                const ele = {
-                    ...products.find(val => val.id == id),
-                    quantity: 1
-                }
-                ele.quantity = valueCurrent
-                miniCart.push(ele)
             }
 
-            renderMiniCart(miniCart)
-            changeStatus(miniCart.length)
-            $('.cart').addClass('active')
-            setLocal(miniCart, 'dataCart')
+        })
 
-        });
+        // toggle main-menu-mobile
+        $(document).on('click', '.bar .fa-bars', function (e) {
 
-        // viewDetails Quickview
-        $(document).on('click', '.action .detail', function (e) {
-
-            const id = $(this).parents('.product').data('id')
-            $('.quickview').addClass('active')
-            renderQuickView(id)
+            $('.menu-mobile-overlay').addClass('active')
 
         })
 
@@ -163,63 +141,88 @@ $(document).ready(function () {
         setLocal(miniCart, 'dataCart')
     }
 
-    function renderQuickView(id) {
-        const datas = products.find(val => val.id == id)
-        const listImg = getAllimg().find(val => val.id == id)
-        const owl = $('#quickviewSl')
-
-        for (let index = 0; index < 5; index++) {
-            owl.owlCarousel('remove', index).owlCarousel('update');
-
-        }
-
-        listImg.img.forEach(val => {
-            owl.trigger('add.owl.carousel', [`
-                <div class="item">
-                    <img src="${val}" alt="">
-                </div>
-            `]).trigger("refresh.owl.carousel")
-        });
-
-        $('.modal .content').html(`
-            <a href="#">${datas.name}</a>
-            <div class="star">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i> (1 customer review)
-            </div>
-            <p class="price">$${datas.price}</p>
-            <p class="des">
-                .Tailored line. Wool mix fabric. Long design. Long buttoned sleeve. Lapel with notch. Back slit.
-                Two pockets with flaps on the front. Button up. Inner lining. Inner pocket. Back length 95.0
-                cm.<br>
-                Summer tops for women<br>
-                Cheetah kimonos ,beach cover ups<br>
-                Lightweight chiffon casual shirts<br>
-                Open front outwear,short sleeve blouse.<br>
-            </p>
-            <div class="action d-flex a-center" data-id = ${datas.id}>
-                <div class="cotrol-item d-flex a-center"> 
-                    <a class ="dash-1" href=""><i class="bi bi-dash"></i></a>
-                    <input type="text"class="InputAmountProduct" value="1">
-                    <a class ="plus-1" href=""><i class="bi bi-plus"></i></a>
-                </div>
-                <button class="btn a-center d-flex addcartitem">
-                    <i class="bi bi-handbag"></i> Add To Card 
-                </button>
-            </div>
-            <div class="sku">
-                SKU:<br>
-                FUW237-1<br>
-                Categories: Accessories, Fashion, Mens<br>
-                Tag: teapot<br>
-            </div>
-        `)
-    }
 });
 
+// ====== Product Category ========
+$(document).ready(function () {
+
+    const viewAmount = 9;
+    renderBtn(products)
+    renderProductCate(products)
+
+    function renderProductCate(datas) {
+
+        const current = +$('.group-btn-products ul li a.active').html()
+        var start = (current - 1) * viewAmount
+        var end = start + viewAmount
+        $('#addproductsCate').empty()
+        const products = datas.slice(start, end).map(val => `
+            <div class="col-xl-4">
+                <div class="product" data-id=${val.id}>
+                    <div class="img">
+                        <a href="#">
+                            <img src="${val.img}" alt="">
+                            <img src="${val.img1}" alt="">
+                        </a>
+                        <button class="btn a-center d-flex j-between addcartitem" data-id=${val.id}>
+                            <i class="bi bi-handbag"></i> Add To Card
+                        </button>
+                        <ul class="action">
+                            <li class="wishlist"><i class="far fa-heart"></i><span>Add to
+                                    Wishlist</span>
+                            </li>
+                            <li class="compare"><i class="fas fa-sliders-h"></i><span>Compare</span>
+                            </li>
+                            <li class="detail"><i class="fas fa-eye"></i><span>View Details</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="content-pro">
+                        <h4>${val.name}</h4>
+                        <div class="price">
+                            $${val.price}
+                        </div>
+                    </div>
+                </div>
+            </div>`)
+        $('#addproductsCate').append(products)
+
+    }
+
+    // render group btn 
+    function renderBtn(datas) {
+
+        const btn = $('.group-btn-products')
+        const amount = Math.ceil(datas.length / viewAmount)
+        var html = ` `
+        for (let i = 1; i <= amount; i++) {
+
+            html += `<li>
+                <a href="#" class ="${i == 1 ? 'active' : ''}" data-id = ${i}> ${i}</a>
+            </li>`
+
+        }
+        btn.append(`
+            <ul class="d-flex a-center">${html}</ul>
+        `);
+    }
+
+    // when you click on a tag active 
+    $(document).on('click', '.group-btn-products ul li a', function (e) {
+
+        e.preventDefault();
+        const current = $('.group-btn-products ul li a.active')
+        const ele = $(this)
+
+        if (ele) {
+            current.removeClass('active')
+            ele.addClass('active')
+            renderProductCate(products)
+        }
+
+    });
+
+})
 
 /**Get , Set LocalStorage */
 function setLocal(datas, name) {
@@ -279,7 +282,7 @@ function renderCart(datas) {
             return (val.quantity * val.price) + acc
         }, 0)
     else {
-        $('.products-cart .container').html(`
+        $('.cart-list1 .container').html(`
             <h2 class="heading-cart">
                 Cart
             </h2>
@@ -291,7 +294,6 @@ function renderCart(datas) {
     $('.sub-totals .subtotal').html(`$${total}.00`)
     $('.total .total-product').html(`$${total}.00`)
 }
-
 
 //======Render miniCart=========
 // change status of minicart
@@ -428,6 +430,7 @@ $(document).on('click', '.comparelist .addcartitem', function (e) {
 
 /*=========wishlist========== */
 $(document).ready(function () {
+
     //whist list render when website load the first 
     renderWishList(wishList)
     $('.addWishlist .before').html(wishList.length)
@@ -448,6 +451,23 @@ $(document).ready(function () {
         }
 
     })
+
+    // add product to minicart 
+    $(document).on('click', '#addToWish .addcartitem', function (e) {
+
+        e.preventDefault()
+        const id = $(this).parents('.product-item').data('id')
+
+        addMiniCart(id)
+        renderMiniCart(miniCart)
+        setInterval(() => {
+            removeWishItem(id)
+            clearInterval()
+        }, 300);
+        $('.cart').addClass('active')
+
+    })
+
 
     // Remove item in wishlist
     $(document).on('click', '#addToWish .erase', function (e) {
@@ -474,37 +494,48 @@ $(document).ready(function () {
 
         const list = $('#addToWish')
         list.empty()
-        datas.map(val => {
-            const htmls = `
-                <tr class ="product-item" data-id="${val.id}">
-                    <td>
-                        <div class="erase">
-                            &times;
-                        </div>
-                    </td>
-                    <td>
-                        <div class="img">
-                            <img src="${val.img}" alt="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="heading-product">
-                            ${val.name}
-                        </div>
-                    </td>
-                    <td>
-                        $${val.price}
-                    </td>
-                    <td>
-                        In Stock
-                    </td>
-                    <td>
-                        <button class ="addcartitem" data-id="${val.id}">Add to card</button>
-                    </td>
-                </tr>  
-            `
-            list.append(htmls)
-        }, 0)
+        if (datas.length >= 1) {
+            datas.forEach(val => {
+                const htmls = `
+                        <tr class ="product-item" data-id="${val.id != null ? val.id : ''}">
+                            <td>
+                                <div class="erase">
+                                    &times;
+                                </div>
+                            </td>
+                            <td>
+                                <div class="img">
+                                    <img src="${val.img}" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="heading-product">
+                                    ${val.name}
+                                </div>
+                            </td>
+                            <td>
+                                $${val.price}
+                            </td>
+                            <td>
+                                In Stock
+                            </td>
+                            <td>
+                                <button class ="addcartitem" data-id="${val.id}">Add to card</button>
+                            </td>
+                        </tr>  
+                    `
+                list.append(htmls)
+            }, 0)
+        } else {
+
+            list.html(`
+                <h3 style="margin-top: 40px; font-size: 30px">
+                    Your wishlist don't have item 
+                    <a href="index.html" style ="text-decoration: underline"> COMEBACK</a>
+                </h3>
+            `)
+
+        }
 
     }
 
@@ -512,12 +543,88 @@ $(document).ready(function () {
 
 
 /*=======Compare List Product========*/
-$(document).ready(function () {
-    renderCompare()
+function renderCompare() {
+
+    $('.comparelist.content').empty()
+
+    // load defaul
+    $('.comparelist.content').append(`
+        <tr class="remove">
+            <td class ="odd"></td>
+        </tr>
+        <tr class="image">
+            <td class ="odd"></td>
+        </tr>
+        <tr class="title">
+            <td class ="odd">Title</td>
+        </tr>
+        <tr class="price">
+            <td class ="odd">Price</td>
+        </tr>
+        <tr class="add">
+            <td class ="odd">Add to cart</td>
+        </tr>
+        <tr class="description">
+            <td class ="odd">Description</td>
+        </tr>
+        <tr class="sku ">
+            <td class ="odd">Sku</td>
+        </tr>
+        <tr class="stock ">
+            <td class ="odd">Availability</td>
+        </tr>
+        <tr class="weight ">
+            <td class ="odd">Weight</td>
+        </tr>
+        <tr class="dimensions ">
+            <td class ="odd">Dimensions</td>
+        </tr>
+        <tr class="colors">
+            <td class ="odd">Color</td>
+        </tr>
+        <tr class="size ">
+            <td class ="odd">Size</td>
+        </tr>
+        
+    `)
+
+    dataCompare.map((val, index) => {
+
+        $(`<td class ="removeCompareItem ${index % 2 != 1 ? 'odd' : ''}" data-id="${val.id}"> &times;</td>`).appendTo(".comparelist.content .remove")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}"><img src="${val.img}"></td>`).appendTo(".comparelist.content .image")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">${val.name}</td>`).appendTo(".comparelist.content .title")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">$${val.price}</td>`).appendTo(".comparelist.content .price")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">
+            <a href="#" data-id="${val.id}" class="btn btn-primary addcartitem">Add to cart</a>
+            </td>`).appendTo(".comparelist.content .add")
+
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">Summer tops for women<br>
+                Cheetah kimonos ,beach cover ups<br>
+                Lightweight chiffon casual shirts<br>
+                Open front outwear,short sleeve blouse.
+            </td>`).appendTo(".comparelist.content .description")
+
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">FUW243-1</td>`).appendTo(".comparelist.content .sku")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">In stock</td>`).appendTo(".comparelist.content .stock")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">-</td>`).appendTo(".comparelist.content .weight")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">N/A</td>`).appendTo(".comparelist.content .dimensions")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">-</td>`).appendTo(".comparelist.content .colors")
+        $(`<td class ="${index % 2 != 1 ? 'odd' : ''}">-</td>`).appendTo(".comparelist.content .size")
+
+    })
+
     $('.action .compare').on('click', function (e) {
 
+    })
+}
+
+$(document).ready(function () {
+    renderCompare()
+
+    $(document).on('click', '.action .compare', function (e) {
+
         e.preventDefault()
-        const id = $(this).parents('.product').data('id')
+        const id = $('.action .compare').parents('.product').data('id')
 
         const idxSame = dataCompare.findIndex(val => val.id == id)
         // have ID 
@@ -539,14 +646,14 @@ $(document).ready(function () {
 
     })
 
-    $('.compare-product-box .close').on('click', function (e) {
+    $(document).on('click', '.compare-product-box .close', function (e) {
 
         $(this).parents('.compare-product').removeClass('active')
 
     })
 
     // remove item 
-    $(document).on('click', '.remove .close', function (e) {
+    $(document).on('click', '.remove .removeCompareItem', function (e) {
 
         const id = $(this).data('id')
         const index = dataCompare.findIndex(val => val.id == id)
@@ -566,80 +673,105 @@ $(document).ready(function () {
         setLocal(dataCompare, 'datasCompare')
 
     })
-
-    function renderCompare() {
-
-        $('.comparelist.content').empty()
-
-        // load defaul
-        $('.comparelist.content').append(`
-            <tr class="remove">
-                <td></td>
-            </tr>
-            <tr class="image">
-                <td></td>
-            </tr>
-            <tr class="title">
-                <td>Title</td>
-            </tr>
-            <tr class="price">
-                <td>Price</td>
-            </tr>
-            <tr class="add">
-                <td>Add to cart</td>
-            </tr>
-            <tr class="description">
-                <td>Description</td>
-            </tr>
-            <tr class="sku ">
-                <td>Sku</td>
-            </tr>
-            <tr class="stock ">
-                <td>Availability</td>
-            </tr>
-            <tr class="weight ">
-                <td>Weight</td>
-            </tr>
-            <tr class="dimensions ">
-                <td>Dimensions</td>
-            </tr>
-            <tr class="colors">
-                <td>Color</td>
-            </tr>
-            <tr class="size ">
-                <td>Size</td>
-            </tr>
-            
-        `)
-
-        dataCompare.map(val => {
-
-            $(`<td class ="close" data-id="${val.id}"> &times;</td>`).appendTo(".comparelist.content .remove")
-            $(`<td><img src="${val.img}"></td>`).appendTo(".comparelist.content .image")
-            $(`<td>${val.name}</td>`).appendTo(".comparelist.content .title")
-            $(`<td>$${val.price}</td>`).appendTo(".comparelist.content .price")
-            $(`<td>
-                <a href="#" data-id="${val.id}" class="btn btn-primary addcartitem">Add to cart</a>
-                </td>`).appendTo(".comparelist.content .add")
-
-            $(`<td>Summer tops for women<br>
-                    Cheetah kimonos ,beach cover ups<br>
-                    Lightweight chiffon casual shirts<br>
-                    Open front outwear,short sleeve blouse.
-                </td>`).appendTo(".comparelist.content .description")
-
-            $(`<td>FUW243-1</td>`).appendTo(".comparelist.content .sku")
-            $(`<td>In stock</td>`).appendTo(".comparelist.content .stock")
-            $(`<td>-</td>`).appendTo(".comparelist.content .weight")
-            $(`<td>N/A</td>`).appendTo(".comparelist.content .dimensions")
-            $(`<td>-</td>`).appendTo(".comparelist.content .colors")
-            $(`<td>-</td>`).appendTo(".comparelist.content .size")
-
-        })
-
-    }
 })
 
+/**======Quick View */
+$(document).ready(function () {
+    // add ele from quickview
+    $(document).on('click', '.action .addcartitem', function (e) {
+
+        $('.quickview').removeClass('active')
+        const id = $(this).parents('.action').data('id')
+
+        const valueCurrent = +$('.InputAmountProduct').val()
+        const idxSame = miniCart.findIndex(val => val.id == id)
+
+        if (idxSame != -1) {
+
+            miniCart[idxSame].quantity = valueCurrent
+
+        } else {
+            const ele = {
+                ...products.find(val => val.id == id),
+                quantity: 1
+            }
+            ele.quantity = valueCurrent
+            miniCart.push(ele)
+        }
+
+        renderMiniCart(miniCart)
+        changeStatus(miniCart.length)
+        $('.cart').addClass('active')
+        setLocal(miniCart, 'dataCart')
+
+    });
+
+    // viewDetails Quickview
+    $(document).on('click', '.action .detail', function (e) {
+
+        console.log(2);
+        const id = $(this).parents('.product').data('id')
+        $('.quickview').addClass('active')
+        renderQuickView(id)
+
+    })
+
+    function renderQuickView(id) {
+        const datas = products.find(val => val.id == id)
+        const listImg = getAllimg().find(val => val.id == id)
+        const owl = $('#quickviewSl')
+        console.log(owl);
+        // for (let index = 0; index < 5; index++) {
+        //     owl.owlCarousel('remove', index).owlCarousel('update');
+
+        // }
+
+        listImg.img.forEach(val => {
+            owl.trigger('add.owl.carousel', [`
+                <div class="item">
+                    <img src="${val}" alt="">
+                </div>
+            `]).trigger("refresh.owl.carousel")
+        });
+
+        $('.modal .content').html(`
+            <a href="#">${datas.name}</a>
+            <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i> (1 customer review)
+            </div>
+            <p class="price">$${datas.price}</p>
+            <p class="des">
+                .Tailored line. Wool mix fabric. Long design. Long buttoned sleeve. Lapel with notch. Back slit.
+                Two pockets with flaps on the front. Button up. Inner lining. Inner pocket. Back length 95.0
+                cm.<br>
+                Summer tops for women<br>
+                Cheetah kimonos ,beach cover ups<br>
+                Lightweight chiffon casual shirts<br>
+                Open front outwear,short sleeve blouse.<br>
+            </p>
+            <div class="action d-flex a-center" data-id = ${datas.id}>
+                <div class="cotrol-item d-flex a-center"> 
+                    <a class ="dash-1" href=""><i class="bi bi-dash"></i></a>
+                    <input type="text"class="InputAmountProduct" value="1">
+                    <a class ="plus-1" href=""><i class="bi bi-plus"></i></a>
+                </div>
+                <button class="btn a-center d-flex addcartitem">
+                    <i class="bi bi-handbag"></i> Add To Card 
+                </button>
+            </div>
+            <div class="sku">
+                SKU:<br>
+                FUW237-1<br>
+                Categories: Accessories, Fashion, Mens<br>
+                Tag: teapot<br>
+            </div>
+        `)
+    }
+})
 
 //======Render Checkout============
 renderCheckOut(miniCart)
@@ -656,7 +788,6 @@ function renderCheckOut(datas = []) {
                 <td>${val.price}</td>
             </tr>
         `)
-        console.log(val.quantity);
         return acc + (val.quantity * +val.price)
     }, 0)
 

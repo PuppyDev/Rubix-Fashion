@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Rubix</title>
+    <title>Products - Rubix</title>
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="16x16">
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="192x192">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../scss/cart.css">
+    <link rel="stylesheet" href="../scss/products.css">
 </head>
 
 <body>
@@ -169,7 +169,11 @@
                     <div class="mini-menu">
                         <ul class="d-flex a-center j-between">
                             <li class="item addWishlist">
-                                <a href="#"><i class="bi bi-heart"></i></a>
+                                <a href="wishlist.html"><i class="bi bi-heart"></i></a>
+                                <span class="before">0</span>
+                            </li>
+                            <li class="item cart-item">
+                                <a href="#"><i class="bi bi-handbag"></i></a>
                                 <span class="before">0</span>
                             </li>
                             <li id="search"><a href="#"><i class="bi bi-search"></i></a></li>
@@ -201,77 +205,177 @@
         </div>
     </div>
 
+    <div class="cart">
+        <div class="products-cart">
+            <h4 class="d-flex j-between a-center">
+                Your Cart
+            </h4>
+            <span class="close">
+                &times;
+            </span>
+
+            <div class="mini-cart a-center j-between">
+
+                <div class="mini-cart-list">
+                    <ul id="mini-cart-product">
+
+                    </ul>
+                </div>
+
+                <div class="mini-cart-bottom">
+
+                    <div class="total d-flex a-center j-between">
+
+                        <strong>
+                            Subtotal:
+                        </strong>
+
+                        <div class="sub-total">
+                            $600.00
+                        </div>
+
+                    </div>
+
+                    <div class="group-btn">
+
+                        <a href="cart.html" class="btn btn-primary viewCart">
+
+                            View Cart
+
+                        </a>
+                        <a href="checkout.html" class="btn btn-primary bill">
+
+                            Checkout
+
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="no-product">
+                No products in the cart.
+            </div>
+
+        </div>
+    </div>
+
     <nav class="navigation">
         <div class="title-nav">
             <div class="container">
-                <p class="description-nav">
-                    <a href="index.html">Home</a> / <span>Cart</span>
-                </p>
+                <h3>Fashion</h3>
+                <div class="description-nav">
+                    <a href="index.html">Home</a> / <span>Products</span>
+                </div>
             </div>
         </div>
 
-        <div class="products-cart cart-list1 p-80">
+
+        <div class="production p-80">
 
             <div class="container">
+                <div class="row structer">
 
-                <h2 class="heading-cart">
-                    Cart
-                </h2>
+                    <div class="left control-filter col-xl-3">
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="addToCard">
+                        <div class="product-category">
 
-                    </tbody>
-                </table>
+                            <h3 class="heading">
+                                Product Categories
+                            </h3>
+                            <p>Fashion</p>
+                            <ul class="list-option">
+                                <li> <input type="radio" name="checkone"> <label for=""> Accessories</label></li>
+                                <li> <input type="radio" name="checkone"> <label for=""> Backpack</label></li>
+                                <li> <input type="radio" name="checkone"> <label for=""> Mens</label></li>
+                                <li> <input type="radio" name="checkone"> <label for=""> Shoes</label></li>
+                                <li> <input type="radio" name="checkone"> <label for=""> Womens</label></li>
+                            </ul>
+                        </div>
 
-                <div class="coupon d-flex a-center j-between">
-                    <div class="coupon-input d-flex a-center">
-                        <input type="text" placeholder="Coupon Code">
-                        <a href="#" class="btn btn-primary">
-                            Apply Coupon
-                        </a>
-                    </div>
-                    <a href="#" class="btn btn-primary update">
-                        Update Cart
-                    </a>
-                </div>
+                        <!-- <div class="price-filter">
+                            <h3 class="heading">
+                                Price
+                            </h3>
+                        </div>
 
-                <div class="cart_totals">
-                    <div class="heading">
-                        Cart Totals
+                        <div class="feature-product">
+                            <h3 class="heading">
+                                Featured Products
+                            </h3>
+                        </div> -->
+
                     </div>
 
-                    <div class="sub-totals d-flex a-center j-between">
-                        <span>Subtotal</span>
-                        <span class="subtotal">$157.00</span>
-                    </div>
+                    <div class="right col-xl-9">
+                        <div class="row control-title a-center">
+                            <div class="col-xl-4 left-col">Showing 1–12 of 19 results</div>
+                            <div class="col-xl-4 middle-col">Views: </div>
+                            <div class="col-xl-4 right-col">
+                                <select name="" id="">
+                                    <option value="">Defaul Sorting</option>
+                                    <option value="">Defaul Sorting</option>
+                                    <option value="">Defaul Sorting</option>
+                                    <option value="">Defaul Sorting</option>
+                                    <option value="">Defaul Sorting</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="products row" id="addproductsCate">
 
-                    <div class="total d-flex a-center j-between">
-                        <span> Total </span>
-                        <span class="total-product">$157.00</span>
-                    </div>
 
-                    <div class="checkout">
-                        <a href="checkout.html" class="btn btn-primary">Proceed To Checkout <i
-                                class="bi bi-chevron-right"></i></a>
+                        </div>
+                        <div class="group-btn-products">
+                        </div>
                     </div>
                 </div>
 
             </div>
-
         </div>
 
     </nav>
+
+    <div class="quickview d-flex a-center">
+        <div class="modal d-flex">
+            <div class="img item-modal">
+                <div class="owl-carousel owl-theme" id="quickviewSl">
+
+                </div>
+
+                <a href="#" class="btn btn-primary viewDetails">
+                    View Details
+                </a>
+
+            </div>
+            <div class="content item-modal">
+
+            </div>
+            <div class="close">
+                &times;
+            </div>
+        </div>
+    </div>
+
+    <div class="compare-product">
+
+        <div class="compare-product-box">
+
+            <div class="top">
+                <p class="heading">
+                    Compare Products
+                </p>
+            </div>
+
+            <table class="comparelist content">
+
+            </table>
+
+            <div class="close">
+                &times;
+            </div>
+        </div>
+    </div>
 
     <footer id="footer">
         <div class="top p-80">

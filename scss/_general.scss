@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
+@import 'media';
 
 * {
     font-family: "Red Hat Display", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
@@ -22,6 +23,13 @@
     width: 95%;
     max-width: 1411px;
     margin: 0 auto;
+
+    @include media(lg) {
+
+        max-width: 90% !important;
+
+    }
+
 }
 
 .container-element {
@@ -63,6 +71,9 @@ html {
 
     &::before,
     &::after {
+        @include media(md) {
+            content: none;
+        }
 
         width: 100%;
         height: 100%;

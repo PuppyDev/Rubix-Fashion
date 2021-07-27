@@ -16,15 +16,23 @@ $(document).ready(function () {
     // This is slider list products
     $(".listproduct").owlCarousel({
         loop: true,
-        nav: false,
         margin: 20,
+        nav: false,
+        dots: false,
         responsive: {
-
-            600: {
+            0: {
                 items: 2,
             },
-            1000: {
+            600: {
+                items: 3,
+            },
+            992: {
+                items: 3,
+                nav: true
+            },
+            1200: {
                 items: 4,
+                nav: false,
             },
         },
     });
@@ -44,26 +52,28 @@ $(document).ready(function () {
     // brand
     $("#brand").owlCarousel({
         loop: true,
-        margin: 100,
-        nav: true,
+
         nav: false,
+        dots: false,
         autoplay: true,
         autoplayTimeout: 5000,
         responsive: {
             0: {
-                items: 2
+                items: 2,
+                margin: 70
             },
             630: {
                 items: 3,
             },
             765: {
-                items: 4
+                items: 4,
             },
             992: {
                 items: 5
             },
             1200: {
                 items: 6,
+                margin: 100
             },
         },
 
@@ -81,10 +91,10 @@ $(document).ready(function () {
             `<i class="fas fa-chevron-right"></i>`
         ],
         responsive: {
-            600: {
+            0: {
                 items: 2,
             },
-            1000: {
+            996: {
                 items: 3,
             },
         },
@@ -254,7 +264,10 @@ var listImgItem = [{
     },
     {
         id: 6,
-        img: ['../img/product/8_1-copy-600x745.jpg', '../img/product/8_2-copy-600x745.jpg']
+        img: ['../img/product/8_1-copy-600x745.jpg',
+            '../img/product/8_2-copy-600x745.jpg',
+            '../img/product/8_3-copy-700x870.jpg'
+        ]
     },
     {
         id: 7,
