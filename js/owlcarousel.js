@@ -11,6 +11,8 @@ $(document).ready(function () {
             `<i class="fas fa-chevron-left"></i>`,
             `<i class="fas fa-chevron-right"></i>`
         ],
+        animateIn: "fadeIn",
+        animateOut: "fadeOut"
     });
 
     // This is slider list products
@@ -23,7 +25,7 @@ $(document).ready(function () {
             0: {
                 items: 2,
             },
-            600: {
+            640: {
                 items: 3,
             },
             992: {
@@ -52,21 +54,26 @@ $(document).ready(function () {
     // brand
     $("#brand").owlCarousel({
         loop: true,
-
+        margin: 70,
         nav: false,
         dots: false,
         autoplay: true,
         autoplayTimeout: 5000,
         responsive: {
             0: {
+                margin: 20
+            },
+            500: {
                 items: 2,
-                margin: 70
+                margin: 150
             },
             630: {
                 items: 3,
+                margin: 70
             },
             765: {
                 items: 4,
+
             },
             992: {
                 items: 5
@@ -82,7 +89,7 @@ $(document).ready(function () {
     // this is list blog
     $("#blog").owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 30,
         nav: true,
         items: 3,
         dots: false,
@@ -92,9 +99,14 @@ $(document).ready(function () {
         ],
         responsive: {
             0: {
-                items: 2,
+                margin: 20,
+                items: 1,
             },
-            996: {
+            576: {
+                items: 2,
+                margin: 30
+            },
+            992: {
                 items: 3,
             },
         },
@@ -104,7 +116,15 @@ $(document).ready(function () {
     renderOwl(products, $('#products1'))
     renderOwl(bestSale, $('#products2'))
     renderOwlBlog(blogs, $('#blog'))
+
+    // render main slider 
+    checkWidth()
+    $(window).resize(function () {
+        checkWidth()
+    });
+
 })
+
 
 // Declare valiable of products or blogs post
 var products = [{
@@ -346,14 +366,19 @@ function renderOwl(datas, owl) {
                                 <img src="${val.img}" alt="">
                                 <img src="${val.img1}" alt="">
                             </a>
-                            <button class="btn a-center d-flex j-between addcartitem" data-id = ${val.id} >
+                            <button class="btn a-center d-flex j-between addcartitem">
                                 <i class="bi bi-handbag"></i> Add To Card 
                             </button>
-                            <ul class="action">
+                            <ul class="action action1">
                                 <li class="wishlist"><i class="far fa-heart"></i><span>Add to Wishlist</span>
                                 </li>
                                 <li class="compare"><i class="fas fa-sliders-h"></i> <span>Compare</span> </li>
                                 <li class="detail"><i class="fas fa-eye"></i><span>View Details</span></li>
+                            </ul>
+                            <ul class="action action2">
+                                <li class="wishlist"><i class="far fa-heart"></i><span></span>
+                                </li>
+                                <li class="addcartitem2"><i class="bi bi-handbag"></i></li>
                             </ul>
                         </div>
 
@@ -371,13 +396,18 @@ function renderOwl(datas, owl) {
                                 <img src="${datas[index + 1].img}" alt="">
                                 <img src="${datas[index + 1].img1}" alt="">
                             </a>
-                            <button class="btn a-center d-flex j-between addcartitem" data-id = ${datas[index + 1].id} >
+                            <button class="btn a-center d-flex j-between addcartitem" >
                                 <i class="bi bi-handbag"></i> Add To Card
                             </button>
-                            <ul class="action">
+                            <ul class="action action1">
                                 <li class="wishlist"><i class="far fa-heart"></i><span> Add to Wishlist</span></li>
                                 <li class="compare"><i class="fas fa-sliders-h"></i> <span>Compare</span> </li>
                                 <li class="detail"><i class="fas fa-eye"></i><span>View Details</span></li>
+                            </ul>
+                            <ul class="action action2">
+                                <li class="wishlist"><i class="far fa-heart"></i>
+                                </li>
+                                <li class="addcartitem2"><i class="bi bi-handbag"></i></li>
                             </ul>
                         </div>
 
@@ -412,6 +442,76 @@ function renderOwlBlog(datas, owl) {
             </div>
         `]).trigger("refresh.owl.carousel")
     })
+}
+
+function renderMainSlider(datas, owl) {
+
+    for (let index = 0; index < 5; index++) {
+        owl.owlCarousel('remove', index).owlCarousel('update');
+
+    }
+    datas.map((val) => {
+        owl.trigger('add.owl.carousel', [`
+            <div class="item">
+                <img src="${val.img}" alt="">
+                <div class="content">
+                    <div class="container">
+                        <p class="title-sale">
+                            Quick parcel delivery, <span>from $25</span>
+                        </p>
+                        <h2>
+                            ${val.content}
+                        </h2>
+                        <a href="#" class="btn btn-primary">Start Shopping</a>
+                    </div>
+                </div>
+            </div>
+        `]).trigger("refresh.owl.carousel")
+    })
+
+}
+
+function checkWidth() {
+
+    if ($(window).width() > 768) {
+
+        const datas = [{
+            id: 1,
+            img: `../img/slider/slider81.jpg`,
+            content: `Everyone's Talking About <br> Collection AW 2020`
+        }, {
+            id: 2,
+            img: `../img/slider/slider82.jpg`,
+            content: `Cover Up! Spring is coming <br>
+            Extra 40% off now`
+        }, {
+            id: 3,
+            img: `../img/slider/slider83.jpg`,
+            content: `New Season Women's Fashion <br>
+            Up to 70% off now!`
+        }]
+        renderMainSlider(datas, $('#main-slider'))
+
+    } else {
+
+        const datas = [{
+            id: 1,
+            img: `../img/slider/slider81_mb.jpg`,
+            content: `Everyone's Talking About <br> Collection AW 2020`
+        }, {
+            id: 2,
+            img: `../img/slider/home8-slide-mobile-2.jpg`,
+            content: `Cover Up! Spring is coming <br>
+            Extra 40% off now`
+        }, {
+            id: 3,
+            img: `../img/slider/home8-slide-mobile-1.jpg`,
+            content: `New Season Women's Fashion <br>
+            Up to 70% off now!`
+        }]
+        renderMainSlider(datas, $('#main-slider'))
+
+    }
 }
 
 function getAllItemProduct() {

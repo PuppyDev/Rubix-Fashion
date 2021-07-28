@@ -26,6 +26,19 @@
                         span {
                             color: $color-primary;
                         }
+
+                        @include media(md) {
+                            font-size: 12px;
+                        }
+
+                        @include media(sm) {
+                            font-size: 14px;
+                        }
+
+                        @include media(xs) {
+                            font-size: 10px;
+                        }
+
                     }
 
                     h2 {
@@ -33,8 +46,21 @@
                         margin-top: 15px;
                         margin-bottom: 25px;
 
+
                         @include media(lg) {
                             font-size: 31px;
+                        }
+
+                        @include media(md) {
+                            font-size: 28px;
+                        }
+
+                        @include media(sm) {
+                            font-size: 26px;
+                        }
+
+                        @include media(xs) {
+                            font-size: 20px;
                         }
                     }
 
@@ -42,6 +68,24 @@
                         padding: 9px 30px 11px;
                         border-radius: 4px;
                         line-height: 32px;
+
+
+                        @include media(lg) {
+                            font-size: 16px
+                        }
+
+                        @include media(md) {
+                            font-size: 12px;
+                        }
+
+                        @include media(sm) {
+                            font-size: 14px;
+                        }
+
+                        @include media(xs) {
+                            font-size: 10px;
+                            padding: 5px 10px;
+                        }
                     }
 
                 }
@@ -83,6 +127,11 @@
                     background: $color-primary;
                     width: 12px;
                     height: 12px;
+
+                    @include media (xs) {
+                        width: 5px;
+                        height: 5px;
+                    }
                 }
 
                 &:hover {
@@ -118,8 +167,39 @@
         .banners {
             margin-bottom: 80px;
 
+
             .banner {
-                position: relative;
+                @include media(md) {
+
+                    &:last-child {
+                        text-align: right;
+
+                        .content-banner {
+                            background: rgb(240, 240, 240);
+
+                            .content {
+                                text-align: left;
+                            }
+                        }
+
+                        img {
+                            width: auto;
+                        }
+                    }
+
+                }
+
+                @include media(xs) {
+
+                    img {
+                        width: 100% !important;
+                    }
+
+                }
+
+                .content-banner {
+                    position: relative;
+                }
 
                 img {
                     width: 100%;
@@ -127,14 +207,8 @@
 
                 .content {
                     position: absolute;
-                    top: 30%;
-                    left: 40%;
-                    transform: translate(-80%, -70%);
-
-                    @include media(lg) {
-                        top: 35%;
-                        left: 50%;
-                    }
+                    top: 20%;
+                    left: 9%;
 
                     h4 {
                         margin-bottom: 5px;
@@ -164,6 +238,7 @@
 
             .products {
                 .product {
+
                     margin-top: 20px;
                     position: relative;
                     overflow: hidden;
@@ -230,8 +305,6 @@
 
                         .action {
                             position: absolute;
-                            top: 10px;
-                            right: 10px;
 
                             li {
                                 position: relative;
@@ -244,10 +317,23 @@
                                 margin: 10px 4px;
                                 cursor: pointer;
                                 z-index: 3;
-                                transform: translateX(60px);
                                 transition: 0.5s;
                                 border-radius: 5px;
                                 color: $color-grey;
+
+                                &:hover {
+                                    background: $color-primary;
+                                    color: $color-white;
+                                }
+                            }
+                        }
+
+                        .action1 {
+                            top: 10px;
+                            right: 10px;
+
+                            li {
+                                transform: translateX(60px);
 
                                 span {
                                     position: absolute;
@@ -278,8 +364,6 @@
                                 }
 
                                 &:hover {
-                                    background: $color-primary;
-                                    color: $color-white;
 
                                     span {
                                         transform: translateY(-50%) translateX(0%);
@@ -289,6 +373,30 @@
                             }
                         }
 
+                        .action2 {
+                            display: none;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            z-index: 3;
+                        }
+
+                        @include media(lg) {
+
+                            button.btn {
+                                display: none;
+                            }
+
+                            .action1 {
+
+                                display: none;
+
+                            }
+
+                            .action2 {
+                                display: flex;
+                            }
+                        }
                     }
 
                     &:hover {
@@ -372,6 +480,10 @@
         }
 
         margin-bottom: 50px;
+
+        @include media(xs) {
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -466,7 +578,13 @@ section.banner {
             h2 {
                 color: black;
                 font-size: 32px;
+                margin-bottom: 10px;
+
+                @include media(xs) {
+                    font-size: 30px;
+                }
             }
+
 
             .sub {
                 max-width: 690px;
@@ -486,6 +604,22 @@ section.banner {
                     margin-left: 10px;
                     padding: 12px 30px;
                 }
+
+                @include media(xs) {
+                    flex-wrap: wrap;
+
+                    input {
+                        width: 100%;
+
+                    }
+
+                    .btn {
+                        margin-top: 20px;
+                        margin-left: 0px;
+                        width: 100%;
+                    }
+
+                }
             }
         }
     }
@@ -493,6 +627,10 @@ section.banner {
 
 section.serve {
     background: $color-bg-2;
+
+    @include media(xs) {
+        padding: 40px 0;
+    }
 
     .container {
         .services {
@@ -502,6 +640,7 @@ section.serve {
 
                 justify-content: center;
                 text-align: center;
+
 
                 @include media (md) {
 
@@ -518,6 +657,36 @@ section.serve {
                     &:last-child {
                         border-top: 1px solid $color-border-grey;
                     }
+
+                    .btn {
+                        display: none;
+                    }
+                }
+
+                @include media (xs) {
+
+                    .content {
+                        border: none !important;
+                        display: flex;
+                        text-align: left;
+                        align-items: center;
+                        padding: 20px 0px;
+
+                        .des {
+
+                            margin-left: 20px;
+
+                        }
+                    }
+
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $color-border-grey;
+
+                        .content {}
+                    }
+
+
                 }
 
 
@@ -674,6 +843,9 @@ section.serve {
 
         }
 
+        .title {
+            margin-bottom: 30px;
+        }
     }
 
 }

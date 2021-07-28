@@ -73,6 +73,13 @@
 
         <div class="main-header">
             <div class="container d-flex a-center j-between">
+
+                <div class="bar-mobile">
+                    <div class="bar">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+
                 <a href="index.html" class="logo">
                     <img src="../img/logo/logo_x2.png" alt="">
                 </a>
@@ -162,14 +169,14 @@
                 <div class="menu d-flex a-center">
 
                     <div class="login-regis d-flex j-between a-center">
-                        <a href="#"><i class="fas fa-user"></i>Login</a> /
+                        <a class="d-flex a-center" href="#"><i class="fas fa-user"></i>Login</a> /
                         <a href="#">Register</a>
                     </div>
 
                     <div class="mini-menu">
                         <ul class="d-flex a-center j-between">
                             <li class="item addWishlist">
-                                <a href="wishlist.html"><i class="bi bi-heart"></i></a>
+                                <a href="./wishlist.html"><i class="bi bi-heart"></i></a>
                                 <span class="before">0</span>
                             </li>
                             <li class="item cart-item">
@@ -204,6 +211,154 @@
             &times;
         </div>
     </div>
+
+    <div class="menu-mobile-overlay ">
+        <div class="content-menu">
+            <div class="close">
+                &times;
+            </div>
+            <div class="searching">
+                <h3 class="searching-title">
+                    Search
+                </h3>
+
+                <div class="suggets">
+                    <ul>
+                        <li>
+                            All categories
+                        </li>
+                        <li>
+                            Furniture
+                        </li>
+                        <li>
+                            Chairs
+                        </li>
+                        <li>
+                            Construction
+                        </li>
+                        <li>
+                            Decoration
+                        </li>
+                        <li>
+                            Education
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="search d-flex a-center">
+                    <input type="text" placeholder="Search Product...">
+                    <i class="bi bi-search"></i>
+                </div>
+            </div>
+
+            <nav class="main-menu-mobile">
+                <ul class="nav-level-1">
+                    <li>
+                        <a class="d-flex a-center j-between" href="#"> Home </a>
+                        <ul class="menu-level2">
+                            <li><a href="#">Furniture</a></li>
+                            <li><a href="#">Fashion – Jewelry</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="d-flex a-center j-between" href="products.html"> Shop </a>
+                        <ul class="menu-level2">
+                            <li>
+                                <a href="#">Shop Layout</a>
+                                <ul class="menu-level-3">
+                                    <li><a href="#">Full Width</a></li>
+                                    <li><a href="#">Grid View</a></li>
+                                    <li><a href="#">List View</a></li>
+                                    <li><a href="#">Left Sidebar</a></li>
+                                    <li><a href="#">Sidebar Right</a></li>
+                                    <li><a href="#">Wishlist</a></li>
+                                    <li><a href="#">Checkout</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Product Layout</a>
+                                <ul class="menu-level-3">
+                                    <li><a href="#">Big Image Scroll</a></li>
+                                    <li><a href="#">Product Carousel</a></li>
+                                    <li><a href="#">Product Grid</a></li>
+                                    <li><a href="#">Vertical Right </a></li>
+                                    <li><a href="#">Vertical Left</a></li>
+                                    <li><a href="#">Horizontal Layout</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Product Type</a>
+                                <ul class="menu-level-3">
+                                    <li><a href="#">Simple Product</a></li>
+                                    <li><a href="#">Variables Product</a></li>
+                                    <li><a href="#">Group Product</a></li>
+                                    <li><a href="#">Special Product</a></li>
+                                    <li><a href="#">Furniture</a></li>
+                                    <li><a href="#">Decoration</a></li>
+                                    <li><a href="#">Chairs</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Product Categories</a>
+                                <ul class="menu-level-3">
+                                    <li><a href="#">Furniture</a></li>
+                                    <li><a href="#">Jewelly</a></li>
+                                    <li><a href="#">Fashion</a></li>
+                                    <li><a href="#">Chairs</a></li>
+                                    <li><a href="#">Lighting Lamp</a></li>
+                                    <li><a href="#">Sofas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="d-flex a-center j-between" href="#"> Page </a>
+
+                        <ul class="menu-level2">
+                            <li>About Us</li>
+                            <li>Contact</li>
+                            <li>Wishlist</li>
+                            <li>My Account</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="d-flex a-center j-between" href="#"> Blog </a>
+
+                        <ul class="menu-level2">
+                            <li>Big Image</li>
+                            <li>Grid Layout</li>
+                            <li>Left Sidebar</li>
+                            <li>Right Sidebar</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> Contact </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <ul class="side-sticky-icons d-flex a-center">
+        <li><a href="#"><i class="bi bi-house"></i> Home</a></li>
+        <li class="addWishlist">
+            <a href="wishlist.html">
+                <i class="bi bi-heart"></i> Wishlist
+            </a>
+            <span class="before">0</span>
+        </li>
+        <li>
+            <div class="bar">
+                <i class="fas fa-bars"></i> Menu
+            </div>
+        </li>
+        <li><a href="#"><i class="far fa-user"></i> Account</a></li>
+        <li class="cart-item">
+            <a href="#"><i class="bi bi-handbag"></i>Cart</a>
+            <span class="before">0</span>
+        </li>
+    </ul>
 
     <div class="cart">
         <div class="products-cart">
@@ -293,32 +448,17 @@
                                 <li> <input type="radio" name="checkone"> <label for=""> Womens</label></li>
                             </ul>
                         </div>
-
-                        <!-- <div class="price-filter">
-                            <h3 class="heading">
-                                Price
-                            </h3>
-                        </div>
-
-                        <div class="feature-product">
-                            <h3 class="heading">
-                                Featured Products
-                            </h3>
-                        </div> -->
-
                     </div>
 
-                    <div class="right col-xl-9">
+                    <div class="right col-lg-12 col-xl-9">
                         <div class="row control-title a-center">
                             <div class="col-xl-4 left-col">Showing 1–12 of 19 results</div>
                             <div class="col-xl-4 middle-col">Views: </div>
                             <div class="col-xl-4 right-col">
                                 <select name="" id="">
-                                    <option value="">Defaul Sorting</option>
-                                    <option value="">Defaul Sorting</option>
-                                    <option value="">Defaul Sorting</option>
-                                    <option value="">Defaul Sorting</option>
-                                    <option value="">Defaul Sorting</option>
+                                    <option value="all">Defaul Sorting</option>
+                                    <option value="low">Sort by price: low to high</option>
+                                    <option value="high">Sort by price: high to low</option>
                                 </select>
                             </div>
                         </div>

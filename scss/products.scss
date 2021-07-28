@@ -7,6 +7,9 @@
         background: none;
         background-image: url('../img/banner/women-1.jpg');
         padding: 135px 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
 
         .container {
 
@@ -31,6 +34,12 @@
             .structer {
 
                 .left.control-filter {
+
+                    @include media(lg) {
+
+                        display: none;
+
+                    }
 
                     .product-category {
                         .heading {
@@ -59,31 +68,74 @@
                         }
                     }
 
-
                 }
 
 
                 .right {
 
                     .control-title {
-                        .left-col {}
+
+                        @include media (lg) {
+
+                            justify-content: space-between;
+                            margin-bottom: 40px;
+                            flex-wrap: nowrap;
+
+                        }
+
+                        @include media (xs) {
+
+                            justify-content: center;
+
+                        }
+
+                        .left-col {
+
+                            @include media (lg) {
+
+                                display: none;
+                            }
+
+                        }
 
                         .middle-col {
                             text-align: center;
+
+                            @include media (xs) {
+                                display: none;
+                            }
                         }
 
                         .right-col {
                             text-align: right;
 
+                            @include media (lg) {
+
+                                max-width: 400px;
+                                width: 90%;
+                            }
+
                             select {
                                 width: 70%;
                                 padding: 12px;
+                                outline: none;
+                                border: 1px solid #e5e5e5;
+                                text-transform: capitalize;
+                                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .1);
+                                font-size: 16px;
+
+                                option {
+
+                                    outline: none;
+                                    border: none;
+                                }
                             }
                         }
                     }
 
                     .products {
                         .product {
+
                             margin-top: 20px;
                             position: relative;
                             overflow: hidden;
@@ -95,7 +147,11 @@
 
                                 a:first-child {
 
-                                    height: 420px;
+                                    @include media(lg) {
+                                        height: auto;
+                                    }
+
+                                    height: auto;
                                     display: block;
                                     z-index: 1;
 
@@ -146,8 +202,6 @@
 
                                 .action {
                                     position: absolute;
-                                    top: 10px;
-                                    right: 10px;
 
                                     li {
                                         position: relative;
@@ -160,10 +214,23 @@
                                         margin: 10px 4px;
                                         cursor: pointer;
                                         z-index: 3;
-                                        transform: translateX(60px);
                                         transition: 0.5s;
                                         border-radius: 5px;
                                         color: $color-grey;
+
+                                        &:hover {
+                                            background: $color-primary;
+                                            color: $color-white;
+                                        }
+                                    }
+                                }
+
+                                .action1 {
+                                    top: 10px;
+                                    right: 10px;
+
+                                    li {
+                                        transform: translateX(60px);
 
                                         span {
                                             position: absolute;
@@ -194,8 +261,6 @@
                                         }
 
                                         &:hover {
-                                            background: $color-primary;
-                                            color: $color-white;
 
                                             span {
                                                 transform: translateY(-50%) translateX(0%);
@@ -205,6 +270,30 @@
                                     }
                                 }
 
+                                .action2 {
+                                    display: none;
+                                    bottom: 0;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    z-index: 3;
+                                }
+
+                                @include media(lg) {
+
+                                    button.btn {
+                                        display: none;
+                                    }
+
+                                    .action1 {
+
+                                        display: none;
+
+                                    }
+
+                                    .action2 {
+                                        display: flex;
+                                    }
+                                }
                             }
 
                             &:hover {
@@ -244,37 +333,21 @@
 
                             }
                         }
-                    }
 
-                    .group-btn-products {
-                        margin-top: 100px;
+                        .owl-nav {
+                            @include owlnav(0, 20px, 20px);
 
-                        ul {
+                            button {
+                                cursor: pointer;
 
-                            li {
-
-                                a {
-                                    font-weight: 700;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    background: red;
-                                    width: 50px;
-                                    height: 50px;
-                                    border-radius: 4px;
+                                &.owl-prev,
+                                &.owl-next {
+                                    background: rgba($color-white, 0.8);
                                     color: $color-i;
-                                    background: $color-bg-grey;
-                                    margin-right: 10px;
-                                    transition: all .4s;
 
                                     &:hover {
-                                        background: $color-primary;
                                         color: $color-white;
-                                    }
-
-                                    &.active {
                                         background: $color-primary;
-                                        color: $color-white;
                                     }
                                 }
 

@@ -17,6 +17,12 @@
             width: 100%;
             align-items: flex-start;
 
+            @include media(md) {
+
+                justify-content: center;
+                margin: 0 !important;
+            }
+
             .checkout-left {
                 // padding-right: 50px;
 

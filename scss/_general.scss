@@ -20,13 +20,13 @@
 
 .container {
 
-    width: 95%;
+    width: 90%;
     max-width: 1411px;
     margin: 0 auto;
 
     @include media(lg) {
 
-        max-width: 90% !important;
+        max-width: 90%;
 
     }
 
@@ -147,11 +147,16 @@ html {
     opacity: 0;
     transition: all .5s;
 
+
     &.active {
 
         opacity: 1;
         visibility: visible;
         bottom: 70px;
+
+        @include media(xs) {
+            bottom: 100px;
+        }
 
     }
 }

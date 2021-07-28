@@ -10,7 +10,6 @@ $(document).ready(function () {
     renderMiniCart(miniCart)
     changeStatus(miniCart.length)
     renderCart(miniCart)
-
     $(function () {
 
         // Scroll window
@@ -48,7 +47,6 @@ $(document).ready(function () {
         $(document).click(function (e) {
 
             const target = e.target
-            console.log(target);
             // when you click somewhere is not a minicart
             if ((target.classList.contains('cart') && target.classList.contains('active')) || target.classList.contains('close')) {
 
@@ -75,6 +73,7 @@ $(document).ready(function () {
         // toggle main-menu-mobile
         $(document).on('click', '.bar .fa-bars', function (e) {
 
+            e.preventDefault()
             $('.menu-mobile-overlay').addClass('active')
 
         })
@@ -157,7 +156,7 @@ $(document).ready(function () {
         var end = start + viewAmount
         $('#addproductsCate').empty()
         const products = datas.slice(start, end).map(val => `
-            <div class="col-xl-4">
+            <div class="col-sm-6 col-lg-4 col-xl-4">
                 <div class="product" data-id=${val.id}>
                     <div class="img">
                         <a href="#">
@@ -167,13 +166,16 @@ $(document).ready(function () {
                         <button class="btn a-center d-flex j-between addcartitem" data-id=${val.id}>
                             <i class="bi bi-handbag"></i> Add To Card
                         </button>
-                        <ul class="action">
-                            <li class="wishlist"><i class="far fa-heart"></i><span>Add to
-                                    Wishlist</span>
+                        <ul class="action action1">
+                            <li class="wishlist"><i class="far fa-heart"></i><span>Add to Wishlist</span>
                             </li>
-                            <li class="compare"><i class="fas fa-sliders-h"></i><span>Compare</span>
-                            </li>
+                            <li class="compare"><i class="fas fa-sliders-h"></i> <span>Compare</span> </li>
                             <li class="detail"><i class="fas fa-eye"></i><span>View Details</span></li>
+                        </ul>
+                        <ul class="action action2">
+                            <li class="wishlist"><i class="far fa-heart"></i><span></span>
+                            </li>
+                            <li class="addcartitem2"><i class="bi bi-handbag"></i></li>
                         </ul>
                     </div>
 
@@ -297,6 +299,40 @@ function renderCart(datas) {
 
 //======Render miniCart=========
 // change status of minicart
+
+$(document).ready(function () {
+
+    // when you remove ele from minicart
+    $(document).on('click', '.erase', function (e) {
+
+        const target = e.target
+        // Get ID 
+        const id = target.parentNode.dataset.id
+        removeItemMiniCart(id)
+        changeStatus(miniCart.length)
+        renderMiniCart(miniCart)
+
+    });
+
+    // when you remove ele from cart
+    $(document).on('click', '#addToCard .erase', function (e) {
+
+        const id = $(this).parents('.product-item').data("id")
+        removeItemMiniCart(id)
+
+    });
+
+    function removeItemMiniCart(id) {
+        // remove ele in miniCart
+        miniCart = miniCart.filter(val => val.id != +id)
+        renderCart(miniCart)
+        // Render again
+        setLocal(miniCart, 'dataCart')
+
+    }
+
+})
+
 function changeStatus(length) {
 
     if (length > 0) {
@@ -348,6 +384,8 @@ function renderMiniCart(datas) {
 function addMiniCart(id) {
 
     const idxSame = miniCart.findIndex(val => val.id == id)
+    // get a product = id and push miniCart
+    const ele = products.find(val => val.id == id)
     // have ID 
     if (idxSame != -1) {
 
@@ -355,57 +393,22 @@ function addMiniCart(id) {
 
     } else {
 
-        // get a product = id and push miniCart
-        const ele = products.find(val => val.id == id)
-        miniCart.push({
+        const newValue = {
             ...ele,
             quantity: 1
-        })
+        }
+
+        miniCart.push(newValue)
     }
-
     setLocal(miniCart, 'dataCart')
-
 }
 
-$(document).ready(function () {
-
-    // when you remove ele from minicart
-    $(document).on('click', '.erase', function (e) {
-
-        const target = e.target
-        // Get ID 
-        const id = target.parentNode.dataset.id
-        removeItemMiniCart(id)
-        changeStatus(miniCart.length)
-        renderMiniCart(miniCart)
-
-    });
-
-    // when you remove ele from cart
-    $(document).on('click', '#addToCard .erase', function (e) {
-
-        const id = $(this).parents('.product-item').data("id")
-        removeItemMiniCart(id)
-
-    });
-
-    function removeItemMiniCart(id) {
-        // remove ele in miniCart
-        miniCart = miniCart.filter(val => val.id != +id)
-        renderCart(miniCart)
-        // Render again
-        setLocal(miniCart, 'dataCart')
-
-    }
-
-})
-
-// when you click add ele to cart 
+// when you click add ele to Minicart 
 $(document).on('click', '.product .addcartitem', function (e) {
 
     e.preventDefault()
-    const id = $(this).data('id')
-    const ele = $(this)
+    const id = $(this).parents('.product').data('id')
+
     // Add ele to Arrray
     addMiniCart(id)
 
@@ -420,13 +423,21 @@ $(document).on('click', '.comparelist .addcartitem', function (e) {
 
     e.preventDefault()
     const id = $(this).data('id')
-    const ele = $(this)
     addMiniCart(id)
     renderMiniCart(miniCart)
-    setLocal(miniCart, 'dataCart')
     $(this).html('View Cart')
 
 });
+
+$(document).on('click', '.addcartitem2', function (e) {
+
+    e.preventDefault()
+    const id = $(this).parents('.product').data('id')
+    addMiniCart(id)
+    renderMiniCart(miniCart)
+    $('.cart').addClass('active')
+
+})
 
 /*=========wishlist========== */
 $(document).ready(function () {
@@ -720,11 +731,10 @@ $(document).ready(function () {
         const datas = products.find(val => val.id == id)
         const listImg = getAllimg().find(val => val.id == id)
         const owl = $('#quickviewSl')
-        console.log(owl);
-        // for (let index = 0; index < 5; index++) {
-        //     owl.owlCarousel('remove', index).owlCarousel('update');
+        for (let index = 0; index < 5; index++) {
+            owl.owlCarousel('remove', index).owlCarousel('update');
 
-        // }
+        }
 
         listImg.img.forEach(val => {
             owl.trigger('add.owl.carousel', [`
