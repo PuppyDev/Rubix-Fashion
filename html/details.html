@@ -5,13 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Rubix</title>
+    <title>Details - Rubix</title>
+    <!-- Icon of webpage -->
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="16x16">
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="192x192">
+
+    <!-- font icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../scss/cart.css">
+
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
+
+    <!-- SwiperJS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" hre f="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- link Css -->
+    <link rel="stylesheet" href="../scss/style.css">
+    <link rel="stylesheet" href="../scss/index.css">
+    <link rel="stylesheet" href="../scss/details.css">
 </head>
 
 <body>
@@ -179,6 +194,10 @@
                                 <a href="./wishlist.html"><i class="bi bi-heart"></i></a>
                                 <span class="before">0</span>
                             </li>
+                            <li class="item cart-item">
+                                <a href="#"><i class="bi bi-handbag"></i></a>
+                                <span class="before">0</span>
+                            </li>
                             <li id="search"><a href="#"><i class="bi bi-search"></i></a></li>
                         </ul>
                     </div>
@@ -186,28 +205,6 @@
             </div>
         </div>
     </header>
-
-    <div class="form-search">
-        <div class="container-element">
-            <h2>Search</h2>
-            <ul class="d-flex a-center">
-                <li class="active">All categories</li>
-                <li>Furniture</li>
-                <li>Chairs</li>
-                <li>Construction</li>
-                <li>Decoration</li>
-                <li>Education</li>
-            </ul>
-            <div class="searchProduct d-flex a-center">
-                <input type="text" placeholder="Search Products...">
-                <i class="bi bi-search"></i>
-            </div>
-        </div>
-        <div class="close">
-            &times;
-        </div>
-    </div>
-
     <div class="menu-mobile-overlay ">
         <div class="content-menu">
             <div class="close">
@@ -257,7 +254,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="d-flex a-center j-between" href="#"> Shop </a>
+                        <a class="d-flex a-center j-between" href="products.html"> Shop </a>
                         <ul class="menu-level2">
                             <li>
                                 <a href="#">Shop Layout</a>
@@ -336,8 +333,8 @@
         </div>
     </div>
 
-    <ul class="side-sticky-icons d-flex a-center j-between">
-        <li><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+    <ul class="side-sticky-icons d-flex a-center">
+        <li><a href="#"><i class="bi bi-house"></i> Home</a></li>
         <li class="addWishlist">
             <a href="wishlist.html">
                 <i class="bi bi-heart"></i> Wishlist
@@ -350,80 +347,169 @@
             </div>
         </li>
         <li><a href="#"><i class="far fa-user"></i> Account</a></li>
+        <li class="cart-item">
+            <a href="#"><i class="bi bi-handbag"></i>Cart</a>
+            <span class="before">0</span>
+        </li>
     </ul>
 
-
-    <nav class="navigation">
-        <div class="title-nav">
-            <div class="container">
-                <p class="description-nav">
-                    <a href="index.html">Home</a> / <span>Cart</span>
-                </p>
+    <div class="form-search">
+        <div class="container-element">
+            <h2>Search</h2>
+            <ul class="d-flex a-center">
+                <li class="active">All categories</li>
+                <li>Furniture</li>
+                <li>Chairs</li>
+                <li>Construction</li>
+                <li>Decoration</li>
+                <li>Education</li>
+            </ul>
+            <div class="searchProduct d-flex a-center">
+                <input type="text" placeholder="Search Products...">
+                <i class="bi bi-search"></i>
             </div>
         </div>
+        <div class="close">
+            &times;
+        </div>
+    </div>
 
-        <div class="products-cart cart-list1 p-80">
+    <div class="cart">
+        <div class="products-cart">
+            <h4 class="d-flex j-between a-center">
+                Your Cart
+            </h4>
+            <span class="close">
+                &times;
+            </span>
 
-            <div class="container">
+            <div class="mini-cart a-center j-between">
 
-                <h2 class="heading-cart">
-                    Cart
-                </h2>
+                <div class="mini-cart-list">
+                    <ul id="mini-cart-product">
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="addToCard">
-
-                    </tbody>
-                </table>
-
-                <div class="cart-on-mb">
-
-
-
-
+                    </ul>
                 </div>
 
-                <div class="coupon d-flex a-center j-between">
-                    <div class="coupon-input d-flex a-center">
-                        <input type="text" placeholder="Coupon Code">
-                        <a href="#" class="btn btn-primary">
-                            Apply Coupon
-                        </a>
-                    </div>
-                    <a href="#" class="btn btn-primary update">
-                        Update Cart
-                    </a>
-                </div>
-
-                <div class="cart_totals">
-                    <div class="heading">
-                        Cart Totals
-                    </div>
-
-                    <div class="sub-totals d-flex a-center j-between">
-                        <span>Subtotal</span>
-                        <span class="subtotal">$157.00</span>
-                    </div>
+                <div class="mini-cart-bottom">
 
                     <div class="total d-flex a-center j-between">
-                        <span> Total </span>
-                        <span class="total-product">$157.00</span>
+
+                        <strong>
+                            Subtotal:
+                        </strong>
+
+                        <div class="sub-total">
+                            $600.00
+                        </div>
+
                     </div>
 
-                    <div class="checkout">
-                        <a href="checkout.html" class="btn btn-primary">Proceed To Checkout
-                            <i class="bi bi-chevron-right"></i>
+                    <div class="group-btn">
+
+                        <a href="cart.html" class="btn btn-primary viewCart">
+
+                            View Cart
+
                         </a>
+                        <a href="checkout.html" class="btn btn-primary bill">
+
+                            Checkout
+
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="no-product">
+                No products in the cart.
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="main-details-products p-80">
+
+        <div class="container">
+
+
+            <div class="row">
+
+                <div class="left">
+
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="../img/product/10_1-copy-600x745.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../img/product/10_2-copy-600x745.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../img/product/10_3-copy-700x870.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slider main container -->
+                    <div class="swiper-container gallery-top">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><img src="../img/product/10_1-copy-600x745.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../img/product/10_2-copy-600x745.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../img/product/10_3-copy-700x870.jpg" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="right">
+
+                    <h2 class="heading">
+                        Women’s Classic Glasses
+                    </h2>
+
+                    <div class="rate">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        (1 customer review)
+                    </div>
+                    <p class="price">
+                        $80.00
+                    </p>
+                    <p class="description-products">
+
+                        Tailored line. Wool mix fabric. Long design. Long buttoned sleeve. Lapel with notch. <br>
+                        Back slit.Two pockets with flaps on the front. Button up. Inner lining. Inner pocket.<br>
+                        Back length 95.0 cm.<br>
+                        Summer tops for women<br>
+                        Cheetah kimonos ,beach cover ups<br>
+                        Lightweight chiffon casual shirts<br>
+                        Open front outwear,short sleeve blouse.
+                    </p>
+
+                    <div class="action d-flex a-center" data-id=${datas.id}>
+                        <div class="cotrol-item d-flex a-center">
+                            <a class="dash-1" href=""><i class="bi bi-dash"></i></a>
+                            <input type="text" class="InputAmountProduct" value="1">
+                            <a class="plus-1" href=""><i class="bi bi-plus"></i></a>
+                        </div>
+                        <button class="btn a-center d-flex addcartitem">
+                            <i class="bi bi-handbag"></i> Add To Card
+                        </button>
+                    </div>
+                    <div class="sku">
+                        SKU:<br>
+                        FUW237-1<br>
+                        Categories: Accessories, Fashion, Mens<br>
+                        Tag: teapot<br>
                     </div>
                 </div>
 
@@ -431,7 +517,29 @@
 
         </div>
 
-    </nav>
+    </div>
+
+
+
+    <div class="compare-product">
+
+        <div class="compare-product-box">
+
+            <div class="top">
+                <p class="heading">
+                    Compare Products
+                </p>
+            </div>
+
+            <table class="comparelist content">
+
+            </table>
+
+            <div class="close">
+                &times;
+            </div>
+        </div>
+    </div>
 
     <footer id="footer">
         <div class="top p-80">
@@ -517,11 +625,19 @@
             </div>
         </div>
     </footer>
+
     <a class="backtotop d-flex a-center" href="#"><i class="bi bi-chevron-up"></i></a>
+
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<!-- SwiperJS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="../owlcarousel/owl.carousel.min.js"></script>
 <script src="../js/owlcarousel.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/swiper.js"></script>
+
 
 </html>

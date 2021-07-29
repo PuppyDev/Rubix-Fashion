@@ -1565,145 +1565,146 @@ footer#footer .copyright p a {
   color: #fff;
 }
 
-.navigation .title-nav {
-  background: none;
-  background-image: url("../img/banner/bg-newsleter-fashion-1.jpg");
-  padding: 80px 0px;
+.main-details-products .container .row {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
-.navigation .title-nav .container h2 {
-  margin-top: 40px;
-  font-size: 48px;
-}
-
-.navigation .title-nav .container .description-nav {
-  margin: 20px 0;
-}
-
-@media screen and (max-width: 768px) {
-  .navigation .products-cart .table {
-    display: none;
-  }
-}
-
-.navigation .products-cart .cart-mobile {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .navigation .products-cart .cart-mobile {
-    display: block;
-  }
-}
-
-.navigation .products-cart .cart-mobile .product-item {
-  position: relative;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-.navigation .products-cart .cart-mobile .product-item .item-wrapper .product-thumbnail {
-  display: inline-block;
-  max-width: 60px;
-  margin-right: 20px;
-}
-
-.navigation .products-cart .cart-mobile .product-item .item-wrapper .product-thumbnail img {
-  width: 100%;
-}
-
-.navigation .products-cart .cart-mobile .product-item .item-wrapper .item-details {
-  width: 100%;
-}
-
-.navigation .products-cart .cart-mobile .product-item .item-wrapper .item-details .product-name {
-  font-weight: 700px;
-  font-size: 16px;
-}
-
-.navigation .products-cart .cart-mobile .product-item .item-wrapper .item-details .price {
-  margin: 15px 0px;
-  color: #999999;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.navigation .products-cart .cart-mobile .product-item .stock {
-  color: #999999;
-  font-weight: 700;
-  font-size: 14px;
-  margin: 10px 0;
-}
-
-.navigation .products-cart .cart-mobile .product-item .stock span {
-  font-weight: 100;
-  color: #1a1a1a;
-}
-
-.navigation .products-cart .cart-mobile .product-item .addcartitem {
-  text-align: center;
-  background: black;
-  padding: 5px 10px;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.navigation .products-cart .cart-mobile .product-item .erase {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  border: 1px solid black;
+.main-details-products .container .row .left {
+  max-width: 55%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-right: 5%;
+}
+
+.main-details-products .container .row .left .gallery-top {
+  width: 80%;
+  text-align: center;
+}
+
+.main-details-products .container .row .left .gallery-top .swiper-wrapper {
+  height: 600px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.navigation .products-cart h2 {
-  margin-top: 50px;
+.main-details-products .container .row .left .gallery-top .swiper-wrapper .swiper-slide {
+  position: relative;
+  overflow: hidden;
 }
 
-.navigation .products-cart .share-on {
-  margin-top: 15px;
+.main-details-products .container .row .left .gallery-top .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
 }
 
-.navigation .products-cart .share-on li a {
-  margin-right: 15px;
-  font-size: 30px;
+.main-details-products .container .row .left .gallery-thumbs {
+  width: 15%;
+  height: 100%;
 }
 
-.navigation .products-cart .share-on li a:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+.main-details-products .container .row .left .gallery-thumbs .swiper-slide {
+  position: relative;
+  -webkit-transition: border .15s linear;
+  transition: border .15s linear;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  height: calc(100% - 2px);
+  border: 1px solid #ebebeb;
 }
 
-.navigation .products-cart .share-on li .facebook {
-  color: #0505dd;
+.main-details-products .container .row .left .gallery-thumbs .swiper-slide img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.navigation .products-cart .share-on li .twitter {
-  color: cyan;
+.main-details-products .container .row .left .gallery-thumbs .swiper-slide.swiper-slide-thumb-active {
+  border-color: #000;
 }
 
-.navigation .products-cart .share-on li .pinterest {
-  color: red;
+.main-details-products .container .row .right {
+  max-width: 45%;
 }
 
-.navigation .products-cart .share-on li .mail {
-  color: #b3b31c;
+.main-details-products .container .row .right .heading {
+  font-size: 34px;
 }
 
-.navigation .products-cart .share-on li .whatsapp {
-  color: green;
+.main-details-products .container .row .right .rate {
+  margin: 20px 0;
 }
-/*# sourceMappingURL=wishlist.css.map */
+
+.main-details-products .container .row .right .rate i {
+  color: #d4a407;
+  font-size: 14px;
+}
+
+.main-details-products .container .row .right .price {
+  font-size: 20px;
+  color: #666666;
+}
+
+.main-details-products .container .row .right .description-products {
+  margin: 20px 0;
+  line-height: 30px;
+  color: #444444;
+}
+
+.main-details-products .container .row .right .action {
+  margin-bottom: 40px;
+}
+
+.main-details-products .container .row .right .action .cotrol-item {
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0px 5px;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+.main-details-products .container .row .right .action .cotrol-item input {
+  background-color: transparent;
+  width: 40px;
+  text-align: center;
+  height: 50px;
+}
+
+.main-details-products .container .row .right .action .cotrol-item a {
+  margin-bottom: 0px;
+}
+
+.main-details-products .container .row .right .action .addcartitem {
+  background: black;
+  padding: 15px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.main-details-products .container .row .right .action .addcartitem:hover {
+  background: #ba933e;
+}
+/*# sourceMappingURL=details.css.map */

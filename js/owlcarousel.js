@@ -3,7 +3,6 @@ $(document).ready(function () {
         loop: true,
         autoplay: true,
         autoplayTimeout: 4000,
-        nav: true,
         margin: 20,
         dots: true,
         items: 1,
@@ -12,7 +11,18 @@ $(document).ready(function () {
             `<i class="fas fa-chevron-right"></i>`
         ],
         animateIn: "fadeIn",
-        animateOut: "fadeOut"
+        animateOut: "fadeOut",
+        responsive: {
+            0: {
+                nav: false,
+            },
+            992: {
+                nav: false,
+            },
+            1024: {
+                nav: true
+            }
+        }
     });
 
     // This is slider list products
@@ -101,6 +111,7 @@ $(document).ready(function () {
             0: {
                 margin: 20,
                 items: 1,
+                nav: false,
             },
             576: {
                 items: 2,
@@ -108,6 +119,7 @@ $(document).ready(function () {
             },
             992: {
                 items: 3,
+                nav: true,
             },
         },
 

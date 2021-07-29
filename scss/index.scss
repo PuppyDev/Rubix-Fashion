@@ -2,7 +2,6 @@
 
 .slider {
     .owl-carousel {
-
         .item {
             position: relative;
 
@@ -681,9 +680,9 @@ section.serve {
 
 
                     &:not(:last-child) {
+
                         border-bottom: 1px solid $color-border-grey;
 
-                        .content {}
                     }
 
 

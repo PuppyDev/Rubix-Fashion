@@ -83,10 +83,9 @@ $(document).ready(function () {
 
             e.preventDefault()
 
+            if ($(this).parents('.product-item-cart').data('id')) {
 
-            if ($(this).parents('tr').data('id')) {
-
-                const id = $(this).parents('tr').data('id')
+                const id = $(this).parents('.product-item-cart').data('id')
                 const input = $(this).siblings('input')
                 plus_1(id, input)
 
@@ -104,15 +103,17 @@ $(document).ready(function () {
 
             e.preventDefault()
             const input = $(this).siblings('input') || $('.InputAmountProduct')
-            const id = $(this).parents('tr').data('id')
+            const id = $(this).parents('.product-item-cart').data('id')
             const idxSame = miniCart.findIndex(val => val.id == id)
 
             if (input.val() > 1) {
 
-                if ($(this).parents('tr').data('id')) {
+                if ($(this).parents('.product-item-cart').data('id')) {
+
                     input.val(+input.val() - 1)
                     miniCart[idxSame].quantity = --miniCart[idxSame].quantity
                     setLocal(miniCart, 'dataCart')
+
                 } else if ($(this).parents('.action').data('id')) {
 
                     input.val(+input.val() - 1)
@@ -245,13 +246,15 @@ function parseLocal(name) {
 function renderCart(datas) {
 
     const list = $('#addToCard')
+    const listMb = $('.cart-on-mb')
     list.empty()
+    listMb.empty()
     var total = 0
 
-    if (datas.length >= 1)
+    if (datas.length >= 1) {
         total = datas.reduce((acc, val) => {
             const htmls = `
-            <tr class ="product-item" data-id="${val.id}">
+            <tr class ="product-item-cart" data-id="${val.id}">
                 <td>
                     <div class="erase">
                         &times;
@@ -278,12 +281,49 @@ function renderCart(datas) {
                     </div>
                 </td>
                 <td>$${(val.price * val.quantity)}.00</td>
-            </tr>  
-        `
+            </tr>  `
+
+            // data render on mobile
+            const htmls2 = `
+                <div class="product-item-cart" data-id="${val.id}">
+                    <div class="remove-item d-flex a-center">
+                        <div class="erase">
+                            &times;
+                        </div>
+
+                    </div>
+
+                    <div class="product-name d-flex j-between a-center">
+                        <span>Product : </span>
+                        ${val.name}
+                    </div>
+
+                    <div class="price d-flex j-between a-center">
+                        <span>Price : </span>
+                        $${val.price}
+                    </div>
+
+                    <div class="quantity d-flex j-between">
+                        <span>Quantity : </span>
+
+                        <div class="control d-flex a-center">
+                            <a class="dash-1" href=""><i class="bi bi-dash"></i></a>
+                            <input type="text" class="InputAmountProduct" value="${val.quantity}">
+                            <a class="plus-1" href=""><i class="bi bi-plus"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            `
+
             list.append(htmls)
+            listMb.append(htmls2)
             return (val.quantity * val.price) + acc
         }, 0)
-    else {
+
+
+    } else {
         $('.cart-list1 .container').html(`
             <h2 class="heading-cart">
                 Cart
@@ -315,9 +355,9 @@ $(document).ready(function () {
     });
 
     // when you remove ele from cart
-    $(document).on('click', '#addToCard .erase', function (e) {
+    $(document).on('click', '.products-cart .erase', function (e) {
 
-        const id = $(this).parents('.product-item').data("id")
+        const id = $(this).parents('.product-item-cart').data("id")
         removeItemMiniCart(id)
 
     });
@@ -354,7 +394,6 @@ function renderMiniCart(datas) {
     const subTotal = $('.total .sub-total')
     const amount = $('.cart-item .before')
     mini_cart.empty()
-
     const total = datas.reduce((acc, val) => {
         const htmls = `
         <li class="d-flex" data-id=${val.id}>
@@ -435,6 +474,7 @@ $(document).on('click', '.addcartitem2', function (e) {
     const id = $(this).parents('.product').data('id')
     addMiniCart(id)
     renderMiniCart(miniCart)
+    changeStatus(miniCart.length)
     $('.cart').addClass('active')
 
 })
@@ -464,24 +504,21 @@ $(document).ready(function () {
     })
 
     // add product to minicart 
-    $(document).on('click', '#addToWish .addcartitem', function (e) {
+    $(document).on('click', '.products-cart .addcartitem', function (e) {
 
         e.preventDefault()
         const id = $(this).parents('.product-item').data('id')
-
         addMiniCart(id)
         renderMiniCart(miniCart)
-        setInterval(() => {
-            removeWishItem(id)
-            clearInterval()
-        }, 300);
+        changeStatus(miniCart.length)
+        removeWishItem(id)
         $('.cart').addClass('active')
 
     })
 
 
     // Remove item in wishlist
-    $(document).on('click', '#addToWish .erase', function (e) {
+    $(document).on('click', '.products-cart .erase', function (e) {
 
         const id = $(this).parents('.product-item').data("id")
         removeWishItem(id)
@@ -502,12 +539,14 @@ $(document).ready(function () {
 
 
     function renderWishList(datas) {
-
         const list = $('#addToWish')
+        const cartmb = $('.cart-mobile')
         list.empty()
+        cartmb.empty()
         if (datas.length >= 1) {
             datas.forEach(val => {
-                const htmls = `
+                // render > 768
+                var htmls = `
                         <tr class ="product-item" data-id="${val.id != null ? val.id : ''}">
                             <td>
                                 <div class="erase">
@@ -536,6 +575,41 @@ $(document).ready(function () {
                         </tr>  
                     `
                 list.append(htmls)
+
+                // render < 768
+                htmls = `
+                    <div class="product-item" data-id="${val.id}">
+                        <div class="item-wrapper d-flex">
+                            <a href="#" class="product-thumbnail">
+                                <img src="${val.img}" alt="">
+                            </a>
+                            <div class="item-details">
+                                <h3 class="product-name">
+                                    ${val.name}
+                                </h3>
+                                <div class="price d-flex a-center j-between">
+                                    <span class="head-price">Price</span>
+                                    $${val.price}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stock d-flex a-center j-between">
+                            <p>Stock</p>
+                            <span>In Stock</span>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button class="addcartitem" data-id="${val.id}">Add to card</button>
+                        </div>
+
+                        <div class="erase">
+                            &times;
+                        </div>
+                    </div>
+                `
+                cartmb.append(htmls)
+
+
             }, 0)
         } else {
 
@@ -549,6 +623,7 @@ $(document).ready(function () {
         }
 
     }
+
 
 })
 
@@ -728,6 +803,7 @@ $(document).ready(function () {
     })
 
     function renderQuickView(id) {
+
         const datas = products.find(val => val.id == id)
         const listImg = getAllimg().find(val => val.id == id)
         const owl = $('#quickviewSl')

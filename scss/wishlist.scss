@@ -20,11 +20,143 @@
 
         }
 
-
     }
 
     .products-cart {
-        margin-bottom: 100px;
+
+        .table {
+            @include media(sm) {
+                display: none;
+            }
+        }
+
+        .cart-mobile {
+            display: none;
+
+            @include media (sm) {
+                display: block;
+            }
+
+            .product-item {
+                position: relative;
+                border-bottom: 1px solid #e5e5e5;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+
+                .item-wrapper {
+
+                    .product-thumbnail {
+                        display: inline-block;
+                        max-width: 60px;
+                        margin-right: 20px;
+
+                        img {
+                            width: 100%;
+                        }
+
+                    }
+
+                    .item-details {
+                        width: 100%;
+
+                        .product-name {
+
+                            font-weight: 700px;
+                            font-size: 16px;
+                        }
+
+                        .price {
+                            margin: 15px 0px;
+                            color: #999999;
+                            font-weight: 700;
+                            font-size: 14px;
+                        }
+                    }
+
+                }
+
+                .stock {
+                    color: #999999;
+                    font-weight: 700;
+                    font-size: 14px;
+                    margin: 10px 0;
+
+                    span {
+                        font-weight: 100;
+                        color: $color-i;
+                    }
+                }
+
+                .addcartitem {
+                    text-align: center;
+                    background: black;
+                    padding: 5px 10px;
+                    color: $color-white;
+                    border-radius: 5px;
+                }
+
+                .erase {
+
+                    position: absolute;
+                    bottom: 15px;
+                    right: 15px;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                }
+            }
+
+        }
+
+        h2 {
+            margin-top: 50px;
+        }
+
+        .share-on {
+            margin-top: 15px;
+
+            li {
+
+                a {
+                    margin-right: 15px;
+                    font-size: 30px;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+
+                }
+
+                .facebook {
+                    color: rgb(5, 5, 221);
+                }
+
+                .twitter {
+                    color: cyan;
+                }
+
+                .pinterest {
+                    color: red;
+                }
+
+                .mail {
+                    color: rgb(179, 179, 28);
+                }
+
+                .whatsapp {
+                    color: green;
+                }
+
+            }
+
+        }
+
     }
 
 }
