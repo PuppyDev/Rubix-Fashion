@@ -1,6 +1,5 @@
 @import './style';
 
-
 .title-nav {
     background: $color-bg-grey;
     padding: 15px 0px;
@@ -146,29 +145,56 @@
             .coupon {
                 padding: 20px 0px;
                 border-bottom: 1px solid rgba(0, 0, 0, .1);
+                flex-wrap: wrap;
 
                 @include media(sm) {
+
                     padding: 20px;
                     margin-top: 40px;
                     border: 1px solid rgba(0, 0, 0, .1);
 
                 }
 
+
                 &-input {
+                    @include media(xs) {
+                        width: 100%;
+                    }
 
                     input {
                         height: 43px;
-                        width: auto !important;
+                        width: auto;
                         padding: 10px;
                         border-radius: 4px;
                         border: 2px solid $color-border-grey;
                         margin-right: 5px;
                     }
 
+                    @include media(xs) {
+                        input {
+                            width: 100%;
+                            margin-right: 0px;
+                        }
+
+                        flex-wrap: wrap;
+
+                        a {
+                            margin: 20px 0;
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+
                 }
 
                 .btn {
                     padding: 12px 25px;
+
+                    @include media(xs) {
+                        width: 100%;
+                        text-align: center;
+                    }
+
                 }
             }
 

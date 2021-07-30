@@ -710,6 +710,7 @@ header .main-header {
 header .main-header .container {
   max-width: 100%;
   width: 97%;
+  position: relative;
 }
 
 header .main-header .container li i {
@@ -823,53 +824,84 @@ header .main-header .container nav.main-nav ul li a.active i {
   color: #ba933e;
 }
 
-header .main-header .container nav.main-nav ul li .second-nav {
-  position: absolute;
-  top: 100%;
-  left: 0px;
-  min-width: 200px;
-  background: #fff;
-  -webkit-box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-  visibility: hidden;
-  -webkit-transition: all .5s;
-  transition: all .5s;
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  -webkit-transform: scaleY(0);
-          transform: scaleY(0);
-  z-index: 10;
+header .main-header .container nav.main-nav ul li.notRelative {
+  position: unset;
 }
 
-header .main-header .container nav.main-nav ul li .second-nav a {
+header .main-header .container nav.main-nav ul li .nav-mini {
+  -webkit-box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: absolute;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  visibility: hidden;
+  z-index: 10;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+header .main-header .container nav.main-nav ul li .nav-mini a {
   height: auto;
 }
 
+header .main-header .container nav.main-nav ul li .second-nav {
+  top: 100%;
+  left: 0px;
+  min-width: 200px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
 header .main-header .container nav.main-nav ul li .second-nav1 {
-  min-width: 1400px;
-  margin: 0 auto;
+  min-width: 900px;
   background-image: url(https://blueskytechco.com/rubix/wp-content/uploads/2021/05/bg_update.png);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center right;
   background-size: auto;
-  padding: 20px;
-  position: absolute;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  visibility: hidden;
+  padding: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) scaleY(0);
+          transform: translateX(-50%) scaleY(0);
+  max-width: 100%;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
 }
 
-header .main-header .container nav.main-nav ul li .second-nav1 .list-item .heading {
+header .main-header .container nav.main-nav ul li .second-nav1 .heading {
   font-weight: 700;
-  font-size: 18px;
+  margin-bottom: 25px;
+  text-transform: capitalize;
 }
 
-header .main-header .container nav.main-nav ul li:hover .second-nav,
-header .main-header .container nav.main-nav ul li:hover .second-nav1 {
+header .main-header .container nav.main-nav ul li .second-nav1 .list-item {
+  width: 100%;
+}
+
+header .main-header .container nav.main-nav ul li .second-nav1 .list-item li a {
+  display: block;
+  width: 100%;
+  padding: 8px 0px;
+  text-align: left;
+}
+
+header .main-header .container nav.main-nav ul li .second-nav1 > li {
+  width: 25%;
+  max-width: 280px;
+}
+
+header .main-header .container nav.main-nav ul li:hover .second-nav {
   visibility: visible;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
+}
+
+header .main-header .container nav.main-nav ul li:hover .second-nav1 {
+  visibility: visible;
+  -webkit-transform: translateX(-50%) scaleY(1);
+          transform: translateX(-50%) scaleY(1);
 }
 
 header .main-header .container .menu {
@@ -972,9 +1004,9 @@ header .main-header.active {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
   -webkit-transition: all .6s;
   transition: all .6s;
+  opacity: 0;
   visibility: hidden;
 }
 
@@ -1007,6 +1039,7 @@ header .main-header.active {
   z-index: 20;
   max-width: 375px;
   padding: 30px;
+  overflow: auto;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
 }
@@ -1084,11 +1117,19 @@ header .main-header.active {
   margin-top: 10px;
 }
 
-.menu-mobile-overlay .content-menu nav.main-menu-mobile ul.nav-level-1 > li a {
+.menu-mobile-overlay .content-menu nav.main-menu-mobile ul.nav-level-1 > li {
+  position: relative;
+}
+
+.menu-mobile-overlay .content-menu nav.main-menu-mobile ul.nav-level-1 > li > a {
   font-size: 16px;
   font-weight: 700;
   line-height: 35px;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.menu-mobile-overlay .content-menu nav.main-menu-mobile ul li {
+  position: relative;
 }
 
 .menu-mobile-overlay .content-menu nav.main-menu-mobile ul li a {
@@ -1097,12 +1138,72 @@ header .main-header.active {
   padding: 15px 0;
 }
 
+.menu-mobile-overlay .content-menu nav.main-menu-mobile .bi.bi-chevron-down {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
 .menu-mobile-overlay .content-menu nav.main-menu-mobile .menu-level2 {
+  padding-left: 20px;
   display: none;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.menu-mobile-overlay .content-menu nav.main-menu-mobile .menu-level2.active {
+  opacity: 1;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  visibility: visible;
+  display: block;
+}
+
+.menu-mobile-overlay .content-menu nav.main-menu-mobile .menu-level2 a {
+  display: block;
+  padding: 10px 0px;
 }
 
 .menu-mobile-overlay .content-menu nav.main-menu-mobile .menu-level2 .menu-level-3 {
   display: none;
+}
+
+.menu-mobile-overlay .content-menu .bottom {
+  margin-top: 60px;
+}
+
+.menu-mobile-overlay .content-menu .bottom .my-account li {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.menu-mobile-overlay .content-menu .bottom .my-account li a {
+  padding: 15px 0;
+  display: inline-block;
+}
+
+.menu-mobile-overlay .content-menu .bottom .my-account li i {
+  font-size: 18px;
+}
+
+.menu-mobile-overlay .content-menu::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+  width: 3px;
+}
+
+.menu-mobile-overlay .content-menu::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+.menu-mobile-overlay .content-menu::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
 }
 
 ul.side-sticky-icons {

@@ -12,6 +12,16 @@ $(document).ready(function () {
     renderCart(miniCart)
     $(function () {
 
+        // 
+
+        $(document).on('click', '.dropdown-mini', function (e) {
+            e.preventDefault()
+
+            $('.menu-level2').removeClass('active')
+            $(this).parents('a').siblings('.menu-level2').toggleClass('active')
+
+        })
+
         // Scroll window
         $(document).scroll(function () {
 
@@ -699,9 +709,6 @@ function renderCompare() {
 
     })
 
-    $('.action .compare').on('click', function (e) {
-
-    })
 }
 
 $(document).ready(function () {
@@ -710,8 +717,8 @@ $(document).ready(function () {
     $(document).on('click', '.action .compare', function (e) {
 
         e.preventDefault()
-        const id = $('.action .compare').parents('.product').data('id')
-
+        const id = $(this).parents('.product').data('id')
+        console.log(id);
         const idxSame = dataCompare.findIndex(val => val.id == id)
         // have ID 
         if (idxSame == -1) {

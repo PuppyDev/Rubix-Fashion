@@ -45,7 +45,6 @@
 
 header {
 
-
     .header_first {
         font-size: 14px;
         background-color: $color-bg-grey;
@@ -213,7 +212,6 @@ header {
                 }
             }
         }
-
     }
 
     .main-header {
@@ -223,6 +221,7 @@ header {
         .container {
             max-width: 100%;
             width: 97%;
+            position: relative;
 
             li {
 
@@ -315,56 +314,93 @@ header {
                                     color: $color-primary;
                                 }
                             }
-
-
                         }
 
-                        .second-nav {
-                            position: absolute;
-                            top: 100%;
-                            left: 0px;
-                            min-width: 200px;
-                            background: $color-white;
+                        &.notRelative {
+                            position: unset;
+                        }
+
+                        .nav-mini {
+
                             box-shadow: 0px 6px 15px rgba(black, 0.1);
-                            visibility: hidden;
-                            transition: all .5s;
+                            background: $color-white;
+                            position: absolute;
                             transform-origin: top;
-                            transform: scaleY(0);
+                            visibility: hidden;
                             z-index: 10;
+                            transition: all .5s;
 
                             a {
                                 height: auto;
                             }
+
+                        }
+
+                        .second-nav {
+                            top: 100%;
+                            left: 0px;
+                            min-width: 200px;
+                            transform: scaleY(0);
+
                         }
 
                         .second-nav1 {
-                            min-width: 1400px;
-                            margin: 0 auto;
+                            min-width: 900px;
                             background-image: url(https://blueskytechco.com/rubix/wp-content/uploads/2021/05/bg_update.png);
                             background-repeat: no-repeat;
                             background-attachment: scroll;
                             background-position: center right;
                             background-size: auto;
-                            padding: 20px;
-                            position: absolute;
-                            transform: translateX(-100%);
-                            visibility: hidden;
+                            padding: 50px;
+                            left: 50%;
+                            transform: translateX(-50%) scaleY(0);
+                            max-width: 100%;
+                            width: 100%;
+                            text-align: left;
+                            font-size: 16px;
+
+                            .heading {
+                                font-weight: 700;
+                                margin-bottom: 25px;
+                                text-transform: capitalize;
+                            }
 
                             .list-item {
+                                width: 100%;
 
-                                .heading {
-                                    font-weight: 700;
-                                    font-size: 18px;
+                                li {
+
+                                    a {
+                                        display: block;
+                                        width: 100%;
+                                        padding: 8px 0px;
+                                        text-align: left;
+                                    }
+
                                 }
+
+                            }
+
+                            >li {
+
+                                width: 25%;
+                                max-width: 280px;
+
                             }
                         }
 
                         &:hover {
 
-                            .second-nav,
-                            .second-nav1 {
+                            .second-nav {
                                 visibility: visible;
                                 transform: scaleY(1);
+
+                            }
+
+                            .second-nav1 {
+
+                                visibility: visible;
+                                transform: translateX(-50%) scaleY(1);
 
                             }
 
@@ -488,8 +524,8 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0;
     transition: all .6s;
+    opacity: 0;
     visibility: hidden;
 
     @include media(xl) {
@@ -510,6 +546,7 @@ header {
     }
 
     .content-menu {
+
         transition: all .4s;
         position: fixed;
         top: 0;
@@ -520,6 +557,7 @@ header {
         z-index: 20;
         max-width: 375px;
         padding: 30px;
+        overflow: auto;
         transform: translateX(-100%);
 
         .close {
@@ -596,7 +634,9 @@ header {
 
             ul.nav-level-1 {
                 >li {
-                    a {
+                    position: relative;
+
+                    >a {
                         font-size: 16px;
                         font-weight: 700;
                         line-height: 35px;
@@ -610,6 +650,8 @@ header {
 
             ul {
                 li {
+                    position: relative;
+
                     a {
                         width: 100%;
                         display: block;
@@ -619,8 +661,41 @@ header {
                 }
             }
 
+            .bi.bi-chevron-down {
+
+                position: absolute;
+                right: 0;
+                top: 20px;
+                // transform: translateY(-50%);
+
+            }
+
             .menu-level2 {
+
+                padding-left: 20px;
                 display: none;
+                transition: all .5s;
+                transform-origin: top;
+                transform: scaleY(0);
+                opacity: 0;
+                visibility: hidden;
+
+                &.active {
+                    opacity: 1;
+                    transform: scaleY(1);
+                    visibility: visible;
+                    display: block;
+                }
+
+                a {
+
+                    // font-weight: 100 !important;
+                    display: block;
+                    padding: 10px 0px;
+
+                }
+
+                li {}
 
                 .menu-level-3 {
                     display: none;
@@ -628,6 +703,46 @@ header {
             }
         }
 
+        .bottom {
+            margin-top: 60px;
+
+            .my-account {
+
+                li {
+
+                    border-bottom: 1px solid $color-border-grey;
+
+                    a {
+
+                        padding: 15px 0;
+                        display: inline-block;
+
+                    }
+
+                    i {
+                        font-size: 18px;
+                    }
+
+                }
+
+            }
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #999;
+            border-radius: 10px;
+            width: 3px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #ccc;
+        }
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            background-color: #F5F5F5;
+        }
 
     }
 
