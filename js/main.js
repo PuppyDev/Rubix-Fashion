@@ -12,7 +12,14 @@ $(document).ready(function () {
     renderCart(miniCart)
     $(function () {
 
-        // 
+        // Back to top
+        $(".backtotop").on('click', function (e) {
+
+            e.preventDefault()
+            $('html,body').animate({
+                scrollTop: 0
+            }, 1000)
+        })
 
         $(document).on('click', '.dropdown-mini', function (e) {
             e.preventDefault()
@@ -75,6 +82,12 @@ $(document).ready(function () {
             if (target.classList.contains('close') || target.classList.contains('menu-mobile-overlay')) {
 
                 $('.menu-mobile-overlay').removeClass('active')
+
+            }
+
+            if (target.classList.contains('filter-mode') || target.classList.contains('control-filter')) {
+
+                $('.control-filter').toggleClass('active');
 
             }
 
@@ -151,15 +164,59 @@ $(document).ready(function () {
         setLocal(miniCart, 'dataCart')
     }
 
-});
+})
 
 // ====== Product Category ========
 $(document).ready(function () {
 
-    const viewAmount = 9;
+    const viewAmount = 9
+
     renderBtn(products)
     renderProductCate(products)
 
+    $('.list-option input').on('change', function () {
+        const type = $('input[name=checkone]:checked').val()
+
+        if (type == 'All') {
+
+            renderProductCate(products)
+            renderBtn(products)
+
+        } else {
+
+            const datas = products.filter(val => {
+                // console.log(val.type, type);
+                return val.type == type
+            })
+
+            renderProductCate(datas)
+            renderBtn(datas)
+        }
+    })
+
+    // filter  
+    $('#filterProduct').on('change', function (e) {
+
+        const value = $(this).val();
+        const datas = products.sort((a, b) => +a.price - +b.price)
+
+        if (value == 'high') {
+
+            renderProductCate(datas.reverse())
+
+        } else if (value == 'low') {
+
+            renderProductCate(datas)
+
+        } else {
+
+            renderProductCate(products)
+
+        }
+
+    });
+
+    // function render to view 
     function renderProductCate(datas) {
 
         const current = +$('.group-btn-products ul li a.active').html()
@@ -206,6 +263,7 @@ $(document).ready(function () {
     function renderBtn(datas) {
 
         const btn = $('.group-btn-products')
+        btn.empty()
         const amount = Math.ceil(datas.length / viewAmount)
         var html = ` `
         for (let i = 1; i <= amount; i++) {
@@ -271,14 +329,14 @@ function renderCart(datas) {
                     </div>
                 </td>
                 <td>
-                    <div class="img">
+                    <div class="img" onclick ="return changeUrlDetail(${val.id})">
                         <img src="${val.img}" alt="">
                     </div>
                 </td>
                 <td>
-                    <div class="heading-product">
+                    <a href="#" class="heading-product" onclick ="return changeUrlDetail(${val.id})">
                         ${val.name}
-                    </div>
+                    </a>
                 </td>
                 <td>
                     $${val.price}
@@ -303,10 +361,10 @@ function renderCart(datas) {
 
                     </div>
 
-                    <div class="product-name d-flex j-between a-center">
+                    <a href="#" class="product-name d-flex j-between a-center" onclick ="return changeUrlDetail(${val.id})">
                         <span>Product : </span>
                         ${val.name}
-                    </div>
+                    </a>
 
                     <div class="price d-flex j-between a-center">
                         <span>Price : </span>
@@ -407,11 +465,11 @@ function renderMiniCart(datas) {
     const total = datas.reduce((acc, val) => {
         const htmls = `
         <li class="d-flex" data-id=${val.id}>
-            <a href="#" class="img ">
+            <a href="#" class="img " onclick ="return changeUrlDetail(${val.id})">
                 <img src="${val.img}" alt="">
             </a>
             <div class="quantity">
-                <a href="#">${val.name}</a>
+                <a href="#" onclick ="return changeUrlDetail(${val.id})">${val.name}</a>
                 <p> <span class="countEle"> ${val.quantity} </span> × $${val.price}</p>
             </div>
             <span class ="erase">&times;</span>
@@ -564,14 +622,14 @@ $(document).ready(function () {
                                 </div>
                             </td>
                             <td>
-                                <div class="img">
+                                <div class="img" onclick ="return changeUrlDetail(${val.id})">
                                     <img src="${val.img}" alt="">
                                 </div>
                             </td>
                             <td>
-                                <div class="heading-product">
+                                <a href="#" class="heading-product" onclick ="return changeUrlDetail(${val.id})">
                                     ${val.name}
-                                </div>
+                                </a>
                             </td>
                             <td>
                                 $${val.price}
@@ -590,11 +648,11 @@ $(document).ready(function () {
                 htmls = `
                     <div class="product-item" data-id="${val.id}">
                         <div class="item-wrapper d-flex">
-                            <a href="#" class="product-thumbnail">
+                            <a href="#" class="product-thumbnail" onclick ="return changeUrlDetail(${val.id})">
                                 <img src="${val.img}" alt="">
                             </a>
                             <div class="item-details">
-                                <h3 class="product-name">
+                                <h3 class="product-name" onclick ="return changeUrlDetail(${val.id})">
                                     ${val.name}
                                 </h3>
                                 <div class="price d-flex a-center j-between">
@@ -636,7 +694,6 @@ $(document).ready(function () {
 
 
 })
-
 
 /*=======Compare List Product========*/
 function renderCompare() {
@@ -802,7 +859,6 @@ $(document).ready(function () {
     // viewDetails Quickview
     $(document).on('click', '.action .detail', function (e) {
 
-        console.log(2);
         const id = $(this).parents('.product').data('id')
         $('.quickview').addClass('active')
         renderQuickView(id)
@@ -826,6 +882,13 @@ $(document).ready(function () {
                 </div>
             `]).trigger("refresh.owl.carousel")
         });
+
+        // add ưhen you click details
+        $('.modal .item-modal').append(`
+            <a href="#" class="btn btn-primary viewDetails" onclick ="changeUrlDetail(${id})">
+                View Details
+            </a>
+        `);
 
         $('.modal .content').html(`
             <a href="#">${datas.name}</a>
@@ -897,3 +960,17 @@ function renderCheckOut(datas = []) {
 
 
 }
+
+//=====Add animation when webpage scroll======
+
+$(document).scroll(function (e) {
+
+    const scrollheigh = window.scrollY
+    if (scrollheigh > 1240) {
+
+        $('.element').addClass('animation');
+
+    }
+
+
+})

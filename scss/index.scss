@@ -492,6 +492,7 @@ section.banner {
     background-position: top;
     background-repeat: no-repeat;
     padding: 45px 0;
+    overflow: hidden;
 
     @include media(md) {
         background-size: cover;
@@ -511,6 +512,13 @@ section.banner {
         .element {
 
             text-align: center;
+            transform: translateY(50%);
+
+            &.animation {
+
+                animation: updown 2s forwards;
+
+            }
 
             .top {
                 font-weight: 700;

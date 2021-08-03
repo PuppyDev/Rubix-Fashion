@@ -65,11 +65,6 @@ a, button {
   padding: 80px 0;
 }
 
-body,
-html {
-  scroll-behavior: smooth;
-}
-
 .banner {
   position: relative;
 }
@@ -515,10 +510,12 @@ html::-webkit-scrollbar {
 
 @-webkit-keyframes updown {
   0% {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
   }
   100% {
+    opacity: 1;
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
@@ -526,10 +523,12 @@ html::-webkit-scrollbar {
 
 @keyframes updown {
   0% {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
   }
   100% {
+    opacity: 1;
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
@@ -953,14 +952,6 @@ header .main-header .container .menu .mini-menu ul li a {
   padding: 0px 20px;
 }
 
-header .main-header .container .menu .mini-menu ul li a:hover {
-  color: #ba933e;
-}
-
-header .main-header .container .menu .mini-menu ul li a:hover i {
-  color: #ba933e;
-}
-
 header .main-header .container .menu .mini-menu ul li.item .before {
   width: 12px;
   height: 12px;
@@ -968,6 +959,18 @@ header .main-header .container .menu .mini-menu ul li.item .before {
   top: -5px;
   right: 5px;
   font-size: 14px;
+}
+
+header .main-header .container .menu .mini-menu ul li.item:hover {
+  color: #ba933e;
+}
+
+header .main-header .container .menu .mini-menu ul li.item:hover a {
+  color: #ba933e;
+}
+
+header .main-header .container .menu .mini-menu ul li.item:hover a i {
+  color: #ba933e;
 }
 
 @media screen and (max-width: 992px) {

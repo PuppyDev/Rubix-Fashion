@@ -28,45 +28,287 @@
 
 
     .production {
+        // position: relative;
 
         .container {
 
             .structer {
-
                 .left.control-filter {
+                    padding-right: 60px;
+
+
 
                     @include media(lg) {
 
-                        display: none;
+                        &::after {
+
+                            width: 100%;
+                            height: 100%;
+                            position: fixed;
+                            z-index: 19;
+                            top: 0;
+                            left: 0;
+                            background: rgba(0, 0, 0, .6);
+                            content: '';
+                            display: none;
+                        }
+
+                        &.active {
+                            &::after {
+                                display: block;
+                            }
+
+                            .blur {
+                                transform: translateX(0);
+                            }
+
+                        }
 
                     }
 
-                    .product-category {
+                    .blur {
+
+                        @include media(lg) {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            z-index: 20;
+                            max-width: 400px;
+                            width: 100%;
+                            background: $color-white;
+                            height: 100vh;
+                            transform: translateX(-100%);
+                            transition: all .4s;
+
+
+                            .content-blur {
+                                &::-webkit-scrollbar-thumb {
+                                    background: #999;
+                                    border-radius: 10px;
+                                    width: 3px;
+                                }
+
+                                &::-webkit-scrollbar-track {
+                                    background: #ccc;
+                                }
+
+                                &::-webkit-scrollbar {
+                                    width: 8px;
+                                    background-color: #F5F5F5;
+                                }
+
+                                overflow-y: auto;
+                                padding: 20px;
+                                padding-top: 50px;
+                                height: 100%;
+                            }
+
+                            .filter-mode {
+                                opacity: 1 !important;
+                                display: inline-flex !important;
+                            }
+                        }
+
+                        @include media(xs) {
+                            max-width: 100%;
+                            width: 90%;
+                        }
+
                         .heading {
-                            font-size: 22px;
+                            font-size: 18px;
                             margin-bottom: 20px;
                         }
 
-                        font-size: 18px;
+                        .product-category {
+                            font-size: 18px;
+                            margin-bottom: 40px;
+                            border-bottom: 1px solid #ccc;
+                            padding-bottom: 40px;
 
-                        p {}
+                            p {
+                                padding-left: 10px;
+                            }
 
-                        ul {
-                            padding-left: 20px;
+                            ul {
+                                padding-left: 20px;
+                                font-size: 16px;
 
-                            li {
-                                margin: 10px 0;
+                                li {
+                                    margin: 10px 0;
+                                    display: block;
+                                    cursor: pointer;
+
+                                    input {}
+
+                                    label {
+                                        cursor: pointer;
+                                        margin-left: 10px;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        .price-range {
+
+                            .slider {
+                                position: relative;
+                                z-index: 1;
+                                height: 3px;
+                                margin: 0 15px;
+                                cursor: ew-resize;
+
+                                >.track {
+                                    position: absolute;
+                                    z-index: 1;
+                                    left: 0;
+                                    right: 0;
+                                    top: 0;
+                                    bottom: 0;
+                                    border-radius: 5px;
+                                    background: #ebebeb;
+                                }
+
+                                >.range {
+                                    position: absolute;
+                                    z-index: 2;
+                                    left: 25%;
+                                    right: 25%;
+                                    top: 0;
+                                    bottom: 0;
+                                    border-radius: 5px;
+                                    background-color: $color-primary;
+                                }
+
+                                >.thumb {
+                                    position: absolute;
+                                    z-index: 3;
+                                    width: 15px;
+                                    height: 15px;
+                                    background-color: $color-primary;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 0 0 rgba(98, 0, 238, .1);
+                                    transition: box-shadow .3s ease-in-out;
+                                }
+
+                                >.thumb.left {
+                                    left: 25%;
+                                    transform: translate(-15px, -50%);
+                                }
+
+                                >.thumb.right {
+                                    right: 25%;
+                                    transform: translate(15px, -50%);
+                                }
+
+                                >.thumb:hover {
+                                    box-shadow: 0 0 0 10px rgba(98, 0, 238, .1);
+                                }
+
+                                >.thumb:active {
+                                    box-shadow: 0 0 0 20px rgba(98, 0, 238, .2);
+                                }
+                            }
+
+                            input[type=range] {
+
+                                position: absolute;
+                                pointer-events: none;
+                                z-index: 2;
+                                height: 3px;
+                                // width: 0%;
+                                opacity: 0;
+
+                                &::-webkit-slider-thumb {
+                                    pointer-events: all;
+                                    width: 30px;
+                                    height: 30px;
+                                    border-radius: 0;
+                                    border: 0 none;
+                                    background-color: red;
+                                }
+                            }
+
+                            .mini-price {
+                                margin-top: 40px;
+                            }
+                        }
+
+                        .featured-product {
+
+                            border-top: 1px solid #ccc;
+                            margin-top: 60px;
+                            padding-top: 60px;
+
+                            .list-pro {
+
+                                li {
+                                    margin: 15px 0;
+
+                                    .img {
+                                        width: 90px;
+
+                                        img {
+                                            width: 100%;
+                                        }
+
+                                    }
+
+                                    .content {
+                                        flex: 1;
+                                        padding-left: 20px;
+
+                                        a {
+                                            color: $color-i;
+                                            font-weight: 700;
 
 
-                                input {}
+                                            &:hover {
+                                                color: $color-primary;
+                                            }
+                                        }
 
-                                label {
-                                    margin-left: 10px;
+                                        .price {
+
+                                            font-size: 14px;
+                                            color: $color-grey;
+                                            margin: 10px 0;
+
+                                        }
+
+                                        i {
+                                            color: #ba933e;
+                                        }
+
+                                    }
+
                                 }
 
                             }
+
+                        }
+
+                        .filter-mode {
+                            align-items: center;
+                            justify-content: center;
+                            position: absolute;
+                            top: 50%;
+                            color: #999999;
+                            right: -40px;
+                            width: 40px;
+                            height: 40px;
+                            transition: all .2s;
+                            border: 1px solid #e5e5e5;
+                            border-left-width: 0;
+                            border-radius: 0 4px 4px 0;
+                            background-color: $color-white;
+                            text-align: center;
+                            opacity: 0;
+                            display: none;
+                            cursor: pointer;
                         }
                     }
+
 
                 }
 
@@ -83,9 +325,9 @@
 
                         }
 
-                        @include media (xs) {
-
-                            justify-content: center;
+                        @include media(xs) {
+                            justify-content: flex-start;
+                            margin-bottom: 0px;
 
                         }
 
@@ -113,6 +355,11 @@
 
                                 max-width: 400px;
                                 width: 90%;
+                            }
+
+                            @include media (xs) {
+
+                                text-align: left;
                             }
 
                             select {

@@ -5,24 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details - Rubix</title>
-    <!-- Icon of webpage -->
+    <title>Fashion - Rubix</title>
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="16x16">
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="192x192">
-
-    <!-- font icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-    <!-- SwiperJS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-    <link rel="stylesheet" hre f="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-    <!-- link Css -->
-    <link rel="stylesheet" href="../scss/style.css">
-    <link rel="stylesheet" href="../scss/index.css">
-    <link rel="stylesheet" href="../scss/details.css">
+    <link rel="stylesheet" href="../scss/login.css">
 </head>
 
 <body>
@@ -91,17 +82,17 @@
                     </div>
                 </div>
 
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <img src="../img/logo/logo_x2.png" alt="">
                 </a>
 
                 <nav class="main-nav d-flex">
                     <ul class="d-flex a-center">
                         <li>
-                            <a class="active" href="#">Home <i class="fas fa-chevron-down"></i></a>
+                            <a href="index.html">Home <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="notRelative">
-                            <a href="#">Shop <i class="fas fa-chevron-down"></i></a>
+                            <a href="products.html">Shop <i class="fas fa-chevron-down"></i></a>
                             <ul class="second-nav1 nav-mini d-flex">
                                 <li>
                                     <p class="heading">Shop Layout</p>
@@ -153,12 +144,12 @@
 
                         </li>
                         <li>
-                            <a href="#">Page <i class="fas fa-chevron-down"></i></a>
+                            <a class="active" href="#">Page <i class="fas fa-chevron-down"></i></a>
                             <ul class="second-nav nav-mini">
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Contact</a></li>
                                 <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">My Account</a></li>
+                                <li><a class="active" href="#">My Account</a></li>
                             </ul>
                         </li>
                         <li>
@@ -180,7 +171,7 @@
                 <div class="menu d-flex a-center">
 
                     <div class="login-regis d-flex j-between a-center">
-                        <a class="d-flex a-center" href="login.html"><i class="fas fa-user"></i>Login</a> /
+                        <i class="fas fa-user"></i>
                         <a href="register.html">Register</a>
                     </div>
 
@@ -190,11 +181,6 @@
                                 <a href="./wishlist.html"><i class="bi bi-heart"></i></a>
                                 <span class="before">0</span>
                             </li>
-                            <li class="item cart-item">
-                                <a href="#"><i class="bi bi-handbag"></i></a>
-                                <span class="before">0</span>
-                            </li>
-                            <li id="search"><a href="#"><i class="bi bi-search"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -337,7 +323,6 @@
 
                     <li class="d-flex a-center j-between">
                         <div class="login_Regis">
-                            <a href="login.html">Login</a> /
                             <a href="register.html">Register</a>
                         </div>
                         <i class="bi bi-person"></i>
@@ -354,138 +339,48 @@
 
     <ul class="side-sticky-icons d-flex a-center">
         <li><a href="#"><i class="bi bi-house"></i> Home</a></li>
+        <li>
+            <div class="bar">
+                <i class="fas fa-bars"></i> Menu
+            </div>
+        </li>
         <li class="addWishlist">
             <a href="wishlist.html">
                 <i class="bi bi-heart"></i> Wishlist
             </a>
             <span class="before">0</span>
         </li>
-        <li>
-            <div class="bar">
-                <i class="fas fa-bars"></i> Menu
-            </div>
-        </li>
-        <li><a href="#"><i class="far fa-user"></i> Account</a></li>
-        <li class="cart-item">
-            <a href="#"><i class="bi bi-handbag"></i>Cart</a>
-            <span class="before">0</span>
-        </li>
+
     </ul>
 
-    <div class="form-search">
-        <div class="container-element">
-            <h2>Search</h2>
-            <ul class="d-flex a-center">
-                <li class="active">All categories</li>
-                <li>Furniture</li>
-                <li>Chairs</li>
-                <li>Construction</li>
-                <li>Decoration</li>
-                <li>Education</li>
-            </ul>
-            <div class="searchProduct d-flex a-center">
-                <input type="text" placeholder="Search Products...">
-                <i class="bi bi-search"></i>
-            </div>
-        </div>
-        <div class="close">
-            &times;
-        </div>
-    </div>
-
-    <div class="cart">
-        <div class="products-cart">
-            <h4 class="d-flex j-between a-center">
-                Your Cart
-            </h4>
-            <span class="close">
-                &times;
-            </span>
-
-            <div class="mini-cart a-center j-between">
-
-                <div class="mini-cart-list">
-                    <ul id="mini-cart-product">
-
-                    </ul>
-                </div>
-
-                <div class="mini-cart-bottom">
-
-                    <div class="total d-flex a-center j-between">
-
-                        <strong>
-                            Subtotal:
-                        </strong>
-
-                        <div class="sub-total">
-                            $600.00
-                        </div>
-
-                    </div>
-
-                    <div class="group-btn">
-
-                        <a href="cart.html" class="btn btn-primary viewCart">
-
-                            View Cart
-
-                        </a>
-                        <a href="checkout.html" class="btn btn-primary bill">
-
-                            Checkout
-
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="no-product">
-                No products in the cart.
-            </div>
-
-        </div>
-    </div>
-
-    <div class="main-details-products p-80">
-
+    <div class="wrapper">
         <div class="container">
-            <div class="row">
 
-                <div class="left col-sm-12 col-lg-6 col-xl-6">
+            <form class="login-form">
 
+                <h2 class="heading-login">Đăng nhập</h2>
+
+                <div class="input-group">
+
+                    <label for="">Tên Đăng Nhập</label><br>
+                    <input type="text" placeholder="Nhập tên đăng nhập" id="name">
                 </div>
 
-                <div class="right col-sm-12 col-lg-6 col-xl-5">
-
-
+                <div class="input-group">
+                    <label for="">Mật Khẩu</label><br>
+                    <input type="password" placeholder="Nhập mật khẩu" id="pass">
                 </div>
 
-            </div>
+                <span class="err"></span>
 
-        </div>
+                <a href="#" id="login">Đăng Nhập</a>
 
-    </div>
+                <div class="register-form">
+                    <p>Bạn chưa có tài khoản ? <a href="register.html" class="register">Đăng ký</a></p>
+                </div>
 
-    <div class="compare-product">
+            </form>
 
-        <div class="compare-product-box">
-
-            <div class="top">
-                <p class="heading">
-                    Compare Products
-                </p>
-            </div>
-
-            <table class="comparelist content">
-
-            </table>
-
-            <div class="close">
-                &times;
-            </div>
         </div>
     </div>
 
@@ -576,17 +471,12 @@
 
     <a class="backtotop d-flex a-center" href="#"><i class="bi bi-chevron-up"></i></a>
 
+
 </body>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-
-<!-- SwiperJS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="../owlcarousel/owl.carousel.min.js"></script>
 <script src="../js/owlcarousel.js"></script>
 <script src="../js/main.js"></script>
-<script src="../js/details.js"></script>
-<script src="../js/swiper.js"></script>
+<script src="../js/api.js"></script>
 
 </html>

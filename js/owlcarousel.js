@@ -137,7 +137,6 @@ $(document).ready(function () {
 
 })
 
-
 // Declare valiable of products or blogs post
 var products = [{
     id: 1,
@@ -148,6 +147,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: true,
+    type: 'Accessories'
 }, {
     id: 2,
     name: 'Daily Ritual Women’s',
@@ -157,6 +157,7 @@ var products = [{
     isSale: true,
     priceSale: '$65.00',
     isbest: false,
+    type: 'Womens'
 }, {
     id: 3,
     name: 'Cotton Fleece Jogging',
@@ -166,6 +167,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: false,
+    type: 'Mens'
 }, {
     id: 4,
     name: 'Sweeper and Funnel',
@@ -175,6 +177,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: false,
+    type: 'Womens'
 }, {
     id: 5,
     name: 'Unisex Fashion Show',
@@ -184,6 +187,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: false,
+    type: 'Mens'
 }, {
     id: 6,
     name: 'Mogens Koch Bookcase',
@@ -193,15 +197,17 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: true,
+    type: 'Womens'
 }, {
     id: 7,
-    name: 'Neocroc backpack in canvas',
+    name: 'Neocro backpack in canvas',
     price: '259.00',
     img: '../img/product/17_1-copy-600x745.jpg',
     img1: '../img/product/17-copy-600x745.jpg',
     isSale: true,
     priceSale: '$220.00',
     isbest: false,
+    type: 'Backpack'
 }, {
     id: 8,
     name: 'Small Zip Tote Bag',
@@ -211,6 +217,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: false,
+    type: 'Backpack'
 }, {
     id: 9,
     name: 'Casual Embossed Lettering',
@@ -220,6 +227,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: true,
+    type: 'Backpack'
 }, {
     id: 10,
     name: 'Checked Cotton Shirt',
@@ -229,6 +237,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: true,
+    type: 'Mens'
 }, {
     id: 11,
     name: 'Menerva Elite Textile',
@@ -238,6 +247,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: true,
+    type: 'Shoes'
 }, {
     id: 12,
     name: 'Mogens Koch Bookca',
@@ -247,6 +257,7 @@ var products = [{
     isSale: false,
     priceSale: '',
     isbest: true,
+    type: 'Accessories'
 }, {
     id: 13,
     name: 'Daily Ritual Women’s',
@@ -256,6 +267,7 @@ var products = [{
     isSale: true,
     priceSale: '$',
     isbest: true,
+    type: 'Womens'
 }, {
     id: 14,
     name: 'Fashion Show Edition',
@@ -265,6 +277,7 @@ var products = [{
     isSale: false,
     priceSale: '$',
     isbest: true,
+    type: 'Womens'
 }]
 
 var listImgItem = [{
@@ -372,9 +385,9 @@ function renderOwl(datas, owl) {
         if (index % 2 != 1 && index < 8) {
             owl.trigger('add.owl.carousel', [`
                 <div class="item">
-                    <div class="product" data-id = ${val.id}>
+                    <div class="product" data-id = ${val.id} >
                         <div class="img">
-                            <a href="#">
+                            <a href="#" onclick ="return changeUrlDetail(${val.id})">
                                 <img src="${val.img}" alt="">
                                 <img src="${val.img1}" alt="">
                             </a>
@@ -402,9 +415,9 @@ function renderOwl(datas, owl) {
                         </div>
                     </div>
 
-                    <div class="product" data-id = ${datas[index + 1].id}>
+                    <div class="product" data-id = ${datas[index + 1].id} >
                         <div class="img">
-                            <a href="#">
+                            <a href="#" onclick ="return changeUrlDetail(${datas[index + 1].id})">
                                 <img src="${datas[index + 1].img}" alt="">
                                 <img src="${datas[index + 1].img1}" alt="">
                             </a>
@@ -534,4 +547,12 @@ function getAllItemProduct() {
 
 function getAllimg() {
     return listImgItem
+}
+
+function changeUrlDetail(e) {
+
+    const id = e
+    localStorage.setItem('id-item', id)
+    window.location.pathname = '/html/details.html'
+
 }

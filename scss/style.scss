@@ -455,17 +455,10 @@ header {
                             position: relative;
 
                             a {
+
                                 display: inline-block;
                                 padding: 0px 20px;
 
-
-                                &:hover {
-                                    color: $color-primary;
-
-                                    i {
-                                        color: $color-primary;
-                                    }
-                                }
                             }
 
 
@@ -479,6 +472,19 @@ header {
                                     top: -5px;
                                     right: 5px;
                                     font-size: 14px;
+
+                                }
+
+                                &:hover {
+                                    color: $color-primary;
+
+                                    a {
+                                        color: $color-primary;
+
+                                        i {
+                                            color: $color-primary;
+                                        }
+                                    }
 
                                 }
 
