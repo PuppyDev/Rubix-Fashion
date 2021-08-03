@@ -553,6 +553,6 @@ function changeUrlDetail(e) {
 
     const id = e
     localStorage.setItem('id-item', id)
-    window.location.pathname = '/html/details.html'
+    window.location.pathname = '../html/details.html'
 
 }
