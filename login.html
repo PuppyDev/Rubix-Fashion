@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Rubix</title>
+    <title>Fashion - Rubix</title>
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="16x16">
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="192x192">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./owlcarousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../scss/style.css">
-    <link rel="stylesheet" href="../scss/cart.css">
-    <link rel="stylesheet" href="../scss/checkout.css">
+    <link rel="stylesheet" href="./scss/login.css">
 </head>
 
 <body>
@@ -83,13 +83,13 @@
                 </div>
 
                 <a href="index.html" class="logo">
-                    <img src="../img/logo/logo_x2.png" alt="">
+                    <img src="./img/logo/logo_x2.png" alt="">
                 </a>
 
                 <nav class="main-nav d-flex">
                     <ul class="d-flex a-center">
                         <li>
-                            <a class="active" href="index.html">Home <i class="fas fa-chevron-down"></i></a>
+                            <a href="index.html">Home <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="notRelative">
                             <a href="products.html">Shop <i class="fas fa-chevron-down"></i></a>
@@ -144,12 +144,12 @@
 
                         </li>
                         <li>
-                            <a href="#">Page <i class="fas fa-chevron-down"></i></a>
+                            <a class="active" href="#">Page <i class="fas fa-chevron-down"></i></a>
                             <ul class="second-nav nav-mini">
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Contact</a></li>
                                 <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">My Account</a></li>
+                                <li><a class="active" href="#">My Account</a></li>
                             </ul>
                         </li>
                         <li>
@@ -171,7 +171,7 @@
                 <div class="menu d-flex a-center">
 
                     <div class="login-regis d-flex j-between a-center">
-                        <a class="d-flex a-center" href="login.html"><i class="fas fa-user"></i>Login</a> /
+                        <i class="fas fa-user"></i>
                         <a href="register.html">Register</a>
                     </div>
 
@@ -181,7 +181,6 @@
                                 <a href="./wishlist.html"><i class="bi bi-heart"></i></a>
                                 <span class="before">0</span>
                             </li>
-                            <li id="search"><a href="#"><i class="bi bi-search"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -231,7 +230,7 @@
             <nav class="main-menu-mobile">
                 <ul class="nav-level-1">
                     <li>
-                        <a class="d-flex a-center j-between" href="index.html"> Home <i
+                        <a class="d-flex a-center j-between" href="#"> Home <i
                                 class="dropdown-mini bi bi-chevron-down"></i></a>
                         <ul class="menu-level2">
                             <li><a href="#">Furniture</a></li>
@@ -324,7 +323,6 @@
 
                     <li class="d-flex a-center j-between">
                         <div class="login_Regis">
-                            <a href="login.html">Login</a> /
                             <a href="register.html">Register</a>
                         </div>
                         <i class="bi bi-person"></i>
@@ -339,154 +337,51 @@
         </div>
     </div>
 
-    <ul class="side-sticky-icons d-flex a-center j-between">
-        <li><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+    <ul class="side-sticky-icons d-flex a-center">
+        <li><a href="#"><i class="bi bi-house"></i> Home</a></li>
+        <li>
+            <div class="bar">
+                <i class="fas fa-bars"></i> Menu
+            </div>
+        </li>
         <li class="addWishlist">
             <a href="wishlist.html">
                 <i class="bi bi-heart"></i> Wishlist
             </a>
             <span class="before">0</span>
         </li>
-        <li>
-            <div class="bar">
-                <i class="fas fa-bars"></i> Menu
-            </div>
-        </li>
-        <li><a href="#"><i class="far fa-user"></i> Account</a></li>
+
     </ul>
 
-    <div class="form-search">
-        <div class="container-element">
-            <h2>Search</h2>
-            <ul class="d-flex a-center">
-                <li class="active">All categories</li>
-                <li>Furniture</li>
-                <li>Chairs</li>
-                <li>Construction</li>
-                <li>Decoration</li>
-                <li>Education</li>
-            </ul>
-            <div class="searchProduct d-flex a-center">
-                <input type="text" placeholder="Search Products...">
-                <i class="bi bi-search"></i>
-            </div>
-        </div>
-        <div class="close">
-            &times;
-        </div>
-    </div>
-
-    <div class="title-nav">
-        <div class="container">
-            <p class="description-nav">
-                <a href="index.html">Home</a> / <span>Checkout</span>
-            </p>
-        </div>
-    </div>
-
-    <div class="main-content-checkout p-80">
+    <div class="wrapper">
         <div class="container">
 
-            <h2 class="title-checkout">
-                Checkout
-            </h2>
+            <form class="login-form">
 
-            <form action="" class="checkout row j-between">
-                <div class="checkout-left col-sm-12 col-md-12 col-lg-6 col-xl-7">
-                    <h3 class="heading">
-                        Billing details
-                    </h3>
-                    <div class="content">
-                        <div class="form-group d-flex a-center j-between">
-                            <div class="input-group">
-                                <label for="name">First name</label><br>
-                                <input type="text">
-                            </div>
+                <h2 class="heading-login">Đăng nhập</h2>
 
-                            <div class="input-group">
-                                <label for="name">Last name</label><br>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Company name (optional)</label><br>
-                            <input type="text">
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Country / Region</label><br>
-                            <select name="" id="">
-                                <option value="">afghanistan</option>
-                                <option value="">albana</option>
-                                <option value="">algeria</option>
-                                <option value="">american</option>
-                                <option value="">aruba</option>
-                                <option value="">bahamas</option>
-                                <option value="">china</option>
-                                <option value="">congo</option>
-                                <option value="">djibouti</option>
-                                <option value="">ecuador</option>
-                                <option value="">france</option>
-                                <option value="">gabon</option>
-                                <option value="">japan</option>
-                                <option value="">vietnam</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Street address *</label><br>
-                            <input type="text" placeholder="House number and street name">
-                            <input type="text" placeholder="Apartment, suite, unit , etc.">
+                <div class="input-group">
 
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Town / City</label><br>
-                            <input type="text">
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Phone</label><br>
-                            <input type="text">
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Email address</label><br>
-                            <input type="text">
-                        </div>
-                    </div>
-
+                    <label for="">Tên Đăng Nhập</label><br>
+                    <input type="text" placeholder="Nhập tên đăng nhập" id="name">
                 </div>
-                <div class="checkout-right col-sm-12 col-md-12 col-lg-6 col-xl-5">
-                    <h3 class="heading">
-                        Your order
-                    </h3>
-                    <table class="table1">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ListCheckOut">
 
-                        </tbody>
-                    </table>
-                    <div class="payment">
+                <div class="input-group">
+                    <label for="">Mật Khẩu</label><br>
+                    <input type="password" placeholder="Nhập mật khẩu" id="pass">
+                </div>
 
-                        <div class="cash">
-                            Your personal data will be used to process your order, support your experience throughout
-                            this
-                            website, and for other purposes described in our privacy policy.
-                        </div>
+                <span class="err"></span>
 
-                        <input type="checkbox" id="primacy">
-                        <label for="primacy"> I have read and agree to the website terms and conditions</label>
+                <a href="#" id="login">Đăng Nhập</a>
 
-                        <a href="#" class="btn btn-primary order">
-                            place Order
-                        </a>
-                    </div>
+                <div class="register-form">
+                    <p>Bạn chưa có tài khoản ? <a href="register.html" class="register">Đăng ký</a></p>
                 </div>
 
             </form>
-        </div>
 
+        </div>
     </div>
 
     <footer id="footer">
@@ -495,7 +390,7 @@
                 <div class="row list-footer">
                     <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 item-footer ">
                         <div class="logo">
-                            <img src="../img/logo/logo-footer-rubix.png" alt="">
+                            <img src="./img/logo/logo-footer-rubix.png" alt="">
                         </div>
                         <ul class="list-icon d-flex a-center">
                             <li><a href=""><i class="bi bi-facebook"></i></a></li>
@@ -568,16 +463,20 @@
                     Copyright © <a href="index.html">Rubix</a> all rights reserved. Powered by <a href=""> QuocBao </a>
                 </p>
                 <div class="img">
-                    <img src="../img/icon/payment.png" alt="">
+                    <img src="./img/icon/payment.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
+
     <a class="backtotop d-flex a-center" href="#"><i class="bi bi-chevron-up"></i></a>
+
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-<script src="../owlcarousel/owl.carousel.min.js"></script>
-<script src="../js/owlcarousel.js"></script>
-<script src="../js/main.js"></script>
+<script src="./owlcarousel/owl.carousel.min.js"></script>
+<script src="./js/owlcarousel.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/api.js"></script>
 
 </html>

@@ -141,9 +141,51 @@
                 }
 
                 .sku {
-                    line-height: 26px;
+                    line-height: 32px;
+
+                    span {
+                        font-weight: 700;
+                    }
                 }
             }
         }
+
+        .description {
+
+            .heading-des {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h3 {
+                    color: $color-i;
+                    font-size: 18px;
+                    padding: 0 0 5px;
+                    font-weight: 700;
+                    border-bottom: 2px solid $color-primary;
+                }
+
+                &::after,
+                &::before {
+                    content: '';
+                    height: 1px;
+                    background: #ccc;
+                    width: 40%;
+                    display: block;
+                }
+            }
+
+            .content {
+
+                margin-top: 20px;
+                word-wrap: break-word;
+                color: $color-lgrey;
+                line-height: 30px;
+
+            }
+
+        }
+
     }
 }

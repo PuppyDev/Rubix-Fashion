@@ -41,10 +41,9 @@ const htmls = `
         </button>
     </div>
     <div class="sku">
-        SKU:<br>
-        FUW237-1<br>
-        Categories: Accessories, Fashion, Mens<br>
-        Tag: teapot<br>
+        <span>SKU :</span> FUW237-1<br>
+        <span>Categories :</span> Accessories, Fashion, Mens<br>
+        <span>Tag :</span> teapot<br>
     </div>
 
 `

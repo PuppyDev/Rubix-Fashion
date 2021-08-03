@@ -5,24 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details - Rubix</title>
-    <!-- Icon of webpage -->
+    <title>Checkout - Rubix</title>
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="16x16">
     <link rel="icon" href="https://blueskytechco.com/rubix/wp-content/uploads/2021/01/favi.png" sizes="192x192">
-
-    <!-- font icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-    <!-- SwiperJS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-    <link rel="stylesheet" hre f="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-    <!-- link Css -->
-    <link rel="stylesheet" href="../scss/style.css">
-    <link rel="stylesheet" href="../scss/index.css">
-    <link rel="stylesheet" href="../scss/details.css">
+    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="./scss/cart.css">
+    <link rel="stylesheet" href="./scss/checkout.css">
 </head>
 
 <body>
@@ -91,17 +82,17 @@
                     </div>
                 </div>
 
-                <a href="#" class="logo">
-                    <img src="../img/logo/logo_x2.png" alt="">
+                <a href="index.html" class="logo">
+                    <img src="./img/logo/logo_x2.png" alt="">
                 </a>
 
                 <nav class="main-nav d-flex">
                     <ul class="d-flex a-center">
                         <li>
-                            <a class="active" href="#">Home <i class="fas fa-chevron-down"></i></a>
+                            <a class="active" href="index.html">Home <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="notRelative">
-                            <a href="#">Shop <i class="fas fa-chevron-down"></i></a>
+                            <a href="products.html">Shop <i class="fas fa-chevron-down"></i></a>
                             <ul class="second-nav1 nav-mini d-flex">
                                 <li>
                                     <p class="heading">Shop Layout</p>
@@ -190,10 +181,6 @@
                                 <a href="./wishlist.html"><i class="bi bi-heart"></i></a>
                                 <span class="before">0</span>
                             </li>
-                            <li class="item cart-item">
-                                <a href="#"><i class="bi bi-handbag"></i></a>
-                                <span class="before">0</span>
-                            </li>
                             <li id="search"><a href="#"><i class="bi bi-search"></i></a></li>
                         </ul>
                     </div>
@@ -244,7 +231,7 @@
             <nav class="main-menu-mobile">
                 <ul class="nav-level-1">
                     <li>
-                        <a class="d-flex a-center j-between" href="#"> Home <i
+                        <a class="d-flex a-center j-between" href="index.html"> Home <i
                                 class="dropdown-mini bi bi-chevron-down"></i></a>
                         <ul class="menu-level2">
                             <li><a href="#">Furniture</a></li>
@@ -352,8 +339,8 @@
         </div>
     </div>
 
-    <ul class="side-sticky-icons d-flex a-center">
-        <li><a href="#"><i class="bi bi-house"></i> Home</a></li>
+    <ul class="side-sticky-icons d-flex a-center j-between">
+        <li><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
         <li class="addWishlist">
             <a href="wishlist.html">
                 <i class="bi bi-heart"></i> Wishlist
@@ -366,10 +353,6 @@
             </div>
         </li>
         <li><a href="#"><i class="far fa-user"></i> Account</a></li>
-        <li class="cart-item">
-            <a href="#"><i class="bi bi-handbag"></i>Cart</a>
-            <span class="before">0</span>
-        </li>
     </ul>
 
     <div class="form-search">
@@ -393,100 +376,117 @@
         </div>
     </div>
 
-    <div class="cart">
-        <div class="products-cart">
-            <h4 class="d-flex j-between a-center">
-                Your Cart
-            </h4>
-            <span class="close">
-                &times;
-            </span>
+    <div class="title-nav">
+        <div class="container">
+            <p class="description-nav">
+                <a href="index.html">Home</a> / <span>Checkout</span>
+            </p>
+        </div>
+    </div>
 
-            <div class="mini-cart a-center j-between">
+    <div class="main-content-checkout p-80">
+        <div class="container">
 
-                <div class="mini-cart-list">
-                    <ul id="mini-cart-product">
+            <h2 class="title-checkout">
+                Checkout
+            </h2>
 
-                    </ul>
+            <form action="" class="checkout row j-between">
+                <div class="checkout-left col-sm-12 col-md-12 col-lg-6 col-xl-7">
+                    <h3 class="heading">
+                        Billing details
+                    </h3>
+                    <div class="content">
+                        <div class="form-group d-flex a-center j-between">
+                            <div class="input-group">
+                                <label for="name">First name</label><br>
+                                <input type="text">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="name">Last name</label><br>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Company name (optional)</label><br>
+                            <input type="text">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Country / Region</label><br>
+                            <select name="" id="">
+                                <option value="">afghanistan</option>
+                                <option value="">albana</option>
+                                <option value="">algeria</option>
+                                <option value="">american</option>
+                                <option value="">aruba</option>
+                                <option value="">bahamas</option>
+                                <option value="">china</option>
+                                <option value="">congo</option>
+                                <option value="">djibouti</option>
+                                <option value="">ecuador</option>
+                                <option value="">france</option>
+                                <option value="">gabon</option>
+                                <option value="">japan</option>
+                                <option value="">vietnam</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Street address *</label><br>
+                            <input type="text" placeholder="House number and street name">
+                            <input type="text" placeholder="Apartment, suite, unit , etc.">
+
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Town / City</label><br>
+                            <input type="text">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Phone</label><br>
+                            <input type="text">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Email address</label><br>
+                            <input type="text">
+                        </div>
+                    </div>
+
                 </div>
+                <div class="checkout-right col-sm-12 col-md-12 col-lg-6 col-xl-5">
+                    <h3 class="heading">
+                        Your order
+                    </h3>
+                    <table class="table1">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ListCheckOut">
 
-                <div class="mini-cart-bottom">
+                        </tbody>
+                    </table>
+                    <div class="payment">
 
-                    <div class="total d-flex a-center j-between">
-
-                        <strong>
-                            Subtotal:
-                        </strong>
-
-                        <div class="sub-total">
-                            $600.00
+                        <div class="cash">
+                            Your personal data will be used to process your order, support your experience throughout
+                            this
+                            website, and for other purposes described in our privacy policy.
                         </div>
 
-                    </div>
+                        <input type="checkbox" id="primacy">
+                        <label for="primacy"> I have read and agree to the website terms and conditions</label>
 
-                    <div class="group-btn">
-
-                        <a href="cart.html" class="btn btn-primary viewCart">
-
-                            View Cart
-
-                        </a>
-                        <a href="checkout.html" class="btn btn-primary bill">
-
-                            Checkout
-
+                        <a href="#" class="btn btn-primary order">
+                            place Order
                         </a>
                     </div>
-
                 </div>
 
-            </div>
-
-            <div class="no-product">
-                No products in the cart.
-            </div>
-
-        </div>
-    </div>
-
-    <div class="main-details-products p-80">
-
-        <div class="container">
-            <div class="row">
-
-                <div class="left col-sm-12 col-lg-6 col-xl-6">
-
-                </div>
-
-                <div class="right col-sm-12 col-lg-6 col-xl-5">
-
-
-                </div>
-
-            </div>
-
+            </form>
         </div>
 
-    </div>
-
-    <div class="compare-product">
-
-        <div class="compare-product-box">
-
-            <div class="top">
-                <p class="heading">
-                    Compare Products
-                </p>
-            </div>
-
-            <table class="comparelist content">
-
-            </table>
-
-            <div class="close">
-                &times;
-            </div>
-        </div>
     </div>
 
     <footer id="footer">
@@ -495,7 +495,7 @@
                 <div class="row list-footer">
                     <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 item-footer ">
                         <div class="logo">
-                            <img src="../img/logo/logo-footer-rubix.png" alt="">
+                            <img src="./img/logo/logo-footer-rubix.png" alt="">
                         </div>
                         <ul class="list-icon d-flex a-center">
                             <li><a href=""><i class="bi bi-facebook"></i></a></li>
@@ -568,25 +568,16 @@
                     Copyright © <a href="index.html">Rubix</a> all rights reserved. Powered by <a href=""> QuocBao </a>
                 </p>
                 <div class="img">
-                    <img src="../img/icon/payment.png" alt="">
+                    <img src="./img/icon/payment.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
-
     <a class="backtotop d-flex a-center" href="#"><i class="bi bi-chevron-up"></i></a>
-
 </body>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-
-<!-- SwiperJS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="../owlcarousel/owl.carousel.min.js"></script>
-<script src="../js/owlcarousel.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/details.js"></script>
-<script src="../js/swiper.js"></script>
+<script src="./owlcarousel/owl.carousel.min.js"></script>
+<script src="./js/owlcarousel.js"></script>
+<script src="./js/main.js"></script>
 
 </html>
