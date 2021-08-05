@@ -551,8 +551,7 @@ function getAllimg() {
 
 function changeUrlDetail(e) {
 
-    const id = e
-    localStorage.setItem('id-item', id)
+    localStorage.setItem('id-item', e)
     window.location.pathname = './Rubix-Fashion/details.html'
 
 }
