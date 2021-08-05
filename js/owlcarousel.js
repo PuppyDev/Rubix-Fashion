@@ -553,6 +553,6 @@ function changeUrlDetail(e) {
 
     const id = e
     localStorage.setItem('id-item', id)
-    window.location.pathname = './details.html'
+    window.location.pathname = './Rubix-Fashion/details.html'
 
 }
