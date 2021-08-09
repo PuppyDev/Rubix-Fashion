@@ -81,17 +81,19 @@
                     </div>
                 </div>
 
-                <a href="index.html" class="logo">
-                    <img src="./img/logo/logo_x2.png" alt="">
-                </a>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./img/logo/logo_x2.png" alt="">
+                    </a>
+                </div>
 
                 <nav class="main-nav d-flex">
                     <ul class="d-flex a-center">
                         <li>
-                            <a class="active" href="index.html"> Home <i class="fas fa-chevron-down"></i></a>
+                            <a href="index.html"> Home <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="notRelative">
-                            <a href="products.html">Shop <i class="fas fa-chevron-down"></i></a>
+                            <a class="active" href="products.html">Shop <i class="fas fa-chevron-down"></i></a>
                             <ul class="second-nav1 nav-mini d-flex">
                                 <li>
                                     <p class="heading">Shop Layout</p>
@@ -101,7 +103,7 @@
                                         <li><a href="#">List View</a></li>
                                         <li><a href="#">Left Sidebar</a></li>
                                         <li><a href="#">Sidebar Right</a></li>
-                                        <li><a href="#">Wishlist</a></li>
+                                        <li><a class="active" href="#">Wishlist</a></li>
                                         <li><a href="#">Checkout</a></li>
                                     </ul>
                                 </li>
@@ -143,11 +145,11 @@
 
                         </li>
                         <li>
-                            <a href="#">Page <i class="fas fa-chevron-down"></i></a>
+                            <a class="active" href="#">Page <i class="fas fa-chevron-down"></i></a>
                             <ul class="second-nav nav-mini">
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Contact</a></li>
-                                <li><a href="#">Wishlist</a></li>
+                                <li><a class="active" href="#">Wishlist</a></li>
                                 <li><a href="#">My Account</a></li>
                             </ul>
                         </li>
@@ -170,7 +172,7 @@
                 <div class="menu d-flex a-center">
 
                     <div class="login-regis d-flex j-between a-center">
-                        <a class="d-flex a-center" href="login.html"><i class="fas fa-user"></i>Login</a> /
+                        <a class="d-flex a-center" href="login.html"><i class="far fa-user"></i>Login <span>/</span></a>
                         <a href="register.html">Register</a>
                     </div>
 
@@ -445,6 +447,11 @@
 
         <div class="products-cart p-80">
             <div class="container">
+                <div class="update-Complete">
+
+                    <i class="fas fa-check-circle"></i> Product successfully updated.
+
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -464,16 +471,29 @@
 
 
                 </div>
+                <div class="share-wishlist">
 
-                <h2>Share on : </h2>
-                <ul class="share-on d-flex a-center">
-                    <li><a class="facebook" href="#"><i class="bi bi-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="bi bi-twitter"></i></a></li>
-                    <li><a class="pinterest" href="#"><i class="fab fa-pinterest"></i></a></li>
-                    <li><a class="mail" href="#"><i class="far fa-envelope"></i></a></li>
-                    <li><a class="whatsapp" href="#"><i class="bi bi-whatsapp"></i></a></li>
-
-                </ul>
+                    <h2>Share on : </h2>
+                    <ul class="share-on d-flex a-center">
+                        <li>
+                            <a class="facebook" href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="twitter" href="#">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pinterest" href="#">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li><a class="mail" href="#"><i class="far fa-envelope"></i></a></li>
+                        <li><a class="whatsapp" href="#"><i class="bi bi-whatsapp"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

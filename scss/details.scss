@@ -8,6 +8,7 @@
 
     .container {
 
+
         .row {
 
             .left {
@@ -188,4 +189,48 @@
         }
 
     }
+}
+
+section.top {
+    padding: 10px 0px;
+    background: $color-bg-grey;
+
+    .container {
+
+        .nav-top {
+
+            li {
+
+                a {
+
+                    padding: 0 5px;
+                    display: block;
+                    transition: all .4s;
+
+                    span {
+
+                        margin: 0 5px;
+
+                    }
+
+                    &:hover {
+
+                        color: $color-primary;
+
+                    }
+
+                    &.active {
+
+                        color: $color-footer;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
 }

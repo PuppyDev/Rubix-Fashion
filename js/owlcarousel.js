@@ -27,7 +27,6 @@ $(document).ready(function () {
 
     // This is slider list products
     $(".listproduct").owlCarousel({
-        loop: true,
         margin: 20,
         nav: false,
         dots: false,
@@ -98,7 +97,6 @@ $(document).ready(function () {
 
     // this is list blog
     $("#blog").owlCarousel({
-        loop: true,
         margin: 30,
         nav: true,
         items: 3,

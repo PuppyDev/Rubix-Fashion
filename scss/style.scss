@@ -163,6 +163,7 @@ header {
                                     opacity: 1;
                                     visibility: visible;
                                     transform: translateY(0%);
+                                    z-index: 20;
                                 }
                             }
 
@@ -262,16 +263,18 @@ header {
             }
 
             .logo {
-                flex: 1;
                 height: 85px;
                 display: flex;
                 align-items: center;
+                cursor: inherit;
+                flex: 1;
 
                 @include media(lg) {
                     flex: 0;
                 }
 
                 img {
+                    cursor: pointer;
                     max-width: 130px;
                 }
             }
@@ -437,6 +440,12 @@ header {
                                 color: $color-primary;
 
                             }
+                        }
+
+                        span {
+
+                            margin: 0 5px;
+
                         }
                     }
 
@@ -983,7 +992,8 @@ ul.side-sticky-icons {
                             right: 20px;
                             top: 0px;
                             cursor: pointer;
-                            font-size: 30px;
+                            font-size: 20px !important;
+                            color: $color-footer;
 
                         }
                     }

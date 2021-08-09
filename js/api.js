@@ -3,6 +3,7 @@ $(async function () {
     // PORT login 
     $('#login').on('click', function (e) {
 
+        e.preventDefault()
         const url = 'https://api.v2-dev.thuocsi.vn/interview/authorization'
 
         const datas = {
@@ -14,8 +15,8 @@ $(async function () {
     })
 
     // PORT REGISTER
-    $('.form-register #register').on('click', function () {
-
+    $('.form-register #register').on('click', function (e) {
+        e.preventDefault()
         const url = 'https://api.v2-dev.thuocsi.vn/interview/account'
 
         const datas = {

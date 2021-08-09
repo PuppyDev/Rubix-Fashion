@@ -74,6 +74,16 @@ const htmlSlider = `
 
 `
 
+$('section.top .container .nav-top').html(`
+
+    <li><a href="index.html">Home <span>/</span></a></li>
+    <li><a href="products.html">Shop <span>/</span></a></li>
+    <li><a href="products.html">Fashion <span>/</span></a></li>
+    <li><a href="products.html">${item.type}<span>/</span></a></li>
+    <li><a class ="active" > ${item.name} </a></li>
+
+`)
+
 $('.right').append(htmls)
 
 $('.left').append(htmlSlider)

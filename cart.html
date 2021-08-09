@@ -80,9 +80,11 @@
                     </div>
                 </div>
 
-                <a href="index.html" class="logo">
-                    <img src="./img/logo/logo_x2.png" alt="">
-                </a>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./img/logo/logo_x2.png" alt="">
+                    </a>
+                </div>
 
                 <nav class="main-nav d-flex">
                     <ul class="d-flex a-center">
@@ -169,7 +171,7 @@
                 <div class="menu d-flex a-center">
 
                     <div class="login-regis d-flex j-between a-center">
-                        <a class="d-flex a-center" href="login.html"><i class="fas fa-user"></i>Login</a> /
+                        <a class="d-flex a-center" href="login.html"><i class="far fa-user"></i>Login <span>/</span></a>
                         <a href="register.html">Register</a>
                     </div>
 
@@ -374,23 +376,27 @@
         <li><a href="#"><i class="far fa-user"></i> Account</a></li>
     </ul>
 
+    <section class="top">
+        <div class="container">
+            <ul class="nav-top d-flex a-center">
+                <li><a href="insdex.html"> Home <span>/</span></a></li>
+                <li><a class="active">Cart</a></li>
+            </ul>
+        </div>
+    </section>
 
     <nav class="navigation">
-        <div class="title-nav">
-            <div class="container">
-                <p class="description-nav">
-                    <a href="index.html">Home</a> / <span>Cart</span>
-                </p>
-            </div>
-        </div>
-
         <div class="products-cart cart-list1 p-80">
-
             <div class="container">
-
                 <h2 class="heading-cart">
                     Cart
                 </h2>
+
+                <div class="update-Complete">
+
+                    <i class="fas fa-check-circle"></i> Cart updated.
+
+                </div>
 
                 <table class="table">
                     <thead>
@@ -422,7 +428,7 @@
                             Apply Coupon
                         </a>
                     </div>
-                    <a href="#" class="btn btn-primary update">
+                    <a class="btn btn-primary update">
                         Update Cart
                     </a>
                 </div>

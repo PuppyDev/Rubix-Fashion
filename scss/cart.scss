@@ -17,6 +17,50 @@
     }
 }
 
+section.top {
+    padding: 10px 0px;
+    background: $color-bg-grey;
+
+    .container {
+
+        .nav-top {
+
+            li {
+
+                a {
+
+                    padding: 0 5px;
+                    display: block;
+                    transition: all .4s;
+
+                    span {
+
+                        margin: 0 5px;
+
+                    }
+
+                    &:hover {
+
+                        color: $color-primary;
+
+                    }
+
+                    &.active {
+
+                        color: $color-footer;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
 .navigation {
 
     .products-cart {
@@ -24,11 +68,32 @@
 
             .heading-cart {
 
-                font-size: 32px;
+                font-size: 48px;
 
                 @include media(sm) {
                     margin-bottom: 40px;
                 }
+            }
+
+            .update-Complete {
+                border-top: 2px solid $color-primary;
+                padding: 20px;
+                color: #515151;
+                background: #f7f6f7;
+                display: none;
+                margin-bottom: 20px;
+
+                i {
+                    color: $color-primary;
+                    margin-right: 5px;
+                }
+
+                &.active {
+
+                    display: block;
+
+                }
+
             }
 
             .control {
@@ -169,6 +234,10 @@
                         border-radius: 4px;
                         border: 2px solid $color-border-grey;
                         margin-right: 5px;
+
+                        &:focus {
+                            box-shadow: 0px 2px 4px rgba(0, 0, 0, .1);
+                        }
                     }
 
                     @include media(xs) {
@@ -186,6 +255,8 @@
                         }
                     }
 
+
+
                 }
 
                 .btn {
@@ -194,6 +265,33 @@
                     @include media(xs) {
                         width: 100%;
                         text-align: center;
+                    }
+
+                }
+
+                .update {
+
+                    opacity: 0.6;
+
+                    &:hover {
+                        color: inherit;
+                        background-color: $color-secondary;
+                        cursor: not-allowed;
+                    }
+
+                    &.active {
+
+                        opacity: 1;
+                        color: $color-white;
+                        background: $color-i;
+
+                        &:hover {
+
+                            color: $color-white;
+                            background: $color-primary;
+                            cursor: pointer;
+
+                        }
                     }
 
                 }

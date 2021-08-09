@@ -2,6 +2,15 @@ var miniCart = parseLocal('dataCart') || []
 var wishList = parseLocal('WishListProduct') || []
 var dataCompare = parseLocal('datasCompare') || []
 
+// Back to top
+$(".backtotop").on('click', function (e) {
+
+    e.preventDefault()
+    $('html,body').animate({
+        scrollTop: 0
+    }, 0)
+})
+
 $(document).ready(function () {
 
     const products = getAllItemProduct()
@@ -11,15 +20,6 @@ $(document).ready(function () {
     changeStatus(miniCart.length)
     renderCart(miniCart)
     $(function () {
-
-        // Back to top
-        $(".backtotop").on('click', function (e) {
-
-            e.preventDefault()
-            $('html,body').animate({
-                scrollTop: 0
-            }, 1000)
-        })
 
         $(document).on('click', '.dropdown-mini', function (e) {
             e.preventDefault()
@@ -119,6 +119,7 @@ $(document).ready(function () {
 
             }
 
+            $('.coupon .update').addClass('active');
 
         })
 
@@ -136,6 +137,7 @@ $(document).ready(function () {
                     input.val(+input.val() - 1)
                     miniCart[idxSame].quantity = --miniCart[idxSame].quantity
                     setLocal(miniCart, 'dataCart')
+                    $('.coupon .update').addClass('active');
 
                 } else if ($(this).parents('.action').data('id')) {
 
@@ -143,14 +145,23 @@ $(document).ready(function () {
 
                 }
 
-
             }
+
 
         })
 
-        $(document).on('click', '.update', function (e) {
+        $(document).on('click', '.update.active', function (e) {
 
-            renderCart(miniCart)
+            $('html,body').animate({
+                scrollTop: 0
+            }, 500)
+
+            setTimeout(() => {
+                renderCart(miniCart)
+            }, 1000);
+
+            $('.coupon .update').removeClass('active');
+            $('.update-Complete').addClass('active');
 
         })
 
@@ -291,7 +302,7 @@ $(document).ready(function () {
             renderProductCate(products)
         }
 
-    });
+    })
 
 })
 
@@ -486,9 +497,11 @@ function renderMiniCart(datas) {
     amount.html(length)
     // render subtotal in minicart
     subTotal.html(`$${total}.00`)
+
 }
 
 function addMiniCart(id) {
+
 
     const idxSame = miniCart.findIndex(val => val.id == id)
     // get a product = id and push miniCart
@@ -507,6 +520,9 @@ function addMiniCart(id) {
 
         miniCart.push(newValue)
     }
+
+    $('.loaded').removeClass('active')
+
     setLocal(miniCart, 'dataCart')
 }
 
@@ -518,12 +534,16 @@ $(document).on('click', '.product .addcartitem', function (e) {
 
     // Add ele to Arrray
     addMiniCart(id)
+    $('.loaded').addClass('active')
 
-    // Render
-    renderMiniCart(miniCart)
-    changeStatus(miniCart.length)
-    $('.cart').addClass('active')
+    setTimeout(() => {
+        // Render
+        renderMiniCart(miniCart)
+        changeStatus(miniCart.length)
+        $('.cart').addClass('active')
+        $('.loaded').removeClass('active')
 
+    }, 500);
 });
 
 $(document).on('click', '.comparelist .addcartitem', function (e) {
@@ -560,7 +580,7 @@ $(document).ready(function () {
         const id = $(this).parents('.product').data('id')
         const isSame = wishList.findIndex(val => val.id == id)
         if (isSame != -1) {
-            alert('WishList have a this item!')
+            $('.popup-product-added').fadeIn().fadeOut(2000);
         } else {
 
             const ele = products.find(val => val.id == id)
@@ -581,6 +601,8 @@ $(document).ready(function () {
         changeStatus(miniCart.length)
         removeWishItem(id)
         $('.cart').addClass('active')
+        $('.products-cart .update-Complete').addClass('active')
+
 
     })
 
@@ -591,6 +613,8 @@ $(document).ready(function () {
         const id = $(this).parents('.product-item').data("id")
         removeWishItem(id)
         $('.addWishlist .before').html(wishList.length)
+        $('.products-cart .update-Complete').addClass('active')
+
 
     });
 
@@ -602,7 +626,6 @@ $(document).ready(function () {
         wishList = wishList.filter(val => val.id != +id)
         renderWishList(wishList)
         setLocal(wishList, 'WishListProduct')
-
     }
 
 
@@ -634,7 +657,7 @@ $(document).ready(function () {
                             <td>
                                 $${val.price}
                             </td>
-                            <td>
+                            <td class ="stocked">
                                 In Stock
                             </td>
                             <td>
@@ -679,15 +702,16 @@ $(document).ready(function () {
 
 
             }, 0)
+            $('.share-wishlist').css('display', 'block');
+
         } else {
 
             list.html(`
-                <h3 style="margin-top: 40px; font-size: 30px">
-                    Your wishlist don't have item 
-                    <a href="index.html" style ="text-decoration: underline"> COMEBACK</a>
-                </h3>
+                <tr>
+                    <td style="margin-top:20px; font-size: 16px"> No products added to the wishlist </td>
+                <tr>
             `)
-
+            $('.share-wishlist').css('display', 'none');
         }
 
     }
@@ -827,6 +851,7 @@ $(document).ready(function () {
 
 /**======Quick View */
 $(document).ready(function () {
+
     // add ele from quickview
     $(document).on('click', '.action .addcartitem', function (e) {
 
@@ -849,9 +874,16 @@ $(document).ready(function () {
             miniCart.push(ele)
         }
 
-        renderMiniCart(miniCart)
-        changeStatus(miniCart.length)
-        $('.cart').addClass('active')
+        $('.loaded').addClass('active')
+
+        setTimeout(() => {
+
+            renderMiniCart(miniCart)
+            changeStatus(miniCart.length)
+            $('.cart').addClass('active')
+            $('.loaded').removeClass('active')
+
+        }, 500);
         setLocal(miniCart, 'dataCart')
 
     });
@@ -860,8 +892,13 @@ $(document).ready(function () {
     $(document).on('click', '.action .detail', function (e) {
 
         const id = $(this).parents('.product').data('id')
-        $('.quickview').addClass('active')
-        renderQuickView(id)
+        $('.loaded').addClass('active')
+
+        setTimeout(() => {
+            $('.quickview').addClass('active')
+            renderQuickView(id)
+            $('.loaded').removeClass('active')
+        }, 1000);
 
     })
 
