@@ -855,6 +855,7 @@ ul.side-sticky-icons {
 
             li {
                 margin: 10px 10px;
+                cursor: pointer;
 
                 &.active {
                     color: $color-primary;
@@ -879,6 +880,7 @@ ul.side-sticky-icons {
                 cursor: pointer;
             }
         }
+
     }
 
     .close {

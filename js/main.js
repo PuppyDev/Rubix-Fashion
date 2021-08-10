@@ -185,6 +185,14 @@ $(document).ready(function () {
     renderBtn(products)
     renderProductCate(products)
 
+    $('.form-search ul li').on('click', function (e) {
+
+        $('.form-search ul li.active').removeClass('active')
+        $(this).addClass('active')
+
+    });
+
+    // filter category type
     $('.list-option input').on('change', function () {
         const type = $('input[name=checkone]:checked').val()
 
@@ -205,7 +213,7 @@ $(document).ready(function () {
         }
     })
 
-    // filter  
+    // filter sort
     $('#filterProduct').on('change', function (e) {
 
         const value = $(this).val();
@@ -289,7 +297,7 @@ $(document).ready(function () {
         `);
     }
 
-    // when you click on a tag active 
+    // when you click on btn pagination
     $(document).on('click', '.group-btn-products ul li a', function (e) {
 
         e.preventDefault();
@@ -301,6 +309,10 @@ $(document).ready(function () {
             ele.addClass('active')
             renderProductCate(products)
         }
+
+        $('html,body').animate({
+            scrollTop: 0
+        }, 0)
 
     })
 
@@ -417,7 +429,6 @@ function renderCart(datas) {
 }
 
 //======Render miniCart=========
-// change status of minicart
 
 $(document).ready(function () {
 
@@ -452,6 +463,7 @@ $(document).ready(function () {
 
 })
 
+// change status of minicart
 function changeStatus(length) {
 
     if (length > 0) {
@@ -551,8 +563,14 @@ $(document).on('click', '.comparelist .addcartitem', function (e) {
     e.preventDefault()
     const id = $(this).data('id')
     addMiniCart(id)
-    renderMiniCart(miniCart)
-    $(this).html('View Cart')
+    $('.loaded').addClass('active')
+
+    setTimeout(() => {
+        renderMiniCart(miniCart)
+        $(this).html('View Cart')
+        $('.loaded').removeClass('active')
+
+    }, 500);
 
 });
 
@@ -561,9 +579,15 @@ $(document).on('click', '.addcartitem2', function (e) {
     e.preventDefault()
     const id = $(this).parents('.product').data('id')
     addMiniCart(id)
-    renderMiniCart(miniCart)
-    changeStatus(miniCart.length)
-    $('.cart').addClass('active')
+    $('.loaded').addClass('active')
+
+    setTimeout(() => {
+        renderMiniCart(miniCart)
+        changeStatus(miniCart.length)
+        $('.cart').addClass('active')
+        $('.loaded').removeClass('active')
+
+    }, 500);
 
 })
 
@@ -597,12 +621,21 @@ $(document).ready(function () {
         e.preventDefault()
         const id = $(this).parents('.product-item').data('id')
         addMiniCart(id)
-        renderMiniCart(miniCart)
-        changeStatus(miniCart.length)
+        $('.loaded').addClass('active')
         removeWishItem(id)
-        $('.cart').addClass('active')
-        $('.products-cart .update-Complete').addClass('active')
+        renderMiniCart(miniCart)
 
+        setTimeout(() => {
+            changeStatus(miniCart.length)
+            $('.cart').addClass('active')
+            $('.products-cart .update-Complete').addClass('active')
+
+        }, 500);
+
+        setTimeout(() => {
+
+            $('.loaded').removeClass('active')
+        }, 700);
 
     })
 
@@ -615,7 +648,6 @@ $(document).ready(function () {
         $('.addWishlist .before').html(wishList.length)
         $('.products-cart .update-Complete').addClass('active')
 
-
     });
 
 
@@ -625,9 +657,9 @@ $(document).ready(function () {
 
         wishList = wishList.filter(val => val.id != +id)
         renderWishList(wishList)
+        $('.addWishlist .before').html(wishList.length)
         setLocal(wishList, 'WishListProduct')
     }
-
 
     function renderWishList(datas) {
         const list = $('#addToWish')
@@ -715,7 +747,6 @@ $(document).ready(function () {
         }
 
     }
-
 
 })
 
@@ -1002,12 +1033,21 @@ function renderCheckOut(datas = []) {
 
 $(document).scroll(function (e) {
 
-    const scrollheigh = window.scrollY
-    if (scrollheigh > 1240) {
-
-        $('.element').addClass('animation');
-
-    }
-
+    const scrollHeigh = window.scrollY
+    if (scrollHeigh > 150)
+        $('.trending-top .trending-product').addClass('animation1');
+    if (scrollHeigh > 1240)
+        $('.element').addClass('animation2');
+    console.log(scrollHeigh);
+    if (scrollHeigh > 1800)
+        $('.trending-bottom .trending-product').addClass('animation1');
+    if (scrollHeigh > 3105)
+        $('.subcriber .element-container').addClass('animation3');
+    if (scrollHeigh > 3530)
+        $('.serve .services').addClass('animation1');
+    if (scrollHeigh > 3800)
+        $('.blog .title').addClass('animation1');
+    if (scrollHeigh > 3960)
+        $('.blog #blog').addClass('animation1');
 
 })

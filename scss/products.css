@@ -103,8 +103,8 @@ a, button {
 @-webkit-keyframes updown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   100% {
     opacity: 1;
@@ -116,8 +116,8 @@ a, button {
 @keyframes updown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   100% {
     opacity: 1;
@@ -158,6 +158,73 @@ a, button {
     height: 72px;
     opacity: 0;
   }
+}
+
+@-webkit-keyframes LeftToRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes LeftToRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes RightToLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes RightToLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.animation1 {
+  -webkit-animation: updown 2s forwards;
+          animation: updown 2s forwards;
+}
+
+.animation2 {
+  -webkit-animation: LeftToRight 4s forwards;
+          animation: LeftToRight 4s forwards;
+}
+
+.animation3 {
+  -webkit-animation: RightToLeft 4s forwards;
+          animation: RightToLeft 4s forwards;
 }
 
 * {
@@ -330,6 +397,29 @@ html::-webkit-scrollbar {
 .lds-ripple div:nth-child(2) {
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
+}
+
+.loaded {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 52;
+  display: none;
+}
+
+.loaded .lds-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.loaded.active {
+  display: block;
 }
 
 .row {
@@ -637,8 +727,8 @@ html::-webkit-scrollbar {
 @keyframes updown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   100% {
     opacity: 1;
@@ -662,6 +752,47 @@ html::-webkit-scrollbar {
     height: 72px;
     opacity: 0;
   }
+}
+
+@keyframes LeftToRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes RightToLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.animation1 {
+  -webkit-animation: updown 2s forwards;
+          animation: updown 2s forwards;
+}
+
+.animation2 {
+  -webkit-animation: LeftToRight 4s forwards;
+          animation: LeftToRight 4s forwards;
+}
+
+.animation3 {
+  -webkit-animation: RightToLeft 4s forwards;
+          animation: RightToLeft 4s forwards;
 }
 
 header .header_first {
@@ -1458,6 +1589,7 @@ ul.side-sticky-icons li .before {
 
 .form-search .container-element ul li {
   margin: 10px 10px;
+  cursor: pointer;
 }
 
 .form-search .container-element ul li.active {
@@ -2410,11 +2542,6 @@ section.banner .container .element {
           transform: translateY(50%);
 }
 
-section.banner .container .element.animation {
-  -webkit-animation: updown 2s forwards;
-          animation: updown 2s forwards;
-}
-
 section.banner .container .element .top {
   font-weight: 700;
   color: #444444;
@@ -3029,18 +3156,21 @@ section.serve .container .services .service:not(:last-child) .content {
   height: 100vh;
   position: fixed;
   top: 0;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .compare-product-box {
+  -webkit-transform: translate(200%, -50%);
+          transform: translate(200%, -50%);
   -webkit-transition: all .6s;
   transition: all .6s;
   border: 10px solid #4f4f4f;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
   width: 90%;
   height: 80%;
   background: white;
@@ -3145,14 +3275,15 @@ section.serve .container .services .service:not(:last-child) .content {
 }
 
 .compare-product.active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .compare-product.active .compare-product-box {
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .popup-product-added {
@@ -3170,29 +3301,6 @@ section.serve .container .services .service:not(:last-child) .content {
   background: #fff;
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.loaded {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 52;
-  display: none;
-}
-
-.loaded .lds-ripple {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.loaded.active {
-  display: block;
 }
 
 * {
@@ -3258,8 +3366,8 @@ a, button {
 @keyframes updown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   100% {
     opacity: 1;
@@ -3283,6 +3391,47 @@ a, button {
     height: 72px;
     opacity: 0;
   }
+}
+
+@keyframes LeftToRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes RightToLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.animation1 {
+  -webkit-animation: updown 2s forwards;
+          animation: updown 2s forwards;
+}
+
+.animation2 {
+  -webkit-animation: LeftToRight 4s forwards;
+          animation: LeftToRight 4s forwards;
+}
+
+.animation3 {
+  -webkit-animation: RightToLeft 4s forwards;
+          animation: RightToLeft 4s forwards;
 }
 
 * {
@@ -3455,6 +3604,29 @@ html::-webkit-scrollbar {
 .lds-ripple div:nth-child(2) {
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
+}
+
+.loaded {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 52;
+  display: none;
+}
+
+.loaded .lds-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.loaded.active {
+  display: block;
 }
 
 .row {
@@ -3762,8 +3934,8 @@ html::-webkit-scrollbar {
 @keyframes updown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   100% {
     opacity: 1;
@@ -3787,6 +3959,47 @@ html::-webkit-scrollbar {
     height: 72px;
     opacity: 0;
   }
+}
+
+@keyframes LeftToRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes RightToLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.animation1 {
+  -webkit-animation: updown 2s forwards;
+          animation: updown 2s forwards;
+}
+
+.animation2 {
+  -webkit-animation: LeftToRight 4s forwards;
+          animation: LeftToRight 4s forwards;
+}
+
+.animation3 {
+  -webkit-animation: RightToLeft 4s forwards;
+          animation: RightToLeft 4s forwards;
 }
 
 header .header_first {
@@ -4583,6 +4796,7 @@ ul.side-sticky-icons li .before {
 
 .form-search .container-element ul li {
   margin: 10px 10px;
+  cursor: pointer;
 }
 
 .form-search .container-element ul li.active {

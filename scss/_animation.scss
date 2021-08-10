@@ -40,12 +40,11 @@
 
 }
 
-
 @keyframes updown {
 
     0% {
         opacity: 0;
-        transform: translateY(50%);
+        transform: translateY(150px);
     }
 
     100% {
@@ -71,4 +70,51 @@
         height: 72px;
         opacity: 0;
     }
+}
+
+@keyframes LeftToRight {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes RightToLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+.animation1 {
+
+    animation: updown 2s forwards;
+
+}
+
+.animation2 {
+
+    animation: LeftToRight 4s forwards;
+
+}
+
+.animation3 {
+
+    animation: RightToLeft 4s forwards;
+
+
 }

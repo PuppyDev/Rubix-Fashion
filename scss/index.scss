@@ -514,12 +514,6 @@ section.banner {
             text-align: center;
             transform: translateY(50%);
 
-            &.animation {
-
-                animation: updown 2s forwards;
-
-            }
-
             .top {
                 font-weight: 700;
                 color: #444444;
@@ -1236,30 +1230,4 @@ section.serve {
     text-align: center;
     background: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.loaded {
-
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, .6);
-    z-index: 52;
-    display: none;
-
-    .lds-ripple {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    &.active {
-
-        display: block;
-
-    }
-
 }
