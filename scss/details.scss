@@ -1,30 +1,25 @@
 @import './style';
 
 .main-details-products {
-
     @include media(xs) {
         padding: 40px 0;
     }
 
     .container {
-
-
         .row {
-
             .left {
+                overflow: hidden;
                 img {
                     width: 100%;
                     object-fit: cover;
                 }
 
                 .swiper-container {
-
                     width: 100%;
                     height: 300px;
                     margin: 20px auto;
 
                     .swiper-slide-container {
-
                         text-align: center;
                         font-size: 18px;
                         background: #fff;
@@ -36,9 +31,7 @@
                         justify-content: center;
                         align-items: center;
                         border: 1px solid #ccc;
-
                     }
-
                 }
 
                 .gallery-top {
@@ -63,26 +56,17 @@
                     }
 
                     .swiper-slide-container {
-
                         width: 95%;
-
                     }
-
                 }
-
-
             }
 
             .right {
-
                 .heading {
-
                     font-size: 34px;
-
                 }
 
                 .rate {
-
                     margin: 20px 0;
 
                     i {
@@ -92,10 +76,8 @@
                 }
 
                 .price {
-
                     font-size: 20px;
                     color: #666666;
-
                 }
 
                 .description-products {
@@ -124,7 +106,6 @@
 
                         a {
                             margin-bottom: 0px;
-
                         }
                     }
 
@@ -138,7 +119,6 @@
                             background: $color-primary;
                         }
                     }
-
                 }
 
                 .sku {
@@ -152,7 +132,6 @@
         }
 
         .description {
-
             .heading-des {
                 text-align: center;
                 display: flex;
@@ -178,16 +157,12 @@
             }
 
             .content {
-
                 margin-top: 20px;
                 word-wrap: break-word;
                 color: $color-lgrey;
                 line-height: 30px;
-
             }
-
         }
-
     }
 }
 
@@ -196,41 +171,28 @@ section.top {
     background: $color-bg-grey;
 
     .container {
-
         .nav-top {
             flex-wrap: wrap;
 
             li {
-
                 a {
                     display: flex;
                     padding: 0 5px;
-                    transition: all .4s;
+                    transition: all 0.4s;
 
                     span {
-
                         margin: 0 5px;
-
                     }
 
                     &:hover {
-
                         color: $color-primary;
-
                     }
 
                     &.active {
-
                         color: $color-footer;
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }

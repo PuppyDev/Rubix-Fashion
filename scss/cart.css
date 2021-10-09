@@ -211,18 +211,18 @@ a, button {
 }
 
 .animation1 {
-  -webkit-animation: updown 2s forwards;
-          animation: updown 2s forwards;
+  -webkit-animation: updown 0.6s forwards;
+          animation: updown 0.6s forwards;
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 2s forwards;
-          animation: LeftToRight 2s forwards;
+  -webkit-animation: LeftToRight 0.6s forwards;
+          animation: LeftToRight 0.6s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 2s forwards;
-          animation: RightToLeft 2s forwards;
+  -webkit-animation: RightToLeft 0.6s forwards;
+          animation: RightToLeft 0.6s forwards;
 }
 
 * {
@@ -779,18 +779,18 @@ html::-webkit-scrollbar {
 }
 
 .animation1 {
-  -webkit-animation: updown 2s forwards;
-          animation: updown 2s forwards;
+  -webkit-animation: updown 0.6s forwards;
+          animation: updown 0.6s forwards;
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 2s forwards;
-          animation: LeftToRight 2s forwards;
+  -webkit-animation: LeftToRight 0.6s forwards;
+          animation: LeftToRight 0.6s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 2s forwards;
-          animation: RightToLeft 2s forwards;
+  -webkit-animation: RightToLeft 0.6s forwards;
+          animation: RightToLeft 0.6s forwards;
 }
 
 header .header_first {
