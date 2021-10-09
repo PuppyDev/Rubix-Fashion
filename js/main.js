@@ -180,8 +180,8 @@ $(document).ready(function () {
 // ====== Product Category ========
 $(document).ready(function () {
 
-    const viewAmount = 9
-
+    let viewAmount = 8
+    let cols = 4
     renderBtn(products)
     renderProductCate(products)
 
@@ -191,6 +191,22 @@ $(document).ready(function () {
         $(this).addClass('active')
 
     });
+
+    $(document).on('click', '.middle-col', function (e) {
+
+        const target = e.target.closest('.three-cols') || e.target.closest('.two-cols') || e.target.closest('.four-cols')
+
+
+        if (target)
+            cols = target.dataset.cols
+        if (cols == 4)
+            viewAmount = 9
+        else
+            viewAmount = 8
+        renderProductCate(products, viewAmount, cols)
+
+
+    })
 
     // filter category type
     $('.list-option input').on('change', function () {
@@ -236,17 +252,16 @@ $(document).ready(function () {
     });
 
     // function render to view 
-    function renderProductCate(datas) {
+    function renderProductCate(datas, viewAmount = 9, cols = 4) {
 
         const current = +$('.group-btn-products ul li a.active').html()
         var start = (current - 1) * viewAmount
         var end = start + viewAmount
         $('#addproductsCate').empty()
         const products = datas.slice(start, end).map(val => `
-            <div class="col-sm-6 col-lg-4 col-xl-4">
-                <div class="product" data-id=${val.id}>
+                <div class="product col-lg-${cols} col-xl-${cols}" data-id=${val.id}>
                     <div class="img">
-                        <a href="#">
+                        <a href="#" onclick ="return changeUrlDetail(${val.id})">
                             <img src="${val.img}" alt="">
                             <img src="${val.img1}" alt="">
                         </a>
@@ -272,14 +287,13 @@ $(document).ready(function () {
                             $${val.price}
                         </div>
                     </div>
-                </div>
             </div>`)
         $('#addproductsCate').append(products)
 
     }
 
     // render group btn 
-    function renderBtn(datas) {
+    function renderBtn(datas, viewAmount = 9) {
 
         const btn = $('.group-btn-products')
         btn.empty()
@@ -307,7 +321,7 @@ $(document).ready(function () {
         if (ele) {
             current.removeClass('active')
             ele.addClass('active')
-            renderProductCate(products)
+            renderProductCate(products, viewAmount, cols)
         }
 
         $('html,body').animate({
@@ -1038,13 +1052,12 @@ $(document).scroll(function (e) {
         $('.trending-top .trending-product').addClass('animation1');
     if (scrollHeigh > 1240)
         $('.element').addClass('animation2');
-    console.log(scrollHeigh);
     if (scrollHeigh > 1800)
         $('.trending-bottom .trending-product').addClass('animation1');
-    if (scrollHeigh > 3105)
-        $('.subcriber .element-container').addClass('animation3');
-    if (scrollHeigh > 3530)
-        $('.serve .services').addClass('animation1');
+    // if (scrollHeigh > 3105)
+    //     $('.subcriber .element-container').addClass('animation3');
+    // if (scrollHeigh > 3530)
+    //     $('.serve .services').addClass('animation1');
     if (scrollHeigh > 3800)
         $('.blog .title').addClass('animation1');
     if (scrollHeigh > 3960)

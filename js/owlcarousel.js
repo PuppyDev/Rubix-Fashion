@@ -550,6 +550,6 @@ function getAllimg() {
 function changeUrlDetail(e) {
 
     localStorage.setItem('id-item', e)
-    window.location.pathname = './Rubix-Fashion/details.html'
+    window.location.pathname = './details.html'
 
 }

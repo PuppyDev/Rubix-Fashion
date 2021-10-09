@@ -7,8 +7,6 @@
         .title-checkout {
             font-size: 48px;
             margin-bottom: 40px;
-            // border-bottom: 3px solid $color-primary;
-
         }
 
         .checkout {
@@ -185,7 +183,6 @@
                         &:before {
 
                             content: '';
-
                             position: absolute;
                             top: 50%;
                             transform: translateY(-50%);
@@ -205,9 +202,12 @@
 
                             width: 13px;
                             height: 12px;
-                            background: $color-primary;
+                            // background: $color-primary;
+                            font-family: "Font Awesome 5 Brands";
+                            content: "\f058";
                             left: 2.5px;
                             display: none;
+                            font-size: 24px;
                         }
 
                     }

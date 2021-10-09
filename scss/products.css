@@ -218,13 +218,13 @@ a, button {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 * {
@@ -786,13 +786,13 @@ html::-webkit-scrollbar {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 header .header_first {
@@ -3425,13 +3425,13 @@ a, button {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 * {
@@ -3993,13 +3993,13 @@ html::-webkit-scrollbar {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 header .header_first {
@@ -5524,8 +5524,8 @@ section.top .container .nav-top li a.active {
     width: 100%;
     background: #fff;
     height: 100vh;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    -webkit-transform: translateX(-101%);
+            transform: translateX(-101%);
     -webkit-transition: all .4s;
     transition: all .4s;
   }
@@ -5787,24 +5787,33 @@ section.top .container .nav-top li a.active {
   }
 }
 
-.navigation .production .container .structer .right .control-title .right-col {
-  text-align: right;
-}
-
 @media screen and (max-width: 1200px) {
-  .navigation .production .container .structer .right .control-title .right-col {
-    max-width: 400px;
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .navigation .production .container .structer .right .control-title .right-col {
+  .navigation .production .container .structer .right .control-title .middle-col {
     text-align: left;
   }
 }
 
-.navigation .production .container .structer .right .control-title .right-col select {
+.navigation .production .container .structer .right .control-title .middle-col span {
+  margin: 0 10px;
+  cursor: pointer;
+  color: #333;
+}
+
+.navigation .production .container .structer .right .control-title .middle-col .four-cols {
+  font-size: 24px;
+}
+
+.navigation .production .container .structer .right .control-title .right-col {
+  text-align: right;
+}
+
+@media screen and (max-width: 576px) {
+  .navigation .production .container .structer .right .control-title .right-col {
+    text-align: center;
+  }
+}
+
+.navigation .production .container .structer .right .control-title .right-col select#filterProduct {
   width: 70%;
   padding: 12px;
   outline: none;
@@ -5815,7 +5824,7 @@ section.top .container .nav-top li a.active {
   font-size: 16px;
 }
 
-.navigation .production .container .structer .right .control-title .right-col select option {
+.navigation .production .container .structer .right .control-title .right-col select#filterProduct option {
   outline: none;
   border: none;
 }
@@ -5824,6 +5833,12 @@ section.top .container .nav-top li a.active {
   margin-top: 20px;
   position: relative;
   overflow: hidden;
+}
+
+@media screen and (max-width: 576px) {
+  .navigation .production .container .structer .right .products .product {
+    width: 50% !important;
+  }
 }
 
 .navigation .production .container .structer .right .products .product .img {

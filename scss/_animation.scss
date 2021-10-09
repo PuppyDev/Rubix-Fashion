@@ -6,22 +6,18 @@
     to {
         transform: translateY(0);
     }
-
 }
 
 @keyframes leftRight {
-
     0% {
         transform: translateX(0px);
     }
 
     20% {
         transform: translateX(8px);
-
     }
 
     40% {
-
         transform: translateX(-6px);
     }
 
@@ -36,12 +32,9 @@
     100% {
         transform: translateX(0);
     }
-
-
 }
 
 @keyframes updown {
-
     0% {
         opacity: 0;
         transform: translateY(150px);
@@ -51,7 +44,6 @@
         opacity: 1;
         transform: translateX(0);
     }
-
 }
 
 @keyframes lds-ripple {
@@ -73,7 +65,6 @@
 }
 
 @keyframes LeftToRight {
-
     0% {
         opacity: 0;
         transform: translateX(-50%);
@@ -83,11 +74,9 @@
         opacity: 1;
         transform: translateX(0);
     }
-
 }
 
 @keyframes RightToLeft {
-
     0% {
         opacity: 0;
         transform: translateX(50%);
@@ -97,24 +86,16 @@
         opacity: 1;
         transform: translateX(0);
     }
-
 }
 
 .animation1 {
-
-    animation: updown 2s forwards;
-
+    animation: updown 0.6s forwards;
 }
 
 .animation2 {
-
-    animation: LeftToRight 4s forwards;
-
+    animation: LeftToRight 0.6s forwards;
 }
 
 .animation3 {
-
-    animation: RightToLeft 4s forwards;
-
-
+    animation: RightToLeft 0.6s forwards;
 }

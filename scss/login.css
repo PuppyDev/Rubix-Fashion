@@ -216,13 +216,13 @@ a, button {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 * {
@@ -784,13 +784,13 @@ html::-webkit-scrollbar {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 header .header_first {

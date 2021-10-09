@@ -216,13 +216,13 @@ a, button {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 * {
@@ -784,13 +784,13 @@ html::-webkit-scrollbar {
 }
 
 .animation2 {
-  -webkit-animation: LeftToRight 4s forwards;
-          animation: LeftToRight 4s forwards;
+  -webkit-animation: LeftToRight 2s forwards;
+          animation: LeftToRight 2s forwards;
 }
 
 .animation3 {
-  -webkit-animation: RightToLeft 4s forwards;
-          animation: RightToLeft 4s forwards;
+  -webkit-animation: RightToLeft 2s forwards;
+          animation: RightToLeft 2s forwards;
 }
 
 header .header_first {
@@ -2110,8 +2110,10 @@ footer#footer .copyright p a {
 .main-content-checkout .container .checkout-right .payment label::before {
   width: 13px;
   height: 12px;
-  background: #ba933e;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f058";
   left: 2.5px;
   display: none;
+  font-size: 24px;
 }
 /*# sourceMappingURL=checkout.css.map */
